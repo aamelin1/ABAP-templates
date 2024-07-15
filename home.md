@@ -7,9 +7,7 @@ calculation:
 
 ``` abap
 DATA num TYPE i.
-
 num = 2 * 3 * 5 * 53 * 2267.
-
 cl_demo_output=>display( num ).
 ```
 
