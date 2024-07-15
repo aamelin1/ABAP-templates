@@ -1,13 +1,13 @@
 |Table| Comment|
 | -------- | ------------------------------------------------------------------------- |
-|`AGR_USERS`|присвоение пользователь-роль|
-|`DBTABLOG` |логи изменений записей в таблицах|
-|`E070`,`E071`,`E07T`|запросы/задачи на перенос и объекты в них|
-|`TADIR`|репозитарий|
-|`TRWPR`|RWIN процессы (список ФМ при событиях)|
-|`TRWCA`|компоненты RWIN|
-|`TRESE`|зарезервированные имена|
-|`SMEN_BUFFC`|избранное меню по пользователям|
+|`AGR_USERS`|User-Roles assigments|
+|`DBTABLOG` |table change logs|
+|`E070`,`E071`,`E07T`|TRs|
+|`TADIR`|Repository|
+|`TRWPR`|RWIN processes (list of FMs)|
+|`TRWCA`|RWIN components|
+|`TRESE`|Reserved names|
+|`SMEN_BUFFC`|User favorites|
 |`TPARA`|Memory ID|
-|`USR05`|Значение параметров (Memory ID) для пользователя|
-|`SE16N_CD_KEY`|логи изменений через sap_edit (+ программа RKSE16N_CD_DISPLAY)|
+|`USR05`|Memory ID values by users|
+|`SE16N_CD_KEY`|Logs of sap_edit (+ program RKSE16N_CD_DISPLAY)|
