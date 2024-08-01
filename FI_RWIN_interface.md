@@ -18,8 +18,8 @@ Maintained via tcode **SM30**
 
 The processes (**TRWPR-PROCESS**) and events (**TRWPR-EVENT**) themselves are predefined by SAP and are usually simply hardcoded, for example, in the **AC_DOCUMENT_CREATE** FM it looks like this:
 
-![FM AC_DOCUMENT_CREATE](252352981-73362ea1-4bf3-4da6-a318-808ee6f3aca6.png)
+![FM AC_DOCUMENT_CREATE](IMG/252352981-73362ea1-4bf3-4da6-a318-808ee6f3aca6.png)
 
 and then comes the call of FMs from the TRWPR table taking into account the active components (**TRWCA**)
 
-![Include LRWCLF01](252353300-18e2cb2c-03b6-43fc-a0e7-4f12f631a9a6.png)
+![Include LRWCLF01](IMG/252353300-18e2cb2c-03b6-43fc-a0e7-4f12f631a9a6.png)
