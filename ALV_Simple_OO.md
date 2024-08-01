@@ -1,7 +1,7 @@
 
 Simple way to show ALV in OO style:
 ``` abap
-REPORT z<name>.
+REPORT zfi_silmle_alv_oo.
 TABLES: acdoca.
 SELECT-OPTIONS: so_bukrs FOR acdoca-rbukrs MEMORY ID buk,  
                 so_rldnr FOR acdoca-rldnr DEFAULT '0L' OBLIGATORY,  
@@ -16,7 +16,7 @@ START-OF-SELECTION.
       AND rldnr IN @so_rldnr  
       AND koart IN @so_koart.
 
-**ALV Class
+"ALV Class
   DATA: go_alv        TYPE REF TO cl_salv_table.
   TRY.  
       cl_salv_table=>factory(  
@@ -27,21 +27,21 @@ START-OF-SELECTION.
     CATCH cx_salv_msg.  
   ENDTRY.  
   
-**Enable function buttons
+"Enable function buttons
   DATA: lr_functions  TYPE REF TO cl_salv_functions_list.  
   lr_functions = go_alv->get_functions( ).  
   lr_functions->set_all( 'X' ).  
   
-**Optimize Column
+"Optimize Column
   DATA: lr_columns    TYPE REF TO cl_salv_columns_table.  
   lr_columns = go_alv->get_columns( ).  
   lr_columns->set_optimize( 'X' ).  
   
-**Enable Zebra style
+"Enable Zebra style
   DATA: gr_display    TYPE REF TO cl_salv_display_settings. 
   gr_display = go_alv->get_display_settings( ).  
   gr_display->set_striped_pattern( cl_salv_display_settings=>true ).  
   
-**Display ALV_  
+"Display ALV  
   go_alv->display( ).
 ```
