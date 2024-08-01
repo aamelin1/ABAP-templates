@@ -8,7 +8,6 @@ SELECT-OPTIONS: so_bukrs FOR acdoca-rbukrs MEMORY ID buk,
                 so_koart FOR acdoca-koart DEFAULT 'M' OBLIGATORY NO INTERVALS.
 
 START-OF-SELECTION.
-
 "Select data
   SELECT *  
     FROM acdoca  
@@ -17,15 +16,8 @@ START-OF-SELECTION.
       AND rldnr IN @so_rldnr  
       AND koart IN @so_koart.
 
-"Var for ALV
-DATA: go_alv        TYPE REF TO cl_salv_table.  
-DATA: lr_columns    TYPE REF TO cl_salv_columns_table.  
-DATA: lr_column     TYPE REF TO cl_salv_column_table.  
-DATA: lr_functions  TYPE REF TO cl_salv_functions_list.  
-DATA: gr_display    TYPE REF TO cl_salv_display_settings.  
-DATA: gr_selections TYPE REF TO cl_salv_selections.
-
-_**ALV Class_  
+**ALV Class
+  DATA: go_alv        TYPE REF TO cl_salv_table.
   TRY.  
       cl_salv_table=>factory(  
         IMPORTING  
@@ -35,18 +27,21 @@ _**ALV Class_
     CATCH cx_salv_msg.  
   ENDTRY.  
   
-_**Enable function buttons_  
+**Enable function buttons
+  DATA: lr_functions  TYPE REF TO cl_salv_functions_list.  
   lr_functions = go_alv->get_functions( ).  
   lr_functions->set_all( 'X' ).  
   
-_**Optimize Column_  
+**Optimize Column
+  DATA: lr_columns    TYPE REF TO cl_salv_columns_table.  
   lr_columns = go_alv->get_columns( ).  
   lr_columns->set_optimize( 'X' ).  
   
-_**Enable Zebra style_  
+**Enable Zebra style
+  DATA: gr_display    TYPE REF TO cl_salv_display_settings. 
   gr_display = go_alv->get_display_settings( ).  
   gr_display->set_striped_pattern( cl_salv_display_settings=>true ).  
   
-_**Display ALV_  
+**Display ALV_  
   go_alv->display( ).
 ```
