@@ -12,14 +12,14 @@ It is important to understand that only those FMs (FM name in the TRWPR-FUNCTION
 
 Table with components is (and activation status) - **TRWCA**:
 
-!!!! IMG
+![Table TRWCA at se16n](IMG/252350971-f5ae1b87-d512-47d9-9b6a-32dc7ae109f1.png)
 
 Maintained via tcode **SM30**
 
 The processes (**TRWPR-PROCESS**) and events (**TRWPR-EVENT**) themselves are predefined by SAP and are usually simply hardcoded, for example, in the **AC_DOCUMENT_CREATE** FM it looks like this:
 
-!!!! IMG
+![FM AC_DOCUMENT_CREATE](252352981-73362ea1-4bf3-4da6-a318-808ee6f3aca6.png)
 
 and then comes the call of FMs from the TRWPR table taking into account the active components (**TRWCA**)
 
-!!!! IMG
+![Include LRWCLF01](252353300-18e2cb2c-03b6-43fc-a0e7-4f12f631a9a6.png)
