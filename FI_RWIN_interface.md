@@ -4,7 +4,7 @@ A table with a list of FMs called when forming an FI document (essentially the R
 
 (For example, a list of functions when checking an FI document):
 
-!!!! IMG
+
 
 It is important to understand that only those FMs (FM name in the TRWPR-FUNCTION field) are called for the component (TRWPR-COMPONENT) for which the activation label is set in the system.
 
