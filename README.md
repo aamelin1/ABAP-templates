@@ -1,2 +1,9 @@
-# ABAP-templates
-[ABAP templates](https://github.com/aamelin1/ABAP-templates/blob/main/README.md)
+# Navigation
+- [[ABAP_BDC_Batch_input]]
+- [[ABAP_Counter_message]]
+- [[ABAP_Dynamic_SQL]]
+- [[ABAP_Last_day_of_month]]
+- [[ABAP_Popup]]
+- [[ABAP_Ranges]]
+- [[FI_RWIN_interface]]
+- [[OTHER_SAP_Tables]]
