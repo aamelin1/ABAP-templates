@@ -44,7 +44,7 @@ DATA(d) = |The date is { cl_abap_context_info=>get_system_date( ) DATE = USER }.
 "The date is 15.01.2024.
 ```
 
-> **💡 Note**<br>
+> **💡 Note**
 > Parameter "DATE =" may be: USER, RAW, ISO, ENVIRONMENT
 
 

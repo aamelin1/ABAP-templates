@@ -1,6 +1,5 @@
 Show loop iterations as a message, like a progress bar
 
-
 ``` abap
 cl_progress_indicator=>progress_indicate(
         i_text = |Processing: { sy-tabix }/{ lines( it_... ) }|
