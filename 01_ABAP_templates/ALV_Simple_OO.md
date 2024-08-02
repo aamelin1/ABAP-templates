@@ -25,5 +25,5 @@ START-OF-SELECTION.
 
 Result:
 
-![Simple_OO_ALV](99_Tech_IMG/IMG_Simple_ALV_OO.png)
+![Simple_OO_ALV](IMGs/IMG_Simple_ALV_OO.png)
 
