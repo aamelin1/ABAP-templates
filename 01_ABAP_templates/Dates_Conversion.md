@@ -20,20 +20,20 @@ DATA : lw_date_ext TYPE char10,
 CALL FUNCTION 'CONVERT_DATE_TO_INTERNAL' 
   EXPORTING 
     date_external = lw_date_ext " ==> 10.10.2017 
-  IMPORTING 
-	date_internal = lw_date " ==> 20171010 
+  IMPORTING
+    date_internal = lw_date " ==> 20171010 
   EXCEPTIONS 
-	date_external_is_invalid = 1.
+    date_external_is_invalid = 1.
 ```
 
 ``` abap
 CALL FUNCTION 'CONVERT_DATE_TO_EXTERNAL' 
   EXPORTING  
-	DATE_INTERNAL = SY-DATUM "internal date formatting  
+    DATE_INTERNAL = SY-DATUM "internal date formatting  
   IMPORTING  
-	DATE_EXTERNAL =  "external date formatting  
+    DATE_EXTERNAL =  "external date formatting  
   EXCEPTIONS  
-	DATE_INTERNAL_IS_INVALID = 1
+    DATE_INTERNAL_IS_INVALID = 1
 ```
 
 
