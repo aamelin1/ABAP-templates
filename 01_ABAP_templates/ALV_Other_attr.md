@@ -1,7 +1,11 @@
-##### Color options:
+# Some ALV features
+-[Color options](#Color%20options)
+-[ALV selection mode](ALV_Other_attr.md#ALV%20selection%20mode)
+
+## Color options:
   
   ``` abap
-  CAST cl_salv_column_table( o_alv->get_columns(  )->get_column( 'KTEXT' ) )->set_color( VALUE lvc_s_colo( col = col_total int = 1 inv = 0 ) )
+  CAST cl_salv_column_table( o_alv->get_columns(  )->get_column( 'FLD_NAME' ) )->set_color( VALUE lvc_s_colo( col = col_total int = 1 inv = 0 ) )
   ```
  
 | name | code | Int (x) | Inv (y) | Color code |
@@ -17,7 +21,7 @@
 ![ALV Colors](IMGs/IMG_ALC_Colors.png)
 
 
-##### ALV selection mode:
+## ALV selection mode:
 ``` abap
 o_alv->get_selections( )->set_selection_mode( if_salv_c_selection_mode=>multiple ).
 ```
