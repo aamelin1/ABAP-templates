@@ -1,8 +1,8 @@
 | Table                | Comment                                         |
 | -------------------- | ----------------------------------------------- |
-| `AGR_USERS`          | User-Roles assigments                           |
-| `DBTABLOG`           | table change logs                               |
-| `E070`,`E071`,`E07T` | TRs                                             |
+| `AGR_USERS`           | User-Roles assigments                           |
+| `DBTABLOG`            | table change logs                               |
+| `E070`,`E071`,`E07T`   | TRs                                             |
 | `TADIR`              | Repository                                      |
 | `TRWPR`              | RWIN processes (list of FMs)                    |
 | `TRWCA`              | RWIN components                                 |

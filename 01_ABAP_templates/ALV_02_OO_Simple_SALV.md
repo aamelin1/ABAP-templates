@@ -1,7 +1,7 @@
 
 Simple way to show ALV in OO style:
 ``` abap
-REPORT zfi_samples.  
+REPORT zfi_SALV_template.  
 TABLES: tcurt.  
   
 SELECT-OPTIONS: so_spras  FOR tcurt-spras DEFAULT sy-langu.  
@@ -75,7 +75,6 @@ o_alv->display( ).
 ```
 
 
- > **💡 Notes**
- > [ALV Options (colors, selctions etc.)](ALV_Other_attr.md)
+ > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_Other_attr.md)
  
  

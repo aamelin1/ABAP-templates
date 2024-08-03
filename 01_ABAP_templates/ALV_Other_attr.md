@@ -16,7 +16,7 @@ Color codes:
 | col_heading | 1 | 0/1 | 0/1 | 1xy | GreyBlue  |
 | col_normal  | 2 | 0/1 | 0/1 | 2xy | LightGrey |
 | col_total   | 3 | 0/1 | 0/1 | 3xy | Yellow    |
-| col_key     | 4 | 0/1 | 0/1 | 4xy | <span style="color:Blue">BlueGreen</span> |
+| col_key     | 4 | 0/1 | 0/1 | 4xy | BlueGreen |
 | col_positive| 5 | 0/1 | 0/1 | 5xy | Green     |
 | col_negative| 6 | 0/1 | 0/1 | 6xy | Red       |
 | col_group   | 7 | 0/1 | 0/1 | 7xy | Violet    |
