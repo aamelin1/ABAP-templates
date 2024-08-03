@@ -27,7 +27,7 @@ START-OF-SELECTION.
     FROM tcurt 
     INTO TABLE @DATA(it_rep)  
     WHERE spras IN @so_spras.  
-  SALV 
+  "SALV 
   cl_salv_table=>factory( ##EXCP_UNHANDLED[CX_SALV_MSG]  
     IMPORTING  
       r_salv_table = DATA(o_alv)  
@@ -65,6 +65,13 @@ START-OF-SELECTION.
       ENDCASE.  
     ENDMETHOD.  
   ENDCLASS.
+```
+
+ALV in few ABAP code lines:
+``` abap
+cl_salv_table=>factory( IMPORTING  r_salv_table = DATA(o_alv)  
+                        CHANGING   t_table      = it_rep[] ).  
+o_alv->display( ).
 ```
 
 
