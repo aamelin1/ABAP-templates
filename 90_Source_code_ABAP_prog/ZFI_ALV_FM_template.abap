@@ -1,8 +1,9 @@
-
-Old way to show ALV (via FM **REUSE_ALV_GRID_DISPLAY_LVC**):
-
-``` abap
-REPORT ZFI_RECON_LIST.
+*&---------------------------------------------------------------------*
+*& Report ZFI_template
+*&---------------------------------------------------------------------*
+*& ALV FM templaate (Amelin A.)
+*&---------------------------------------------------------------------*
+REPORT ZFI_.
 TABLES: ...
 
 *&---------------------------------------------------------------------*
@@ -18,6 +19,8 @@ DATA: fcat TYPE lvc_t_fcat,
       events TYPE slis_t_event,
       event TYPE slis_alv_event.
 
+*&---------------------------------------------------------------------*
+INITIALIZATION.
 
 *&---------------------------------------------------------------------*
 START-OF-SELECTION.
@@ -49,6 +52,7 @@ CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'
 **************************************
   gs_layout_fm-cwidth_opt = 'X'.
   gs_layout_fm-zebra = 'X'.
+  
   
 **************************************
   CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY_LVC'
@@ -89,6 +93,3 @@ FORM SETPF USING rt_extab TYPE slis_t_extab.
   SET PF-STATUS 'STANDARD'.
 ENDFORM.
 *&---------------------------------------------------------------------*
-```
-
- > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_Other_attr.md)
