@@ -1,8 +1,10 @@
 # Some ALV features
-- [Color options](#Color%20options)
+
+- [Color options](ALV_Other_attr.md#Color%20options)
 - [ALV selection mode](ALV_Other_attr.md#ALV%20selection%20mode)
 
-## Color options:
+
+## Color options: 
 To set color for **whole column** you may use this:
   ``` abap
   CAST cl_salv_column_table( o_alv->get_columns(  )->get_column( 'FLD_NAME' ) )->set_color( 
