@@ -6,49 +6,69 @@
 | Table | Comment |
 | --- | --- |
 | `AGR_USERS` | User-Roles assigments |
+| `SMEN_BUFFC` | User favorites |
+| `TPARA` | Memory ID |
+| `USR05` | Memory ID values by users |
 | `DBTABLOG` | table change logs |
+| `SE16N_CD_KEY` | Logs of sap_edit (+ program RKSE16N_CD_DISPLAY) |
 | `E070`,`E071`,`E07T` | TRs |
 | `TADIR` | Repository |
 | `TRWPR` | RWIN processes (list of FMs) |
 | `TRWCA` | RWIN components |
 | `TRESE` | Reserved names |
-| `SMEN_BUFFC` | User favorites |
-| `TPARA` | Memory ID |
-| `USR05` | Memory ID values by users |
-| `SE16N_CD_KEY` | Logs of sap_edit (+ program RKSE16N_CD_DISPLAY) |
 
 ## FI
 
-Main SAP tables:
+- `T003` + `T003T` - Document types
+- `TBSL` + `TBSLT` - Posting keys
+- `T074` + `T074U` + `T074T` - SGL indicators
+- `TTYP` + `TTYPT` - Object type (AWTYP)
+- `FINSTS_SLALITTY` + `FINSTS_SLALITTYT` - Subledger-Specific Line Item Types (SLALITTYPE)
+- - `T008` + `T008T` - Blocking Reasons (for AP)
 
 ### Company code
-| Table | Comment |
-| --- | --- |
-| `Table` | Name |
-T001
-T001z
+
+- `T001` - Company codes
+- `T001z` - Additional parameter for Company code
+- `T001-ADRNR` -> `ADRC-ADDRNUMBER` - Long text + Addess
+- `T001B` - FI open periods (**OB52**)
 
 ### Ledgers, AccPrinciples + Currencies 
 
 ### Chart of accounts
-SKA1
-SKAT
-SKB1
+
+- `T004` + `T004T` - Chart of account
+- `SKA1` + `SKAT` +`SKB1` - G/L Account Master
+- `T011` + `T011T` - FSV (**OB58**)
+- `FAGL_011ZC` - FSV: GL account assigment (**OB58**)
 
 ### Business partners (Vendors + Customers)
-BUT000
-*BP*tax*
-LFA1
-LFB1
-LFBK
-KNA1
-KNB1
+
+- `BUT000` - BP general data
+- `BUT020` - BP addresses
+- `DFKKBPTAXNUM` - Tax Numbers for Business Partner
+- `LFA1` + `LFB1` - Supplier Master
+- `LFBK` - Supplier bank data
+- `KNA1` + `KNB1` - Customer Master
+- `KNBK` - Customer bank data
 
 ### Banks
 
+- `BNKA` - Bank master record (**FI03**)
+- Tcode `BAUP` for mass upload bank master data (customising in tcode **BA01**)
+- Program `SAPF023` to reset bank master data
+
 ### Own banks + own bank accounts
 
+- `T012` + `T012T` - Own Banks (**FI12**)
+- `T012K`, `V_T012K_BAM`, `FCLM_BAM_DISTINCT_HBA` - Own Bank Accounts
+
+### ACE and POAC objects
+
+acac_objects
+
 ### Documents
+
 
 
 
@@ -67,6 +87,7 @@ Some helpful OSS Notes:
 ## FI-AA
 
 ## CO
+cepct
 
 ## MM
 
