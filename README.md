@@ -8,15 +8,15 @@ Also, some ABAP source code files ("**.abap**") are available at folder [90_Sour
 
 ## 🧭 Navigation
 
-- [ABAP templates](https://github.com/aamelin1/ABAP-templates/tree/main/01_ABAP_templates)
-- [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10_How-Tos)
-- [SAP-Blog posts](https://github.com/aamelin1/ABAP-templates/tree/main/70_SAP_Blog_posts)
-- [Others (tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80_Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md)
-- [Source code ABAP programs](https://github.com/aamelin1/ABAP-templates/tree/main/90_Source_code_ABAP_prog)
+- [ABAP templates](https://github.com/aamelin1/ABAP-templates/tree/main/01_ABAP_templates) - ABAP code examples and templates
+- [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10_How-Tos) - Short SAP technical articles
+- [SAP-Blog posts](https://github.com/aamelin1/ABAP-templates/tree/main/70_SAP_Blog_posts) - Archive of my SAP Blog posts
+- [Others (tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80_Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md) - Other SAP infos
+- [Source code ABAP programs](https://github.com/aamelin1/ABAP-templates/tree/main/90_Source_code_ABAP_prog) - Some custom ABAP reports and tools
 
 ## ℹ️ Helpful links
 
-https://github.com/SAP-samples/abap-cheat-sheets/blob/main/01_Internal_Tables.md
+[Github SAP-samples: ABAP cheat sheets](https://github.com/SAP-samples/abap-cheat-sheets/blob/main/01_Internal_Tables.md)
 
 ---
 
