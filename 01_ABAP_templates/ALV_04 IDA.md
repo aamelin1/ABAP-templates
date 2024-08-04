@@ -102,4 +102,4 @@ cl_salv_gui_table_ida=>create_for_cds_view( iv_cds_view_name = 'ZVFI_TEST')->
 
 > 💡Check SAP note [3196994 - "IDA-ALV - ALV Layout not being saved"](https://me.sap.com/notes/3196994/E)
 
- > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_Other_attr.md)
+ > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_99%20Others.md)

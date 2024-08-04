@@ -91,4 +91,4 @@ ENDFORM.
 *&---------------------------------------------------------------------*
 ```
 
- > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_Other_attr.md)
+ > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_99%20Others.md)
