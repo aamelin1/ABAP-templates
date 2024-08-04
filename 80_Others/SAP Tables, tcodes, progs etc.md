@@ -2,13 +2,13 @@
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
 
  - [General (ABAP, Basis, tech etc)](#General-(ABAP,-Basis,-tech-etc))
-- [FI](#FI)
-- [FI-AA](#FI-AA)
-- [CO](#CO)
-- [ML](#ML)
-- [MM](#MM)
-- [SD](#SD)
-- [TM](#TM)
+- [FI: Financial](#FI)
+- [FI-AA: Fixed Asset](#FI-AA)
+- [CO: Controlling](#CO)
+- [ML: Material Ledger](#ML)
+- [MM: Material Management](#MM)
+- [SD: Sales and Distribution](#SD)
+- [TM: Transportation Management](#TM)
 
 ## General (ABAP, Basis, tech etc)
 
