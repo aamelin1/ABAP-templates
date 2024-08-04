@@ -1,9 +1,20 @@
 
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
 
-## General
+ - [General (ABAP, Basis, tech etc)](#General-(ABAP,-Basis,-tech-etc))
+- [FI](#FI)
+- [FI-AA](#FI-AA)
+- [CO](#CO)
+- [ML](#ML)
+- [MM](#MM)
+- [SD](#SD)
+- [TM](#TM)
 
-| Table | Comment |
+## General (ABAP, Basis, tech etc)
+
+### SAP Tables:
+
+| Table name | Comment |
 | --- | --- |
 | `AGR_USERS` | User-Roles assigments |
 | `SMEN_BUFFC` | User favorites |
@@ -16,6 +27,22 @@
 | `TRWPR` | RWIN processes (list of FMs) |
 | `TRWCA` | RWIN components |
 | `TRESE` | Reserved names |
+
+### FMs:
+
+| FM | Comment |
+| --- | --- |
+
+### Tcodes:
+
+| Tcode | Comment |
+| --- | --- |
+
+### Programs:
+
+| Program | Comment |
+| --- | --- |
+
 
 ## FI
 
@@ -51,6 +78,7 @@
 - `LFBK` - Supplier bank data
 - `KNA1` + `KNB1` - Customer Master
 - `KNBK` - Customer bank data
+- T881 
 
 ### Banks
 
@@ -70,24 +98,33 @@ acac_objects
 ### Documents
 
 
+### Others
 
-
-
+#### HANA reports (fagll03h, fblXh etc):
 - to show archived data - implement BAdI **FAGL_LIB**, as an example you may use a  **FAGL_LIB_ARCHIVE_VIA_INDEX**. 
 - **HDBVIEWS** - tcode to add/customise FI reports
 - **HDBC** - 
+- - [SAP Blog. How to extend FAGLL03h](https://blogs.sap.com/2020/12/20/how-to-extend-transaction-fagll03h-with-custom-fields/)
 
-Some helpful OSS Notes:
+#### Some helpful FI OSS Notes:
 
 - 2180685 – “FI Line Item Browsers and Archived Data”.
 - 2408083 – “FAQ: Data Model of S/4 HANA Finance Data”.
 - 2321684 - FI Line Item Browsers: Add master data fields to generated views
-- [SAP Blog. How to extend FAGLL03h](https://blogs.sap.com/2020/12/20/how-to-extend-transaction-fagll03h-with-custom-fields/)
+
+#### Other FI links
+
+- 
 
 ## FI-AA
 
+ORFA
+
+
 ## CO
 cepct
+
+## ML
 
 ## MM
 
