@@ -1,7 +1,7 @@
 # Some ALV features
 
-[ALV_Other_attr](#Color%20options)
-[ALV_Other_attr](#ALV%20selection%20mode)
+- [Colors](#Color-options)
+- [Slection mode](#ALV-selection-mode)
 
 ## Color options
 To set color for **whole column** you may use this:
