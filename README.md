@@ -6,7 +6,7 @@ Here's you can find some helpful ABAP templates, How-tos related to SAP FI funct
 All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at the left side. Notes are stored as "**.md**" files (markdown format).
 Also, some ABAP source code files ("**.abap**") are available at folder [90_Source_code_ABAP_prog](https://github.com/aamelin1/ABAP-templates/tree/main/90_Source_code_ABAP_prog)
 
-## 📝 Navigation
+## 🧭 Navigation
 
 - [ABAP templates](https://github.com/aamelin1/ABAP-templates/tree/main/01_ABAP_templates)
 - [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10_How-Tos)
