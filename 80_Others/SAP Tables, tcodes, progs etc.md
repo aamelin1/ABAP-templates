@@ -55,7 +55,7 @@
 
 | Type | Object | Comment |
 | --- | --- | --- |
-| Class | `CL_EXITHANDLER` | Method `GET_INSTANCE` to get BAdIs |
+| Class | `CL_EXITHANDLER` | Method `GET_INSTANCE`. Put breakpoint here and run tcode to get BAdIs names |
 | Class | `xco_cp=>current->call_stack->full( )` | Get current callstack |
 | Class | `CL_BALI_LOG` | Logs |
 | Class| `XCO_CP_GENERATION` | Generate repositary objects |
@@ -138,14 +138,26 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 ## FI
 
-- `T003` + `T003T` - Document types
-- `TBSL` + `TBSLT` - Posting keys
-- `T074` + `T074U` + `T074T` - SGL indicators
-- `TTYP` + `TTYPT` - Object type (AWTYP)
-- `FINSTS_SLALITTY` + `FINSTS_SLALITTYT` - Subledger-Specific Line Item Types (SLALITTYPE)
-- - `T008` + `T008T` - Blocking Reasons (for AP)
+### FI enhancements:
+
+#### Substitutions and Validations:
+
+- Tcode `GGB1` - Substitution Maintenance
+- Tcode `GGB0` - Validation Maintenance
+- Tcode `OBBH` - Assign Substitution to Company code and activation status
 - Program `RGUGBR00` - regenerate Substitution and Validation
 - `GB01` + view `VWTYGB01` - fields for Substitute
+
+> 💡 More details here [FI Substitutions&Validations](../10_How-Tos/FI%20Substitutions&Validations.md)
+
+#### Open FI (BTE)
+
+- Tcode `FIBF` - Maintenance transaction BTE
+
+> 💡 More details here [FI FIBF OpenFI](../10_How-Tos/FI%20FIBF%20OpenFI.md)
+
+#### BAdIs, User-Exits, Enhancements
+
 
 ### Company code
 
@@ -198,6 +210,13 @@ Program `RFEBKA96` to detele bank statments
 
 
 ### Others
+
+- `T003` + `T003T` - Document types
+- `TBSL` + `TBSLT` - Posting keys
+- `T074` + `T074U` + `T074T` - SGL indicators
+- `TTYP` + `TTYPT` - Object type (AWTYP)
+- `FINSTS_SLALITTY` + `FINSTS_SLALITTYT` - Subledger-Specific Line Item Types (SLALITTYPE)
+- - `T008` + `T008T` - Blocking Reasons (for AP) 
 
 #### HANA reports (fagll03h, fblXh etc):
 - to show archived data - implement BAdI **FAGL_LIB**, as an example you may use a  **FAGL_LIB_ARCHIVE_VIA_INDEX**. 
