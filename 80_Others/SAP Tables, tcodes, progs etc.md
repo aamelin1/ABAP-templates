@@ -28,21 +28,113 @@
 | `TRWCA` | RWIN components |
 | `TRESE` | Reserved names |
 
-### FMs:
-
-| FM | Comment |
-| --- | --- |
-
 ### Tcodes:
 
 | Tcode | Comment |
 | --- | --- |
+| `ST05` | Performance Trace | 
+| `SM12` | Display and Delete Locks |
+| `SXI_MONITOR` | XI: Message Monitoring |
+| `SLGx` | Application Log |
+| `AL11` | Display SAP Directories |
+| `SM36` + `SM37` | BackGround Jobs |
+| `SM50` | Work Processes |
+| `SM51` | Started AS Instances |
+| `SAT`| ABAP Trace |
+| `STAD` | Statistics display |
+| `DBACOCKPIT` or `DB02` | DBA Cockpit |
+| `SNUM` or `SNRO` | Number Range Object |
+| `SM59`| RFC Destinations |
+| `WE20`| Partner Profiles |
+| `OB72`| Global Company codes |
+| `ICON`| Display Icons |
+| `SCU3`| Table History |
+| `DWDM`| Development Workbench Demos |
 
-### Programs:
+### FMs, Classes, BAdI, BAPI:
 
-| Program | Comment |
-| --- | --- |
+| Type | Object | Comment |
+| --- | --- | --- |
+| Class | `CL_EXITHANDLER` | Method `GET_INSTANCE` to get BAdIs |
+| Class | `xco_cp=>current->call_stack->full( )` | Get current callstack |
+| Class | `CL_BALI_LOG` | Logs |
+| Class| `XCO_CP_GENERATION` | Generate repositary objects |
 
+
+### BuiltIn Functions
+
+**itab lines count:**
+
+``` abap
+DATA(strtab) = VALUE string_table( ( `aaa` ) ( `bbb` ) ( `ccc` ) ( `ddd` ) ( `eee` ) ).
+DATA(lines1) = lines( strtab ). "5
+```
+
+**String length:**
+
+``` abap
+DATA(strlen1) = strlen( 'abc   ' ).  " -> 3
+DATA(strlen2) = strlen( `abc   ` ).  " -> 6
+
+"numofchar
+len_c   = numofchar( 'abc   ' ). " -> 3
+len_str = numofchar( `abc   ` ). " -> 3
+``` 
+
+**String concatenation:**
+
+``` abap
+DATA(str3) = str1 && ` ` && str2. "Concat with space
+" or:
+str3 = |{ str1 }| && ` ` && |{ str2 }|. "Concat with space
+" or:
+CONCATENATE str1 str2 INTO str3 SEPARATED BY ` `. "Concat with space
+```
+
+**String concatenation from itab:**
+
+``` abap
+DATA(stringtable) = VALUE string_table( ( `a` ) ( `b` ) ( `c` ) ). 
+DATA(con1) = concat_lines_of( table = stringtable ). "abc
+DATA(con2) = concat_lines_of( table = stringtable sep = ` ` ). "a b c
+
+```
+
+**Absolute value:**
+
+```abap
+DATA(abs2) = abs( -4 ). "4
+```
+
+**Value sign:**
+
+```abap
+"----------- sign: Evaluating the sign ----------- 
+"-1 if negative, 0 if 0, 1 if positive
+DATA(sign1) = sign( -789 ). "-1
+```
+
+**Rounding:**
+
+```abap
+"Rounding to decimal places
+DATA(round1) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
+```
+
+
+**Check callstack:**
+
+Extracting the call stack based on specifications. You can specify the extractions using from/to and further detailing out the kinds of extractions such as the position or the first/last occurrence of a specific line pattern.
+In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
+
+``` abap
+DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
+  )->where_class_name_starts_with( 'CL_REST' ).
+DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
+  )->to->last_occurrence_of( line_pattern )->as_text( format ).
+```  
+
+---
 
 ## FI
 
@@ -52,6 +144,8 @@
 - `TTYP` + `TTYPT` - Object type (AWTYP)
 - `FINSTS_SLALITTY` + `FINSTS_SLALITTYT` - Subledger-Specific Line Item Types (SLALITTYPE)
 - - `T008` + `T008T` - Blocking Reasons (for AP)
+- Program `RGUGBR00` - regenerate Substitution and Validation
+- `GB01` + view `VWTYGB01` - fields for Substitute
 
 ### Company code
 
@@ -59,6 +153,7 @@
 - `T001z` - Additional parameter for Company code
 - `T001-ADRNR` -> `ADRC-ADDRNUMBER` - Long text + Addess
 - `T001B` - FI open periods (**OB52**)
+-  Tcode `OB72` - Global Company code customising
 
 ### Ledgers, AccPrinciples + Currencies 
 
@@ -95,6 +190,10 @@
 
 acac_objects
 
+### FI-BL
+
+Program `RFEBKA96` to detele bank statments
+
 ### Documents
 
 
@@ -104,7 +203,7 @@ acac_objects
 - to show archived data - implement BAdI **FAGL_LIB**, as an example you may use a  **FAGL_LIB_ARCHIVE_VIA_INDEX**. 
 - **HDBVIEWS** - tcode to add/customise FI reports
 - **HDBC** - 
-- - [SAP Blog. How to extend FAGLL03h](https://blogs.sap.com/2020/12/20/how-to-extend-transaction-fagll03h-with-custom-fields/)
+- [SAP Blog. How to extend FAGLL03h](https://blogs.sap.com/2020/12/20/how-to-extend-transaction-fagll03h-with-custom-fields/)
 
 #### Some helpful FI OSS Notes:
 
