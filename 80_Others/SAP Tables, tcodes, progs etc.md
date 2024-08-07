@@ -1,7 +1,7 @@
 
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
 
- - [General (ABAP, Basis, tech etc)](#General-(ABAP,-Basis,-tech-etc))
+- [General (ABAP, Basis, tech etc)](#General-(ABAP,-Basis,-tech-etc))
 - [FI: Financial](#FI)
 - [FI-AA: Fixed Asset](#FI-AA)
 - [CO: Controlling](#CO)
@@ -27,6 +27,7 @@
 | `TRWPR` | RWIN processes (list of FMs) |
 | `TRWCA` | RWIN components |
 | `TRESE` | Reserved names |
+| `T100` + `T100C` + `T100S` | Message control |
 
 ### Tcodes:
 
@@ -50,6 +51,7 @@
 | `ICON`| Display Icons |
 | `SCU3`| Table History |
 | `DWDM`| Development Workbench Demos |
+| `OBA5` | Message controls
 
 ### FMs, Classes, BAdI, BAPI:
 
@@ -58,7 +60,9 @@
 | Class | `CL_EXITHANDLER` | Method `GET_INSTANCE`. Put breakpoint here and run tcode to get BAdIs names |
 | Class | `xco_cp=>current->call_stack->full( )` | Get current callstack |
 | Class | `CL_BALI_LOG` | Logs |
-| Class| `XCO_CP_GENERATION` | Generate repositary objects |
+| Class | `XCO_CP_GENERATION` | Generate repositary objects |
+| BAPI | `BAPI_TRANSACTION_ROLLBACK` | Rollback |
+| BAPI | `BAPI_TRANSACTION_COMMIT` | Commit |
 
 
 ### BuiltIn Functions
@@ -158,16 +162,46 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 #### BAdIs, User-Exits, Enhancements
 
+- `AC_DOCUMENT` - Change the Accounting Document
+- `BADI_ACC_DOCUMENT` - FI doc
+- `I_TRANS_DATE_DERIVE` - Change currency conversion
+- `FAGL_LIB` - FI Line Item Browsers enhancements
+- `BADI_GVTR_DERIVE_FIELDS` - BCF (FAGLGVTR)
+
+### FI BAPIs and FMs
+
+- `BAPI_ACC_DOCUMENT_POST` - post FI doc
+- `BAPI_ACC_DOCUMENT_REV_POST` - reverse FI doc
 
 ### Company code
 
 - `T001` - Company codes
 - `T001z` - Additional parameter for Company code
 - `T001-ADRNR` -> `ADRC-ADDRNUMBER` - Long text + Addess
-- `T001B` - FI open periods (**OB52**)
+- `T001B`, tcode `OB52` - FI open periods 
 -  Tcode `OB72` - Global Company code customising
 
 ### Ledgers, AccPrinciples + Currencies 
+
+- Tcode `finsc_ledger` - Ledgers/currencies customizing
+- Tcode `FINS_CUST_CONS_CHK` - checks for all company codes and ledgers
+- Tcode `FINS_CUST_CONS_CHK_P` - checks for a single company code and ledger group
+- `FINSC_CURTYPE` + `FINSC_CURTYPET` - Currency type
+- `FINSC_LEDGER` + `FINSC_LEDGER_T` - FI ledgers
+- `FAGL_TLDGRP` + `FAGL_TLDGRPT` - Ledger Group
+- `TACC_PRINCIPLE` + `TACC_PRINCIPLET` - Accounting Principle
+- `TACC_TRGT_LDGR` - Accounting Principle to Ledger group
+- `FAGL_TLDGRP_MAP` - Assignment of Ledgers to Ledger Groups
+- `FINSC_LD_CMP` - Ledger/Company code/Currencies
+
+
+### Account determination
+
+- Tcode `OBA1` -Exchange rate differences
+- `T030H` + `T030HB` - Exchange rate differences cust
+- Tcode `OBYC' - Materials Management postings (MM)
+- `T030` - Account determination 
+- `T030U` - Account Determ.for Balance Sheet Transfer Postings
 
 ### Chart of accounts
 
@@ -180,33 +214,31 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 - `BUT000` - BP general data
 - `BUT020` - BP addresses
+- `BP00x` - BP data
 - `DFKKBPTAXNUM` - Tax Numbers for Business Partner
 - `LFA1` + `LFB1` - Supplier Master
 - `LFBK` - Supplier bank data
 - `KNA1` + `KNB1` - Customer Master
 - `KNBK` - Customer bank data
-- T881 
+- `T880` - Global Company Data (link to `LFA1-VBUND`, `KNA1-VBUND` and `BP001-VBUND`)
 
-### Banks
+### FI-BL, Banks, Own banks + own bank accounts
 
 - `BNKA` - Bank master record (**FI03**)
 - Tcode `BAUP` for mass upload bank master data (customising in tcode **BA01**)
 - Program `SAPF023` to reset bank master data
-
-### Own banks + own bank accounts
-
 - `T012` + `T012T` - Own Banks (**FI12**)
 - `T012K`, `V_T012K_BAM`, `FCLM_BAM_DISTINCT_HBA` - Own Bank Accounts
+- Program `RFEBKA96` to detele bank statments
 
 ### ACE and POAC objects
 
-acac_objects
+### FI Documents
 
-### FI-BL
-
-Program `RFEBKA96` to detele bank statments
-
-### Documents
+- `BKPF` - Accounting Document Header
+- `BSEG` - Accounting Document Segment (Entry View)
+- `BSEG_ADD` - Entry View of Accounting Document for Additional Ledgers
+- `ACDOCA` - Universal Journal Entry Line Items
 
 
 ### Others
@@ -236,13 +268,30 @@ Program `RFEBKA96` to detele bank statments
 
 ## FI-AA
 
-ORFA
+- Tcode `ORFA` - SPRO for FI-AA
+- Tcode `FAA_CMP`, `FAA_CMP_LDT` - FI-AA Legacy Data Transfer Settings
 
 
 ## CO
-cepct
+
+- Tcode `OKP1` - Maintain CO Period Lock
+- `TKA01` - Controlling Areas
+- `TKA02` - Controlling area assignment
+- `CSKA` + `CSKU` - Cost Elements 
+- `CSKS` + `CSKT` - Cost Center Master Record
+- `CEPC` + `CEPCT` - Profit Center Master Data Table
 
 ## ML
+
+- Tcode `FCMLHELP` - ML Helpdesk
+- `CKMLHD` - Material Ledger: Header Record
+- `ACDOCA_M_EXTRACT` -ACDOCA Extract Table for Material Ledger
+- `MLDOC` - Material Ledger Document
+- `MLDOCCCS` - Material Ledger Document Cost Component Split
+- Tcode `OKTZ` - Cost components
+- `TCKH4` + `TCKH5` - Cost componentsstructure
+- `TCKH3` + `TCKH1` - Cost Components
+- `TCKH2` - Assigment of Cost Components to GL account
 
 ## MM
 
