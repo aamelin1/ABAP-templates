@@ -264,13 +264,61 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 #### Other FI links
 
-- 
 
 ## FI-AA
 
-- Tcode `ORFA` - SPRO for FI-AA
+- Tcode `ORFA` - IMG for FI-AA
+- Tcode `AO90` - Accounts determination
 - Tcode `FAA_CMP`, `FAA_CMP_LDT` - FI-AA Legacy Data Transfer Settings
+- Tcode `FAA_CLOSE_FISC_YEARS`
+- Tcode `ABLDT_OI` - Migration. to post the open items for an AuC with line item processing
+- Program `RAFAB_COPY_AREA` and BAdI `FAA_AA_COPY_AREA` - copying DeprAreas 
 
+- `ANKA` + `ANKT` - Asset classes
+- `T096` + `T096T` - Chart of depreciation
+- `T093` + `T093T` - Depreciation areas
+- `TABW` + `TABWT` - Asset transaction types
+- `TABWA` - Transaction types/dep. areas (at S/4HANA only for `AR29n`, groups `81/82/89`)
+- `ANLA` - Asset Master Record Segment
+- `ANLB` - Depreciation terms
+- `ANLZ` - Time-Dependent Asset Allocations
+- `ANLI` - Link table for investment measure -> AuC
+- `ANLK` - Asset Origin by Cost Element
+- `FAAT_DOC_IT` - Statistical Line Item in Asset Accounting
+- `FAAT_PLAN_VALUES` - Planned Depreciations and Revaluations
+- TABA - Depreciation posting documents
+
+> Actual values from tables `ANEP`, `ANEA`, `ANLP`, `ANLC` are saved in table `ACDOCA` in new Asset Accounting.
+> The values from table `ANEK` are saved in tables `BKPF` and `ACDOCA` in new Asset Accounting.
+
+> Statistical values from tables `ANEP`, `ANEA`, `ANLP` and `ANLC`, are saved in new Asset Accounting in table `FAAT_DOC_IT`.
+
+> Planned values from tables `ANLP` and `ANLC` are saved in table `FAAT_PLAN_VALUES` in new Asset Accounting.
+
+> As of release SAP S/4HANA 1809, the `BSEG` table will **no longer be updated** with the depreciation run.
+
+
+### FI-AA BAdIs:
+
+- `FAA_DC_CUSTOMER`
+- `FAA_EE_CUSTOMER`
+- `BADI_FIAA_DOCLINES` (obs)
+- `FAA_DOCLINES_CUSTOMER`
+- `FAA_AA_COPY_AREA`
+
+### FI-AA BAPIs:
+
+- `BAPI_FIXEDASSET_OVRTAKE_CREATE` - Legasy data transfer
+- `BAPI_ASSET_ACQUISITION_CHECK` - Asset Acquisition 
+- `BAPI_ASSET_ACQUISITION_POST` - AssetAcquisition 
+- `BAPI_ASSET_RETIREMENT_CHECK` - AssetRetirement
+- `BAPI_ASSET_RETIREMENT_POST` - Asset Retirement
+- `BAPI_ASSET_POSTCAP_CHECK` - Asset Post-Capitalization
+- `BAPI_ASSET_POSTCAP_POST` - Asset Post-Capitalization
+- `BAPI_ASSET_REVERSAL_CHECK` - Asset Document Reversal 
+- `BAPI_ASSET_REVERSAL_POST` - Asset Document Reversal 
+
+For segment reporting, the business function FI-AA, Segment Reports on Fixed Assets (`FIN_AA_SEGMENT_REPORTING`) is available
 
 ## CO
 
@@ -298,5 +346,21 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 ## SD
 
 ## TM
+
+Номер ФЗ
+1. Находим ключ заказа  
+Select PARENT_KEY  
+From /SCMTMS/D_TORDRF  
+Where BTD_ID = Номер поставки  
+2. Находим номер заказа  
+Select TOR_ID  
+From /SCMTMS/D_TORROT  
+Where DB_KEY = PARENT_KEY (из пред. Шага) and LIFECYCLE <> ‘10’ (Canceled) and TOR_CAT = “TO” or “BO”
+
+Номер ДРФ
+1. Зная ключ заказа найти номер ДРФ  
+Перейти по ассоциации  /SCMTMS/TOR> BO_SFIR_ROOT _(__Работаем_ _с_ _БО_ _/SCMTMS/SUPPFREIGHTINVREQ)_
+2. Удалить из внутренней таблицы записи где /SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’ (Canceled)  
+3. Взять значение оставшихся /SCMTMS/SUPPFREIGHTINVREQ> ROOT – SFIR_ID
 
 
