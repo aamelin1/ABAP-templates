@@ -149,8 +149,29 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Tcode `GGB1` - Substitution Maintenance
 - Tcode `GGB0` - Validation Maintenance
 - Tcode `OBBH` - Assign Substitution to Company code and activation status
+- Tcode `GCX2` - Assign program to Substitution/Validation
 - Program `RGUGBR00` - regenerate Substitution and Validation
 - `GB01` + view `VWTYGB01` - fields for Substitute
+
+SAP provide two programs that should be used to implement these user exits. These are `RGGBS000` and `RGGBR000` (for substitutions and rules respectively). The relevant program should be copied to a Z version of the program, `ZRGGBR000` for example.
+
+To add own form, you need to specify form name as:
+
+``` abap
+   EXITS-NAME  = 'U100'.  
+   EXITS-PARAM = C_EXIT_PARAM_NONE.        "Complete data used in exit.  
+   EXITS-TITLE = TEXT-101.                 "Posting date check  
+   APPEND EXITS.
+```
+
+
+| EXITS-PARAM | Comments |
+|---|---|
+| C_EXIT_PARAM_NONE | This constant means that no parameters are defined for this user exit. In truth, there is one parameter defined and that is a boolean flag that is used to specify whether there is an error in the data or not. A value of false for this parameter means that the data is valid(!) and a value of true means that there is an error. This parameter is valid for rules, validations and substitutions. |  
+| C_EXIT_PARAM_FIELD | This constant is valid for substitutions only and means that one parameter can be defined for the user exit which is the field to be sustituted |   
+| C_EXIT_PARAM_CLASS | valid for Rules, Validations and Substitutions, this parameter signifies that all the data (BKPF and BSEG data) will be passed as one parameter to the user exit. You will be passed a table containing all the relevant information | 
+  
+
 
 > 💡 More details here [FI Substitutions&Validations](../10_How-Tos/FI%20Substitutions&Validations.md)
 
@@ -172,6 +193,18 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 - `BAPI_ACC_DOCUMENT_POST` - post FI doc
 - `BAPI_ACC_DOCUMENT_REV_POST` - reverse FI doc
+- `G_SET_GET_ID_FROM_NAME` - Get Set ID (`GS0x`)
+- `G_SET_GET_ALL_VALUES` -  Read All Values in a Set Hierarchy
+- `CALCULATE_TAX_FROM_GROSSAMOUNT` - calculate the tax amount and to get the correct tax account
+- `CALCULATE_TAX_FROM_NET_AMOUNT`
+- `DATE_TO_PERIOD_CONVERT` - get FI period by date
+- `FI_PERIOD_DETERMINE` - Find the period for a date
+- `FI_PERIOD_CHECK` - check if the period is opened or closed
+- `CONVERT_TO_LOCAL_CURRENCY` - Translate foreign currency amount to local currency
+- `GET_CLEARED_ITEMS` - Get cleared items
+- `BAPI_GL_GETGLACCBALANCE` - Closing balance of G/L account for chosen year.
+- `BAPI_GL_GETGLACCCURRENTBALANCE` - Closing balance of G/L account for current year
+- `BAPI_GL_GETGLACCPERIODBALANCES` - Posting period balances for each G/L account
 
 ### Company code
 
@@ -249,6 +282,9 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - `TTYP` + `TTYPT` - Object type (AWTYP)
 - `FINSTS_SLALITTY` + `FINSTS_SLALITTYT` - Subledger-Specific Line Item Types (SLALITTYPE)
 - - `T008` + `T008T` - Blocking Reasons (for AP) 
+- Tcode `OB41` - Maintain Accounting Configuration : Posting Keys  
+- Tcode `OBC4` - Maintain Field Status Group. The group can be assigned to account.
+- FM `FI_FIELD_SELECTION_DETERMINE` - get field status
 
 #### HANA reports (fagll03h, fblXh etc):
 - to show archived data - implement BAdI **FAGL_LIB**, as an example you may use a  **FAGL_LIB_ARCHIVE_VIA_INDEX**. 
@@ -270,9 +306,9 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Tcode `ORFA` - IMG for FI-AA
 - Tcode `AO90` - Accounts determination
 - Tcode `FAA_CMP`, `FAA_CMP_LDT` - FI-AA Legacy Data Transfer Settings
-- Tcode `FAA_CLOSE_FISC_YEARS`
+- Tcode `FAA_CLOSE_FISC_YEARS` - Close Fiscal Years in FI-AA
 - Tcode `ABLDT_OI` - Migration. to post the open items for an AuC with line item processing
-- Program `RAFAB_COPY_AREA` and BAdI `FAA_AA_COPY_AREA` - copying DeprAreas 
+- Program `RAFAB_COPY_AREA` and BAdI `FAA_AA_COPY_AREA` - copying Depreciation Areas 
 
 - `ANKA` + `ANKT` - Asset classes
 - `T096` + `T096T` - Chart of depreciation
@@ -286,7 +322,8 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - `ANLK` - Asset Origin by Cost Element
 - `FAAT_DOC_IT` - Statistical Line Item in Asset Accounting
 - `FAAT_PLAN_VALUES` - Planned Depreciations and Revaluations
-- TABA - Depreciation posting documents
+- `TABA` - Depreciation posting documents
+- `T499S` - FA Locations (via  `SPRO->Enterprise Structure->Definition->Logistics - General->Define Location`)
 
 > Actual values from tables `ANEP`, `ANEA`, `ANLP`, `ANLC` are saved in table `ACDOCA` in new Asset Accounting.
 > The values from table `ANEK` are saved in tables `BKPF` and `ACDOCA` in new Asset Accounting.
@@ -295,20 +332,22 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 > Planned values from tables `ANLP` and `ANLC` are saved in table `FAAT_PLAN_VALUES` in new Asset Accounting.
 
-> As of release SAP S/4HANA 1809, the `BSEG` table will **no longer be updated** with the depreciation run.
+> As of release **SAP S/4HANA 1809**, the `BSEG` table will **no longer be updated** with the depreciation run.
 
 
-### FI-AA BAdIs:
+### FI-AA BAdIs and user-exits:
 
-- `FAA_DC_CUSTOMER`
-- `FAA_EE_CUSTOMER`
-- `BADI_FIAA_DOCLINES` (obs)
-- `FAA_DOCLINES_CUSTOMER`
-- `FAA_AA_COPY_AREA`
+- `FAA_DC_CUSTOMER` - Customer-Specific SAP Standard Enhancements
+- `FAA_EE_CUSTOMER` - BAdI for Customer-Specific Enhancements
+- `BADI_FIAA_DOCLINES` (obsolete) - Change of Line Items in Asset Document
+- `FAA_DOCLINES_CUSTOMER` - Customer-specific change of Line Items in Asset Document
+- `FAA_AA_COPY_AREA` - Subsequent Implementation of a Depreciation Area
+- User exit `AISA0001`  - Assign Inventory Number
+- User exit `AIST0002`  - Customer fields in asset master
 
 ### FI-AA BAPIs:
 
-- `BAPI_FIXEDASSET_OVRTAKE_CREATE` - Legasy data transfer
+- `BAPI_FIXEDASSET_OVRTAKE_CREATE` - Legacy data transfer
 - `BAPI_ASSET_ACQUISITION_CHECK` - Asset Acquisition 
 - `BAPI_ASSET_ACQUISITION_POST` - AssetAcquisition 
 - `BAPI_ASSET_RETIREMENT_CHECK` - AssetRetirement
@@ -347,17 +386,17 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 
 ## TM
 
-Номер ФЗ
-1. Находим ключ заказа  
+How to find TM flow based on delivery number
+1. Find order key 
 Select PARENT_KEY  
 From /SCMTMS/D_TORDRF  
-Where BTD_ID = Номер поставки  
-2. Находим номер заказа  
+Where BTD_ID = <Delivery#>
+2. Fiend order number  
 Select TOR_ID  
 From /SCMTMS/D_TORROT  
-Where DB_KEY = PARENT_KEY (из пред. Шага) and LIFECYCLE <> ‘10’ (Canceled) and TOR_CAT = “TO” or “BO”
+Where DB_KEY = PARENT_KEY (from p.1) and LIFECYCLE <> ‘10’ (Canceled) and TOR_CAT = “TO” or “BO”
 
-Номер ДРФ
+FSD document:
 1. Зная ключ заказа найти номер ДРФ  
 Перейти по ассоциации  /SCMTMS/TOR> BO_SFIR_ROOT _(__Работаем_ _с_ _БО_ _/SCMTMS/SUPPFREIGHTINVREQ)_
 2. Удалить из внутренней таблицы записи где /SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’ (Canceled)  
