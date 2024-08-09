@@ -309,7 +309,6 @@ To add own form, you need to specify form name as:
 - Tcode `FAA_CLOSE_FISC_YEARS` - Close Fiscal Years in FI-AA
 - Tcode `ABLDT_OI` - Migration. to post the open items for an AuC with line item processing
 - Program `RAFAB_COPY_AREA` and BAdI `FAA_AA_COPY_AREA` - copying Depreciation Areas 
-
 - `ANKA` + `ANKT` - Asset classes
 - `T096` + `T096T` - Chart of depreciation
 - `T093` + `T093T` - Depreciation areas
