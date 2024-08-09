@@ -326,12 +326,12 @@ To add own form, you need to specify form name as:
 
 > 💡 Actual values from tables `ANEP`, `ANEA`, `ANLP`, `ANLC` are saved in table `ACDOCA` in new Asset Accounting. 
 > 
-The values from table `ANEK` are saved in tables `BKPF` and `ACDOCA` in new Asset Accounting.
-Statistical values from tables `ANEP`, `ANEA`, `ANLP` and `ANLC`, are saved in new Asset Accounting in table `FAAT_DOC_IT`.
+> The values from table `ANEK` are saved in tables `BKPF` and `ACDOCA` in new Asset Accounting.
+> Statistical values from tables `ANEP`, `ANEA`, `ANLP` and `ANLC`, are saved in new Asset Accounting in table `FAAT_DOC_IT`.
 > 
-Planned values from tables `ANLP` and `ANLC` are saved in table `FAAT_PLAN_VALUES` in new Asset Accounting.
+> Planned values from tables `ANLP` and `ANLC` are saved in table `FAAT_PLAN_VALUES` in new Asset Accounting.
 > 
-As of release **SAP S/4HANA 1809**, the `BSEG` table will **no longer be updated** with the depreciation run.
+> As of release **SAP S/4HANA 1809**, the `BSEG` table will **no longer be updated** with the depreciation run.
 
 
 ### FI-AA BAdIs and user-exits:
