@@ -63,6 +63,10 @@
 | Class | `XCO_CP_GENERATION` | Generate repositary objects |
 | BAPI | `BAPI_TRANSACTION_ROLLBACK` | Rollback |
 | BAPI | `BAPI_TRANSACTION_COMMIT` | Commit |
+| Class | `cl_gui_frontend_services=>file_open_dialog` | File open dialog | 
+| Class | `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` | Upload file | 
+| FM | `ALSM_EXCEL_TO_INTERNAL_TABLE` | Upload MS Excel file | 
+| FM | `C14ALD_BAPIRET2_SHOW` | Show BAPI return messages | 
 
 
 ### BuiltIn Functions
@@ -254,6 +258,12 @@ To add own form, you need to specify form name as:
 - `KNA1` + `KNB1` - Customer Master
 - `KNBK` - Customer bank data
 - `T880` - Global Company Data (link to `LFA1-VBUND`, `KNA1-VBUND` and `BP001-VBUND`)
+- BAPI_BUPA_FS_CREATE_FROM_DATA2
+- BAPI_BUPA_TAX_ADD
+- BAPI_BUPA_ROLE_ADD_2
+- BAPI_BUPA_BANKDETAIL_ADD
+- VMD_EI_API=>MAINTAIN_BAPI
+- cmd_ei_api=>maintain_bapi
 
 ### FI-BL, Banks, Own banks + own bank accounts
 
@@ -344,6 +354,13 @@ To add own form, you need to specify form name as:
 - User exit `AISA0001`  - Assign Inventory Number
 - User exit `AIST0002`  - Customer fields in asset master
 
+| Report | Structure | Customizing Include |
+|---|---|---|
+| Asset Balances | `FIAA_SALVTAB_RABEST` | `CI_REPRABEST` | 
+| Asset History Sheet | `FIAA_SALVTAB_RAGITT` | `CI_REPRAGIT` | 
+| Asset Transaction List | `FIAA_SALVTAB_RABEWG` | `CI_REPRABEWG` | 
+| Planned Depreciation List | `FIAA_SALVTAB_RAHAFA` | `CI_REPRAHAFA` | 
+
 ### FI-AA BAPIs:
 
 - `BAPI_FIXEDASSET_OVRTAKE_CREATE` - Legacy data transfer
@@ -378,6 +395,12 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 - `TCKH4` + `TCKH5` - Cost componentsstructure
 - `TCKH3` + `TCKH1` - Cost Components
 - `TCKH2` - Assigment of Cost Components to GL account
+
+## PS
+
+BAPI_PS_INITIALIZATION
+BAPI_BUS2054_CREATE_MULTI
+
 
 ## MM
 
