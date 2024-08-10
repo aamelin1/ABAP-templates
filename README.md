@@ -8,12 +8,12 @@ Also, some ABAP source code files ("**.abap**") are available at folder [90_Sour
 
 ## 🧭 Navigation
 
-- [ABAP templates](https://github.com/aamelin1/ABAP-templates/tree/main/01_ABAP_templates/ABAP_Index.md)
-- [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10_How-Tos) - Short SAP technical articles
-- [ABAP report and tools](https://github.com/aamelin1/ABAP-templates/tree/main/10_How-Tos) - Custom (Z*) ABAP programs (with descriptions)
-- [SAP-Blog posts](https://github.com/aamelin1/ABAP-templates/tree/main/70_SAP_Blog_posts) - Archive of my SAP Blog posts
-- [Others (tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80_Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md) - Other SAP infos
-- [Source code ABAP programs](https://github.com/aamelin1/ABAP-templates/tree/main/90_Source_code_ABAP_prog) - Some other custom ABAP source code
+- [ABAP templates](https://github.com/aamelin1/ABAP-templates/blob/main/01%20ABAP%20templates/ABAP_Index.md)
+- [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10%20How-Tos) - Short SAP technical articles
+- [ABAP report and tools](https://github.com/aamelin1/ABAP-templates/tree/main/60%20ABAP%20reports%20and%20tools) - Custom (Z*) ABAP programs (with descriptions)
+- [SAP-Blog posts](https://github.com/aamelin1/ABAP-templates/tree/main/70%20SAPBlog%20posts) - Archive of my SAP Blog posts
+- [Others (tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md) - Other SAP infos
+- [Source code ABAP programs](https://github.com/aamelin1/ABAP-templates/tree/main/90%20Source%20code%20ABAP%20prog) - Some other custom ABAP source code
 
 ## ℹ️ Helpful links
 
