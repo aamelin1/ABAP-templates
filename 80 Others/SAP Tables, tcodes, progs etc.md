@@ -177,13 +177,13 @@ To add own form, you need to specify form name as:
   
 
 
-> 💡 More details here [FI Substitutions&Validations](../10_How-Tos/FI%20Substitutions&Validations.md)
+> 💡 More details here [FI Substitutions&Validations](../10%20How-Tos/FI%20Substitutions&Validations.md)
 
 #### Open FI (BTE)
 
 - Tcode `FIBF` - Maintenance transaction BTE
 
-> 💡 More details here [FI FIBF OpenFI](../10_How-Tos/FI%20FIBF%20OpenFI.md)
+> 💡 More details here [FI FIBF OpenFI](../10%20How-Tos/FI%20FIBF%20OpenFI.md)
 
 #### BAdIs, User-Exits, Enhancements
 
