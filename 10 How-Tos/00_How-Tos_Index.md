@@ -15,7 +15,7 @@
 
 ### MM
 
-- [MM Material and Batch classification](MM%20Material%20and%20Batch%20classification.md) (to do)
+- [MM Material and Batch classification](MM%20Material%20and%20Batch%20classification.md)
 
 ### CO and ML
 
