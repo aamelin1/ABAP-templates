@@ -67,7 +67,8 @@
 | Class | `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` | Upload file | 
 | FM | `ALSM_EXCEL_TO_INTERNAL_TABLE` | Upload MS Excel file | 
 | FM | `C14ALD_BAPIRET2_SHOW` | Show BAPI return messages | 
-
+| FM | `F4_CONV_SELOPT_TO_WHERECLAUSE` | Convert WHERE conditions |
+| FM | `RFC_READ_TABLE DESTINATION <dest>`  | Read data from other system|
 
 ### BuiltIn Functions
 
@@ -258,12 +259,14 @@ To add own form, you need to specify form name as:
 - `KNA1` + `KNB1` - Customer Master
 - `KNBK` - Customer bank data
 - `T880` - Global Company Data (link to `LFA1-VBUND`, `KNA1-VBUND` and `BP001-VBUND`)
-- BAPI_BUPA_FS_CREATE_FROM_DATA2
-- BAPI_BUPA_TAX_ADD
-- BAPI_BUPA_ROLE_ADD_2
-- BAPI_BUPA_BANKDETAIL_ADD
-- VMD_EI_API=>MAINTAIN_BAPI
-- cmd_ei_api=>maintain_bapi
+- `BAPI_BUPA_FS_CREATE_FROM_DATA2` - 
+- `BAPI_BUPA_TAX_ADD` - 
+- `BAPI_BUPA_ROLE_ADD_2` -
+- `BAPI_BUPA_ROLE_REMOVE` - Delete BP role
+- `BAPI_BUPA_BANKDETAIL_ADD`
+- `VMD_EI_API=>MAINTAIN_BAPI`
+- `cmd_ei_api=>maintain_bapi`
+
 
 ### FI-BL, Banks, Own banks + own bank accounts
 
@@ -273,6 +276,65 @@ To add own form, you need to specify form name as:
 - `T012` + `T012T` - Own Banks (**FI12**)
 - `T012K`, `V_T012K_BAM`, `FCLM_BAM_DISTINCT_HBA` - Own Bank Accounts
 - Program `RFEBKA96` to detele bank statments
+
+### FM and splitting
+
+- `fagl_splinfo`
+- `fagl_splinfo_val`
+
+Repair tables `fagl_splinfo` and `fagl_splinfo_val`:
+``` abap
+*** activate trace mode
+    CALL FUNCTION 'G_TRACE_START'
+      EXCEPTIONS
+        trace_already_on = 1
+        OTHERS           = 2.
+    IF sy-subrc EQ 2.
+      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+               WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    ENDIF.
+*    CALL METHOD cl_fins_sif_services=>subseq_post_init.
+    CALL METHOD cl_fins_sif_services=>subseq_post_set. " to avoid ML (and AA) relevat dump at repost process
+*** submit FAGL_SUBSEQ_POSTING in trace mode
+    CALL FUNCTION 'FAGL_SUBSEQ_POSTING'
+      EXPORTING
+        it_compcode_range   = r_bukrs[]
+        it_fiscyear_range   = r_gjahr[]
+        it_docnr_range      = r_belnr[]
+        it_target_ledger    = lt_rldnr[]
+        ib_process_splitter = abap_true
+        ib_check_records    = abap_false
+*** simulation!!
+        ib_test             = abap_true
+      EXCEPTIONS
+        error_message       = 1
+        OTHERS              = 2.
+*** import GLU1 contents from memory
+    IMPORT t_glu1 FROM MEMORY ID 'T_GLU1'.
+*** import FAGL_SPLINFO/-_VAL data from memory
+    CALL METHOD cl_fagl_oi_read=>get_splinfo_data_ext
+      IMPORTING
+        gt_out_splinfo     = t_splinfo
+        gt_out_splinfo_val = t_val.
+    READ TABLE t_splinfo ASSIGNING FIELD-SYMBOL(<check>) INDEX 1.
+    IF <check> IS ASSIGNED.
+      CHECK <check>-belnr = <bkpf>-belnr.
+      UNASSIGN <check>.
+    ENDIF.
+    APPEND LINES OF t_splinfo TO lt_splinfo_sim.
+    APPEND LINES OF t_val TO lt_val_sim.
+*** free buffer
+    CALL FUNCTION 'G_TRACE_STOP'
+      EXCEPTIONS
+        is_already_off = 1
+        OTHERS         = 2.
+    IF sy-subrc EQ 2.
+      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    ENDIF.
+```
+
+
 
 ### ACE and POAC objects
 
@@ -372,6 +434,7 @@ To add own form, you need to specify form name as:
 - `BAPI_ASSET_POSTCAP_POST` - Asset Post-Capitalization
 - `BAPI_ASSET_REVERSAL_CHECK` - Asset Document Reversal 
 - `BAPI_ASSET_REVERSAL_POST` - Asset Document Reversal 
+- `BAPI_FIXEDASSET_CHANGE` - Change fixed asset
 
 For segment reporting, the business function FI-AA, Segment Reports on Fixed Assets (`FIN_AA_SEGMENT_REPORTING`) is available
 
@@ -403,6 +466,11 @@ BAPI_BUS2054_CREATE_MULTI
 
 
 ## MM
+
+BAPI_PO_CHANGE
+BAPI_PR_CHANGE
+
+ME_PROCESS_PO_CUST
 
 ## SD
 
