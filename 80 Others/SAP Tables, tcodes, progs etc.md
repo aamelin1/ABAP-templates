@@ -461,16 +461,36 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 
 ## PS
 
-BAPI_PS_INITIALIZATION
-BAPI_BUS2054_CREATE_MULTI
+### BAPIs
+
+- `BAPI_PS_INITIALIZATION`
+- `BAPI_BUS2054_CREATE_MULTI`
 
 
 ## MM
 
-BAPI_PO_CHANGE
-BAPI_PR_CHANGE
+- `T001W` - Plants/Branches
+-  `T001K` - Valuation area
+- `T001L` - Storage Locations
+- `MARA` + `MAKT` - General Material Data
+- `ASMD` + `ASMDT` - Service Master Data
+- `T148` + `T148T` - Special Stock Indicator
+- `T156HT` - Main Text for Movement Type
+- `T157E` - Text Table: Reason for Movement
+- `MCH1` - Batches (if Batch Management Cross-Plant)
+- Material and Batch characteristics  [MM Material and Batch classification](../10%20How-Tos/MM%20Material%20and%20Batch%20classification.md) Tables `inob`, `ausp`, `cabn`, `cawn`, `cawnt`
+- `T16FS` + `T16FT` - Release Strategies
+- `T16FD` - Description of Release Codes
 
-ME_PROCESS_PO_CUST
+
+### BAPIs
+
+- `BAPI_PO_CHANGE` - BAPI  Purchase Order
+- `BAPI_PR_CHANGE` - Purchase Requisition BAPI
+
+### Enhancements, BADIs, User-Exits
+
+- `ME_PROCESS_PO_CUST` - Enhancements for Purchase Order Processing
 
 ## SD
 
@@ -491,5 +511,4 @@ FSD document:
 Перейти по ассоциации  /SCMTMS/TOR> BO_SFIR_ROOT _(__Работаем_ _с_ _БО_ _/SCMTMS/SUPPFREIGHTINVREQ)_
 2. Удалить из внутренней таблицы записи где /SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’ (Canceled)  
 3. Взять значение оставшихся /SCMTMS/SUPPFREIGHTINVREQ> ROOT – SFIR_ID
-
 
