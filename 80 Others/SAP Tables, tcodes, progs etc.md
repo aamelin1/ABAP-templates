@@ -28,6 +28,7 @@
 | `TRWCA` | RWIN components |
 | `TRESE` | Reserved names |
 | `T100` + `T100C` + `T100S` | Message control |
+| `CDHDR` + `CDPOS` | Change documents |
 
 ### Tcodes:
 
@@ -52,6 +53,7 @@
 | `SCU3`| Table History |
 | `DWDM`| Development Workbench Demos |
 | `OBA5` | Message controls
+| `RSSCD100` | Change documents |
 
 ### FMs, Classes, BAdI, BAPI:
 
@@ -69,6 +71,7 @@
 | FM | `C14ALD_BAPIRET2_SHOW` | Show BAPI return messages | 
 | FM | `F4_CONV_SELOPT_TO_WHERECLAUSE` | Convert WHERE conditions |
 | FM | `RFC_READ_TABLE DESTINATION <dest>`  | Read data from other system|
+| FM | `CHANGEDOCUMENT_DISPLAY` | Show change documents |
 
 ### BuiltIn Functions
 
