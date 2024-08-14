@@ -12,68 +12,72 @@
 
 ## General (ABAP, Basis, tech etc)
 
-### SAP Tables:
+### Users and Roles
 
-| Table name | Comment |
-| --- | --- |
-| `AGR_USERS` | User-Roles assigments |
-| `SMEN_BUFFC` | User favorites |
-| `TPARA` | Memory ID |
-| `USR05` | Memory ID values by users |
-| `DBTABLOG` | table change logs |
-| `SE16N_CD_KEY` | Logs of sap_edit (+ program RKSE16N_CD_DISPLAY) |
-| `E070`,`E071`,`E07T` | TRs |
-| `TADIR` | Repository |
-| `TRWPR` | RWIN processes (list of FMs) |
-| `TRWCA` | RWIN components |
-| `TRESE` | Reserved names |
-| `T100` + `T100C` + `T100S` | Message control |
-| `CDHDR` + `CDPOS` | Change documents |
+- `USR01` - User master record
+- `AGR_USERS` - User-Roles assigments
+- `AGR_TEXTS` - Role texts
+- `SMEN_BUFFC` - User favorites 
+- `USR05` - Memory ID values by users 
+- BAPI `BAPI_USER_GET_DETAIL` - Get user details
+- [Custom report: Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
 
-### Tcodes:
+### Logs
 
-| Tcode | Comment |
-| --- | --- |
-| `ST05` | Performance Trace | 
-| `SM12` | Display and Delete Locks |
-| `SXI_MONITOR` | XI: Message Monitoring |
-| `SLGx` | Application Log |
-| `AL11` | Display SAP Directories |
-| `SM36` + `SM37` | BackGround Jobs |
-| `SM50` | Work Processes |
-| `SM51` | Started AS Instances |
-| `SAT`| ABAP Trace |
-| `STAD` | Statistics display |
-| `DBACOCKPIT` or `DB02` | DBA Cockpit |
-| `SNUM` or `SNRO` | Number Range Object |
-| `SM59`| RFC Destinations |
-| `WE20`| Partner Profiles |
-| `OB72`| Global Company codes |
-| `ICON`| Display Icons |
-| `SCU3`| Table History |
-| `DWDM`| Development Workbench Demos |
-| `OBA5` | Message controls
-| `RSSCD100` | Change documents |
+- `DBTABLOG` - table change logs
+- Tcode `SCU3`- Table History display
+- `SE16N_CD_KEY` -  Logs of `&sap_edit`
+-  program `RKSE16N_CD_DISPLAY` - Logs of `&sap_edit`
+- Tcode `SLGx` - Application Log 
+-  Class `CL_BALI_LOG` - Working with SLGx Logs
+- `CDHDR` + `CDPOS`  Change documents
+- Tcode  `RSSCD100` - Change documents display
+-  FM `CHANGEDOCUMENT_DISPLAY` - Show change documents
+-  FM  `C14ALD_BAPIRET2_SHOW` - Show BAPI return messages 
 
-### FMs, Classes, BAdI, BAPI:
+### Monitors, Trace etc
 
-| Type | Object | Comment |
-| --- | --- | --- |
-| Class | `CL_EXITHANDLER` | Method `GET_INSTANCE`. Put breakpoint here and run tcode to get BAdIs names |
-| Class | `xco_cp=>current->call_stack->full( )` | Get current callstack |
-| Class | `CL_BALI_LOG` | Logs |
-| Class | `XCO_CP_GENERATION` | Generate repositary objects |
-| BAPI | `BAPI_TRANSACTION_ROLLBACK` | Rollback |
-| BAPI | `BAPI_TRANSACTION_COMMIT` | Commit |
-| Class | `cl_gui_frontend_services=>file_open_dialog` | File open dialog | 
-| Class | `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` | Upload file | 
-| FM | `ALSM_EXCEL_TO_INTERNAL_TABLE` | Upload MS Excel file | 
-| FM | `C14ALD_BAPIRET2_SHOW` | Show BAPI return messages | 
-| FM | `F4_CONV_SELOPT_TO_WHERECLAUSE` | Convert WHERE conditions |
-| FM | `RFC_READ_TABLE DESTINATION <dest>`  | Read data from other system|
-| FM | `CHANGEDOCUMENT_DISPLAY` | Show change documents |
+- Tcode `SXI_MONITOR` - XI: Message Monitoring 
+- Tcode `ST05` -  Performance Trace
+- Tcode `SM36` + `SM37` - BackGround Jobs
+- Tcode `SM50` - Work Processes
+- Tcode `SM51` - Started AS Instances
+- Tcode `STAD` - Statistics display
+- Tcode `DBACOCKPIT` or `DB02` - DBA Cockpit
+- Tcode `SM59` - RFC Destinations
+- Tcode `SM12` - Display and Delete Locks
+- Tcode `AL11` - Display SAP Directories
+- Tcode `WE20` - Partner Profiles
 
-### BuiltIn Functions
+### ABAP Dev tools
+
+- `TPARA` - Memory ID 
+- `E070`,`E071`,`E07T` - TRs 
+- `TADIR` - Repository
+- `TRESE` - Reserved names
+- Tcode `SAT` - ABAP Trace
+- Tcode `ICON` - Display Icons
+- Tcode `DWDM` - Development Workbench Demos
+- Tcode `SNUM` or `SNRO` - Number Range Object
+- Class `cl_gui_frontend_services=>file_open_dialog` - File open dialog
+- Class `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` - Upload file
+- FM `ALSM_EXCEL_TO_INTERNAL_TABLE` - Upload MS Excel file
+- FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
+- FM `RFC_READ_TABLE DESTINATION <dest>` - Read data from other system
+- Class `XCO_CP_GENERATION` - Generate repositary objects
+- Class `xco_cp=>current->call_stack->full( )` - Get current callstack
+
+> 💡 Extracting the call stack based on specifications. You can specify the extractions using from/to and further detailing out the kinds of extractions such as the position or the first/last occurrence of a specific line pattern.
+> In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
+
+``` abap
+DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
+  )->where_class_name_starts_with( 'CL_REST' ).
+DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
+  )->to->last_occurrence_of( line_pattern )->as_text( format ).
+```  
+
+### BuiltIn ABAP inline functions
 
 **itab lines count:**
 
@@ -133,18 +137,13 @@ DATA(sign1) = sign( -789 ). "-1
 DATA(round1) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
 ```
 
+### Others
 
-**Check callstack:**
-
-Extracting the call stack based on specifications. You can specify the extractions using from/to and further detailing out the kinds of extractions such as the position or the first/last occurrence of a specific line pattern.
-In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
-
-``` abap
-DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
-  )->where_class_name_starts_with( 'CL_REST' ).
-DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
-  )->to->last_occurrence_of( line_pattern )->as_text( format ).
-```  
+- `T100` + `T100C` + `T100S` - Message control
+- Tcode `OBA5` - Message controls
+- Class `CL_EXITHANDLER`  method `GET_INSTANCE` - Put breakpoint here and run tcode to get BAdIs names. See [ABAP Find BAdIs](../10%20How-Tos/ABAP%20Find%20BAdIs.md)
+- BAPI `BAPI_TRANSACTION_ROLLBACK` - Rollback
+- BAPI `BAPI_TRANSACTION_COMMIT` - Commit
 
 ---
 
@@ -196,6 +195,9 @@ To add own form, you need to specify form name as:
 - `I_TRANS_DATE_DERIVE` - Change currency conversion
 - `FAGL_LIB` - FI Line Item Browsers enhancements
 - `BADI_GVTR_DERIVE_FIELDS` - BCF (FAGLGVTR)
+- `TRWPR` - RWIN processes (list of FMs)
+- `TRWCA` - RWIN components
+- [FI RWIN interface](../10%20How-Tos/FI%20RWIN%20interface.md)
 
 ### FI BAPIs and FMs
 
@@ -510,8 +512,8 @@ From /SCMTMS/D_TORROT
 Where DB_KEY = PARENT_KEY (from p.1) and LIFECYCLE <> ‘10’ (Canceled) and TOR_CAT = “TO” or “BO”
 
 FSD document:
-1. Зная ключ заказа найти номер ДРФ  
-Перейти по ассоциации  /SCMTMS/TOR> BO_SFIR_ROOT _(__Работаем_ _с_ _БО_ _/SCMTMS/SUPPFREIGHTINVREQ)_
-2. Удалить из внутренней таблицы записи где /SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’ (Canceled)  
-3. Взять значение оставшихся /SCMTMS/SUPPFREIGHTINVREQ> ROOT – SFIR_ID
+1. From order to FSD
+ /SCMTMS/TOR>BO_SFIR_ROOT ( BO /SCMTMS/SUPPFREIGHTINVREQ)
+2. Delete lines /SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’ (Canceled)  
+3. /SCMTMS/SUPPFREIGHTINVREQ> ROOT – SFIR_ID
 
