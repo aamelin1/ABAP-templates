@@ -252,6 +252,7 @@ To add own form, you need to specify form name as:
 - `SKA1` + `SKAT` +`SKB1` - G/L Account Master
 - `T011` + `T011T` - FSV (**OB58**)
 - `FAGL_011ZC` - FSV: GL account assigment (**OB58**)
+- Tcode `FAGLACC_CHECK` - Check Inconsistency for G/L Account
 
 ### Business partners (Vendors + Customers)
 
@@ -284,62 +285,16 @@ To add own form, you need to specify form name as:
 
 ### FM and splitting
 
-- `fagl_splinfo`
-- `fagl_splinfo_val`
-
-Repair tables `fagl_splinfo` and `fagl_splinfo_val`:
-``` abap
-*** activate trace mode
-    CALL FUNCTION 'G_TRACE_START'
-      EXCEPTIONS
-        trace_already_on = 1
-        OTHERS           = 2.
-    IF sy-subrc EQ 2.
-      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-               WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    ENDIF.
-*    CALL METHOD cl_fins_sif_services=>subseq_post_init.
-    CALL METHOD cl_fins_sif_services=>subseq_post_set. " to avoid ML (and AA) relevat dump at repost process
-*** submit FAGL_SUBSEQ_POSTING in trace mode
-    CALL FUNCTION 'FAGL_SUBSEQ_POSTING'
-      EXPORTING
-        it_compcode_range   = r_bukrs[]
-        it_fiscyear_range   = r_gjahr[]
-        it_docnr_range      = r_belnr[]
-        it_target_ledger    = lt_rldnr[]
-        ib_process_splitter = abap_true
-        ib_check_records    = abap_false
-*** simulation!!
-        ib_test             = abap_true
-      EXCEPTIONS
-        error_message       = 1
-        OTHERS              = 2.
-*** import GLU1 contents from memory
-    IMPORT t_glu1 FROM MEMORY ID 'T_GLU1'.
-*** import FAGL_SPLINFO/-_VAL data from memory
-    CALL METHOD cl_fagl_oi_read=>get_splinfo_data_ext
-      IMPORTING
-        gt_out_splinfo     = t_splinfo
-        gt_out_splinfo_val = t_val.
-    READ TABLE t_splinfo ASSIGNING FIELD-SYMBOL(<check>) INDEX 1.
-    IF <check> IS ASSIGNED.
-      CHECK <check>-belnr = <bkpf>-belnr.
-      UNASSIGN <check>.
-    ENDIF.
-    APPEND LINES OF t_splinfo TO lt_splinfo_sim.
-    APPEND LINES OF t_val TO lt_val_sim.
-*** free buffer
-    CALL FUNCTION 'G_TRACE_STOP'
-      EXCEPTIONS
-        is_already_off = 1
-        OTHERS         = 2.
-    IF sy-subrc EQ 2.
-      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    ENDIF.
-```
-
-
+- `fagl_splinfo` - Splittling Information of Open Items
+- `fagl_splinfo_val` - Splitting Information of Open Item Values (curr)
+- `FM01` + `FM01T` - Financial Management Areas
+- `FMCI` + `FMCIT` - Commitment items master data
+- `FMFXPO` - Commitment item, internal and external number (conversion)
+- `FMFCTR` + `FMFCTRT` - Funds Center Master Record
+- Tcode `FMDERIVE` + `FMDERIVER` - FM derivation
+- `T8G17` - Splitting GL account types
+- Tcode `FAGL_CHECK_ACCOUNT` - Check GL account split settings
+- [FM repair fagl_splinfo](../10%20How-Tos/FM%20repair%20fagl_splinfo.md) - How to repair tables `fagl_splinfo` and `fagl_splinfo_val` (like simulate splitting for posted docs) 
 
 ### ACE and POAC objects
 
@@ -349,7 +304,6 @@ Repair tables `fagl_splinfo` and `fagl_splinfo_val`:
 - `BSEG` - Accounting Document Segment (Entry View)
 - `BSEG_ADD` - Entry View of Accounting Document for Additional Ledgers
 - `ACDOCA` - Universal Journal Entry Line Items
-
 
 ### Others
 
@@ -363,20 +317,18 @@ Repair tables `fagl_splinfo` and `fagl_splinfo_val`:
 - Tcode `OBC4` - Maintain Field Status Group. The group can be assigned to account.
 - FM `FI_FIELD_SELECTION_DETERMINE` - get field status
 
+#### Brazil localization:
+
+- `J_1BNFDOC` - Nota Fiscal Header
+
 #### HANA reports (fagll03h, fblXh etc):
-- to show archived data - implement BAdI **FAGL_LIB**, as an example you may use a  **FAGL_LIB_ARCHIVE_VIA_INDEX**. 
-- **HDBVIEWS** - tcode to add/customise FI reports
-- **HDBC** - 
+- to show archived data - implement BAdI `FAGL_LIB`, as an example you may use a  `FAGL_LIB_ARCHIVE_VIA_INDEX`. 
+- `HDBVIEWS` - tcode to add/customise FI reports
+- `HDBC` - ERP Accelerators: Settings
 - [SAP Blog. How to extend FAGLL03h](https://blogs.sap.com/2020/12/20/how-to-extend-transaction-fagll03h-with-custom-fields/)
-
-#### Some helpful FI OSS Notes:
-
-- 2180685 – “FI Line Item Browsers and Archived Data”.
-- 2408083 – “FAQ: Data Model of S/4 HANA Finance Data”.
-- 2321684 - FI Line Item Browsers: Add master data fields to generated views
-
-#### Other FI links
-
+- OSS `2180685` - "FI Line Item Browsers and Archived Data"
+- OSS `2408083` - "FAQ: Data Model of S/4 HANA Finance Data"
+- OSS `2321684` - "FI Line Item Browsers: Add master data fields to generated views"
 
 ## FI-AA
 
@@ -466,11 +418,7 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 
 ## PS
 
-### BAPIs
-
-- `BAPI_PS_INITIALIZATION`
-- `BAPI_BUS2054_CREATE_MULTI`
-
+- `BAPI_PS_INITIALIZATION` + `BAPI_BUS2054_CREATE_MULTI`- Create WBS
 
 ## MM
 
@@ -499,21 +447,46 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 
 ## SD
 
+- `VBAK` - Sales Document: Header Data
+- `VBAP` - Sales Document: Item Data
+- `VBKD` - Sales Document: Business Data
+- `VBFA` - Sales Document Flow
+- `VBFA` - Sales Document: Partner
+- `VBRK` - Billing Document: Header Data
+- `VBRP` - Billing Document: Item Data
+- `LIKP` - SD Document: Delivery Header Data
+- `LIPS` - SD document: Delivery: Item data
+- `PRCD_ELEMENTS` - Pricing Elements
+- `TVAK` + `TVAKT` - Sales Document Types
+- `TVKO` + `TVKOT` - Organizational Unit: Sales Organizations
+- `TVTW` + `TVTWT` - Organizational Unit: Distribution Channels
+- `TSPA` + `TSPAT` - Organizational Unit: Sales Divisions
+- `TVGRT` - Organizational Unit: Sales Groups: Texts
+- `TVKBT` - Organizational Unit: Sales Offices: Texts
+- `TINC` + `TINCT` - Incoterms
+- `TVLK` + `TVLKT` - Delivery Types
+- `TVAP` + `TVAPT` - Sales Document: Item Categories
+- FM `VC_I_GET_CONFIGURATION` - Read configuration (by `CUOBJ`)
+
 ## TM
+
+- `WBRK` - Settlement Management Document Header
+- `WBRP` - Settlement Management Document Item
+- `/scmtms/d_torrot` - TM doc link to delivery
 
 How to find TM flow based on delivery number
 1. Find order key 
 Select PARENT_KEY  
-From /SCMTMS/D_TORDRF  
+From `/SCMTMS/D_TORDRF`  
 Where BTD_ID = <Delivery#>
 2. Fiend order number  
 Select TOR_ID  
-From /SCMTMS/D_TORROT  
+From `/SCMTMS/D_TORROT`  
 Where DB_KEY = PARENT_KEY (from p.1) and LIFECYCLE <> ‘10’ (Canceled) and TOR_CAT = “TO” or “BO”
 
 FSD document:
 1. From order to FSD
- /SCMTMS/TOR>BO_SFIR_ROOT ( BO /SCMTMS/SUPPFREIGHTINVREQ)
-2. Delete lines /SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’ (Canceled)  
-3. /SCMTMS/SUPPFREIGHTINVREQ> ROOT – SFIR_ID
+ `/SCMTMS/TOR>BO_SFIR_ROOT` ( BO `/SCMTMS/SUPPFREIGHTINVREQ`)
+2. Delete lines `/SCMTMS/SUPPFREIGHTINVREQ> Root -Lifecycle = ‘06’` (Canceled)  
+3. `/SCMTMS/SUPPFREIGHTINVREQ> ROOT – SFIR_ID`
 

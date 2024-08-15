@@ -12,6 +12,7 @@
 - [FI Substitutions&Validations](FI%20Substitutions&Validations.md) (to do)
 - [FI_FAGL_FCV add BP](FI_FAGL_FCV%20add%20BP.md) (to do)
 - [FI-AA Revaluation Areas](FI-AA%20Revaluation%20Areas.md) (to do)
+- [FM repair fagl_splinfo](FM%20repair%20fagl_splinfo.md)
 
 ### MM
 
