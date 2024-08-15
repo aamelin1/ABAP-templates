@@ -298,6 +298,12 @@ To add own form, you need to specify form name as:
 
 ### ACE and POAC objects
 
+- Tcode `POACTREE03` - Edit Accrual Objects
+- Tcode `POAC_MM2ACE_TRANSFER` - Transfer MM Purchase Order to ACE
+- Tcode `ACEPOSTINGRUN` - Periodic Posting Run
+- BAdI `BADI_POAC_MMPO_2_ACE_TRANSFER` - Transfer MM purchase order data to accrual engine
+- BAdI `BADI_ACE_DOCUMENT_SCHEMA_CUST` - Manage calculated posting schema
+
 ### FI Documents
 
 - `BKPF` - Accounting Document Header
