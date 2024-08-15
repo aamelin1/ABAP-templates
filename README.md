@@ -1,13 +1,13 @@
 # ABAP templates and SAP notes
 
-Here's you can find some helpful ABAP templates, How-tos related to SAP FI functions and other SAP notes.
+Here's you can find some helpful ABAP templates, How-tos related to SAP FI and other SAP notes.
 
 ## 🏗️ How to Use
 All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at the left side. Notes are stored as "**.md**" files (markdown format).
 
 ## 🧭 Navigation
 
-- 📋 [ABAP templates](https://github.com/aamelin1/ABAP-templates/blob/main/01%20ABAP%20templates/00_ABAP_Index.md) - ABAP, ALV, CDS, buildIn functions etc
+- 📋 [ABAP templates](https://github.com/aamelin1/ABAP-templates/blob/main/01%20ABAP%20templates/00_ABAP_Index.md) - ABAP, ALV, CDS, built-In functions etc
 - 🎓 [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10%20How-Tos/00_How-Tos_Index.md) - Short SAP technical articles
 - 📐 [ABAP report and tools](https://github.com/aamelin1/ABAP-templates/tree/main/60%20ABAP%20reports%20and%20tools/00_Rep_Index.md) - Custom (Z*) ABAP programs
 - ✏️ [SAP-Blog posts](https://github.com/aamelin1/ABAP-templates/tree/main/70%20SAPBlog%20posts/00_Posts_Index.md) - Archive of my SAP Blog posts
