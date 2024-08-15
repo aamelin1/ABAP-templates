@@ -1,22 +1,22 @@
 ### ABAP
 
-- [ABAP Find BAdIs](ABAP%20Find%20BAdIs.md)
-- [BC Transport of copies](BC%20Transport%20of%20copies.md)
+- [How to find BAdIs](ABAP%20Find%20BAdIs.md)
+- [How to use a transport of copies](BC%20Transport%20of%20copies.md)
 
 ### FI and FI-AA
 
-- [FI CoA Transport](FI%20CoA%20Transport.md) (translae)
-- [FI FIBF OpenFI](FI%20FIBF%20OpenFI.md) (to do)
-- [FI Offsetting accounts](FI%20Offsetting%20accounts.md) (to do)
-- [FI RWIN interface](FI%20RWIN%20interface.md)
-- [FI Substitutions&Validations](FI%20Substitutions&Validations.md) (to do)
-- [FI_FAGL_FCV add BP](FI_FAGL_FCV%20add%20BP.md) (to do)
-- [FI-AA Revaluation Areas](FI-AA%20Revaluation%20Areas.md) (to do)
-- [FM repair fagl_splinfo](FM%20repair%20fagl_splinfo.md)
+- [Chart of Accounts Transport](FI%20CoA%20Transport.md) (translae)
+- [FIBF OpenFI](FI%20FIBF%20OpenFI.md) (to do)
+- [Offsetting accounts](FI%20Offsetting%20accounts.md) (to do)
+- [RWIN interface](FI%20RWIN%20interface.md)
+- [Substitutions&Validations](FI%20Substitutions&Validations.md) (to do)
+- [How to add a BP to foreign currecny valuation postings FI_FAGL_FCV](FI_FAGL_FCV%20add%20BP.md) (to do)
+- [FI-AA How revaluation areas works (AR29n)](FI-AA%20Revaluation%20Areas.md) (to do)
+- [How to repair fagl_splinfo, simulate reposting](FM%20repair%20fagl_splinfo.md)
 
 ### MM
 
-- [MM Material and Batch classification](MM%20Material%20and%20Batch%20classification.md)
+- [CDSs for material and batch classification](MM%20Material%20and%20Batch%20classification.md)
 
 ### CO and ML
 

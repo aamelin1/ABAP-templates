@@ -1,16 +1,16 @@
-- ALV 
-  - [ALV_01 FM REUSE_ALV_GRID_DISPLAY_LVC](ALV_01%20FM%20REUSE_ALV_GRID_DISPLAY_LVC.md)
-  - [ALV_02 OO Simple SALV](ALV_02%20OO%20Simple%20SALV.md)
-  - [ALV_04 IDA](ALV_04%20IDA.md)
-  - [ALV_05 PIVB](ALV_05%20PIVB.md) (to do)
-  - [ALV_99 Others](ALV_99%20Others.md)
+- ALV templates
+  - [ALV based on FM REUSE_ALV_GRID_DISPLAY_LVC](ALV_01%20FM%20REUSE_ALV_GRID_DISPLAY_LVC.md)
+  - [ALV via OO and SALV](ALV_02%20OO%20Simple%20SALV.md)
+  - [ALV IDA ana ALV on HANA](ALV_04%20IDA.md)
+  - [ALV PIVB - Pivot reports on CDS](ALV_05%20PIVB.md) (to do)
+  - [ALV: other features](ALV_99%20Others.md)
 - CDS 
   - [CDS tricks&tips](CDS%20tricks&tips.md) (to do)
 - Others
   - [BDC Batch input macro](BDC%20Batch%20input%20macro.md)
-  - [Dates_Conversion](Dates_Conversion.md)
+  - [Dates Conversion](Dates_Conversion.md)
   - [Pop up windows](Pop%20up%20windows.md)
-  - [Progress_indicator](Progress_indicator.md)
+  - [Progress indicator](Progress_indicator.md)
   - [Read VARs from callstack](Read%20VARs%20from%20callstack.md) (to do)
   - [Selection screen](Selection%20screen.md) (to do)
   - [Working with ranges](Working%20with%20ranges.md)
