@@ -23,28 +23,14 @@
 - [Custom report: Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
 
 ### Logs
+| Type of logs | SAP objects |
+|---|---|
+| Table content | `SCU3`- tcode to Table History display <br>`DBTABLOG` - table for change logs |
+| Change documents | `RSSCD100` - tcode to Change documents display <br>`CDHDR` + `CDPOS` Tables of Change documents <br>`CHANGEDOCUMENT_DISPLAY` - FM to Show change documents |
+| Direct SAP tables updates | `SE16N_CD_KEY` -  Logs of `&sap_edit` <br> `RKSE16N_CD_DISPLAY` - program to show logs of `&sap_edit` |
+| Standard logging | `SLGx` - tcodes of Application Log <br>`CL_BALI_LOG` - Class  Working with SLGx Logs  | 
 
-Table contant change logs:
-
-- Tcode `SCU3`- Table History display
-- `DBTABLOG` - table change logs
-
-Change documents:
-
-- `CDHDR` + `CDPOS`  Change documents
-- Tcode  `RSSCD100` - Change documents display
--  FM `CHANGEDOCUMENT_DISPLAY` - Show change documents
-
-Logs of direct SAP tables updates:
-
-- `SE16N_CD_KEY` -  Logs of `&sap_edit`
--  program `RKSE16N_CD_DISPLAY` - Logs of `&sap_edit`
-
-Standar logging"
-
-- Tcode `SLGx` - Application Log 
--  Class `CL_BALI_LOG` - Working with SLGx Logs
--  FM  `C14ALD_BAPIRET2_SHOW` - Show BAPI return messages 
+> 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
 
 ### Monitors, Trace etc
 
