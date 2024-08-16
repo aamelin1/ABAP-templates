@@ -14,3 +14,4 @@
   - [Read VARs from callstack](Read%20VARs%20from%20callstack.md) (to do)
   - [Selection screen](Selection%20screen.md) (to do)
   - [Working with ranges](Working%20with%20ranges.md)
+  - [ABAP BuiltIn inline functions](ABAP%20BuiltIn%20inline%20functions.md)
