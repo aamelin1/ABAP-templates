@@ -382,8 +382,8 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 - `T001W` - Plants/Branches
 -  `T001K` - Valuation area
 - `T001L` - Storage Locations
-- `MARA` + `MAKT` - General Material Data
-- `ASMD` + `ASMDT` - Service Master Data
+- `MARA` + `MAKT` - General Material Data (tcode `MM03`)
+- `ASMD` + `ASMDT` - Service Master Data (tcode `AC03`)
 - `T148` + `T148T` - Special Stock Indicator
 - `T156HT` - Main Text for Movement Type
 - `T157E` - Text Table: Reason for Movement
