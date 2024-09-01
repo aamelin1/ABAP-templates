@@ -1,5 +1,1 @@
 - [01 Create a simple CDS view and show data as an IDA reports (aka ALV on HANA)](01%20Create%20a%20simple%20CDS%20view%20and%20show%20data%20as%20an%20IDA%20reports%20(aka%20ALV%20on%20HANA).md)
-- [02 Graphs. Another way to show SAP ERP data](02%20Graphs.%20Another%20way%20to%20show%20SAP%20ERP%20data.md)
-- [03 Tutorial. How to create custom PIVB ALV report based on a CDS with parameters](03%20Tutorial.%20How%20to%20create%20custom%20PIVB%20ALV%20report%20based%20on%20a%20CDS%20with%20parameters.md)
-- [04 SAP Logon online language switcher](04%20SAP%20Logon%20online%20language%20switcher.md)
-- [05 Linear programming in ABAP. Simplex method. Find optimized BOM](05%20Linear%20programming%20in%20ABAP.%20Simplex%20method.%20Find%20optimized%20BOM.md)
