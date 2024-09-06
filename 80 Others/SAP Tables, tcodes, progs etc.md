@@ -26,7 +26,9 @@
 </p>
 </details>
 
-### Logs
+<details><summary>Logs</summary>
+<p> 
+
 | Type of logs | SAP objects |
 |---|---|
 | Table content | `SCU3`- tcode to Table History display <br>`DBTABLOG` - table for change logs |
@@ -35,6 +37,9 @@
 | Standard logging | `SLGx` - tcodes of Application Log <br>`CL_BALI_LOG` - Class  Working with SLGx Logs  | 
 
 > 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
+
+</p>
+</details>
 
 ### Monitors, Trace etc
 
