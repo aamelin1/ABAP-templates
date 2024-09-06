@@ -14,7 +14,6 @@
 
 <details><summary>Users and Roles</summary>
 <p> 
-
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
 - `AGR_TEXTS` - Role texts
@@ -22,13 +21,11 @@
 - `USR05` - Memory ID values by users 
 - BAPI `BAPI_USER_GET_DETAIL` - Get user details
 - [Custom report: Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
-
 </p>
 </details>
 
 <details><summary>Logs</summary>
 <p> 
-
 | Type of logs | SAP objects |
 |---|---|
 | Table content | `SCU3`- tcode to Table History display <br>`DBTABLOG` - table for change logs |
@@ -37,12 +34,12 @@
 | Standard logging | `SLGx` - tcodes of Application Log <br>`CL_BALI_LOG` - Class  Working with SLGx Logs  | 
 
 > 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
-
 </p>
 </details>
 
-### Monitors, Trace etc
 
+<details><summary>Monitors, Trace etc</summary>
+<p> 
 - Tcode `SXI_MONITOR` - XI: Message Monitoring 
 - Tcode `ST05` -  Performance Trace
 - Tcode `SM36` + `SM37` - BackGround Jobs
@@ -54,9 +51,11 @@
 - Tcode `SM12` - Display and Delete Locks
 - Tcode `AL11` - Display SAP Directories
 - Tcode `WE20` - Partner Profiles
+</p>
+</details>
 
-### ABAP Dev tools
-
+<details><summary>ABAP Dev tools</summary>
+<p> 
 - `TPARA` - Memory ID 
 - `E070`,`E071`,`E07T` - TRs 
 - `TADIR` - Repository
@@ -80,10 +79,12 @@ DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
 DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
+</p>
+</details>
 
 
-### BuiltIn ABAP inline functions
-
+<details><summary>BuiltIn ABAP inline functions</summary>
+<p> 
 - itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
 - String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
 - numofchar `DATA(lv_count_chars) = numofchar( `abc   ` ). " -> 3`
@@ -95,14 +96,18 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Value sign (-1 if negative, 0 if 0, 1 if positive):  `DATA(sign1) = sign( -789 ). "-1`
 - Rounding: `DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24`
 - more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
+</p>
+</details>
 
-### Others
-
+<details><summary>Others</summary>
+<p> 
 - `T100` + `T100C` + `T100S` - Message control
 - Tcode `OBA5` - Message controls
 - Class `CL_EXITHANDLER`  method `GET_INSTANCE` - Put breakpoint here and run tcode to get BAdIs names. See [ABAP Find BAdIs](../10%20How-Tos/ABAP%20Find%20BAdIs.md)
 - BAPI `BAPI_TRANSACTION_ROLLBACK` - Rollback
 - BAPI `BAPI_TRANSACTION_COMMIT` - Commit
+</p>
+</details>
 
 ---
 
