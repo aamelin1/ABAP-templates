@@ -12,7 +12,8 @@
 
 ## General (ABAP, Basis, tech etc)
 
-### Users and Roles
+<details><summary>Users and Roles</summary>
+<p> 
 
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
@@ -21,6 +22,9 @@
 - `USR05` - Memory ID values by users 
 - BAPI `BAPI_USER_GET_DETAIL` - Get user details
 - [Custom report: Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
+
+</p>
+</details>
 
 ### Logs
 | Type of logs | SAP objects |
@@ -64,15 +68,14 @@
 - Class `XCO_CP_GENERATION` - Generate repositary objects
 - Class `xco_cp=>current->call_stack->full( )` - Get current callstack
 
-> 💡 Extracting the call stack based on specifications. You can specify the extractions using from/to and further detailing out the kinds of extractions such as the position or the first/last occurrence of a specific line pattern.
-> In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
-
+💡 In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
 ``` abap
 DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
   )->where_class_name_starts_with( 'CL_REST' ).
 DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
+
 
 ### BuiltIn ABAP inline functions
 
@@ -372,6 +375,9 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 - `TCKH4` + `TCKH5` - Cost componentsstructure
 - `TCKH3` + `TCKH1` - Cost Components
 - `TCKH2` - Assigment of Cost Components to GL account
+- tcode `CKMLQS` - show BOM 
+- FM `CKML_MGV_BOM_READ` - get BOM by material (`CKMLMV001` to get kalnr by material, not `ckmlhd`)
+- `V_ML4H_CDS_MV003` - CDS to find BOM
 
 ## PS
 
