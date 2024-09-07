@@ -1,4 +1,3 @@
-
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
 
 - [General (ABAP, Basis, tech etc)](#General-(ABAP,-Basis,-tech-etc))
@@ -13,7 +12,6 @@
 ## General (ABAP, Basis, tech etc)
 
 <details><summary>Users and Roles</summary>
-<p> 
 
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
@@ -23,8 +21,8 @@
 - BAPI `BAPI_USER_GET_DETAIL` - Get user details
 - [Custom report: Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
 
-</p>
 </details>
+
 
 <details><summary>Logs</summary>
 <p> 
@@ -148,11 +146,11 @@ To add own form, you need to specify form name as:
 ```
 
 
-| EXITS-PARAM | Comments |
-|---|---|
-| C_EXIT_PARAM_NONE | This constant means that no parameters are defined for this user exit. In truth, there is one parameter defined and that is a boolean flag that is used to specify whether there is an error in the data or not. A value of false for this parameter means that the data is valid(!) and a value of true means that there is an error. This parameter is valid for rules, validations and substitutions. |  
-| C_EXIT_PARAM_FIELD | This constant is valid for substitutions only and means that one parameter can be defined for the user exit which is the field to be sustituted |   
-| C_EXIT_PARAM_CLASS | valid for Rules, Validations and Substitutions, this parameter signifies that all the data (BKPF and BSEG data) will be passed as one parameter to the user exit. You will be passed a table containing all the relevant information | 
+| EXITS-PARAM        | Comments                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| C_EXIT_PARAM_NONE  | This constant means that no parameters are defined for this user exit. In truth, there is one parameter defined and that is a boolean flag that is used to specify whether there is an error in the data or not. A value of false for this parameter means that the data is valid(!) and a value of true means that there is an error. This parameter is valid for rules, validations and substitutions. |
+| C_EXIT_PARAM_FIELD | This constant is valid for substitutions only and means that one parameter can be defined for the user exit which is the field to be sustituted                                                                                                                                                                                                                                                          |
+| C_EXIT_PARAM_CLASS | valid for Rules, Validations and Substitutions, this parameter signifies that all the data (BKPF and BSEG data) will be passed as one parameter to the user exit. You will be passed a table containing all the relevant information                                                                                                                                                                     |
   
 
 
@@ -355,12 +353,12 @@ To add own form, you need to specify form name as:
 - User exit `AISA0001`  - Assign Inventory Number
 - User exit `AIST0002`  - Customer fields in asset master
 
-| Report | Structure | Customizing Include |
-|---|---|---|
-| Asset Balances | `FIAA_SALVTAB_RABEST` | `CI_REPRABEST` | 
-| Asset History Sheet | `FIAA_SALVTAB_RAGITT` | `CI_REPRAGIT` | 
-| Asset Transaction List | `FIAA_SALVTAB_RABEWG` | `CI_REPRABEWG` | 
-| Planned Depreciation List | `FIAA_SALVTAB_RAHAFA` | `CI_REPRAHAFA` | 
+| Report                    | Structure             | Customizing Include |
+| ------------------------- | --------------------- | ------------------- |
+| Asset Balances            | `FIAA_SALVTAB_RABEST` | `CI_REPRABEST`      |
+| Asset History Sheet       | `FIAA_SALVTAB_RAGITT` | `CI_REPRAGIT`       |
+| Asset Transaction List    | `FIAA_SALVTAB_RABEWG` | `CI_REPRABEWG`      |
+| Planned Depreciation List | `FIAA_SALVTAB_RAHAFA` | `CI_REPRAHAFA`      |
 
 ### FI-AA BAPIs:
 
