@@ -11,7 +11,7 @@
 
 ## General (ABAP, Basis, tech etc)
 
-<details><summary>**Users and Roles**</summary>
+<details><summary><b>Users and Roles</b></summary>
 
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
@@ -24,7 +24,7 @@
 </details>
 
 
-<details><summary>Logs</summary>
+<details><summary><strong>Logs</strong></summary>
 
 | Type of logs | SAP objects |
 |---|---|
