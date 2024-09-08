@@ -80,8 +80,6 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
 
-- [Some ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
-
 </details>
 
 
@@ -110,6 +108,8 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - BAPI `BAPI_TRANSACTION_COMMIT` - Commit
 
 </details>
+
+- [Some ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
 
 ---
 
