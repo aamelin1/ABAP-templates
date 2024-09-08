@@ -115,7 +115,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 ### FI enhancements:
 
-#### Substitutions and Validations:
+<details><summary><b>Substitutions and Validations</b></summary>
 
 - Tcode `GGB1` - Substitution Maintenance
 - Tcode `GGB0` - Validation Maintenance
@@ -145,14 +145,15 @@ To add own form, you need to specify form name as:
 
 
 > 💡 More details here [FI Substitutions&Validations](../10%20How-Tos/FI%20Substitutions&Validations.md)
+</details>
 
-#### Open FI (BTE)
+<details><summary><b>Open FI (BTE)</b></summary>
 
 - Tcode `FIBF` - Maintenance transaction BTE
 
 > 💡 More details here [FI FIBF OpenFI](../10%20How-Tos/FI%20FIBF%20OpenFI.md)
 
-#### BAdIs, User-Exits, Enhancements
+<details><summary><b>BAdIs, User-Exits, Enhancements</b></summary>
 
 - `AC_DOCUMENT` - Change the Accounting Document
 - `BADI_ACC_DOCUMENT` - FI doc
@@ -162,6 +163,8 @@ To add own form, you need to specify form name as:
 - `TRWPR` - RWIN processes (list of FMs)
 - `TRWCA` - RWIN components
 - [FI RWIN interface](../10%20How-Tos/FI%20RWIN%20interface.md)
+
+</details>
 
 ### FI BAPIs and FMs
 
