@@ -24,7 +24,7 @@
 </details>
 
 
-<details><summary><strong>Logs</strong></summary>
+<details><summary><b>Logs</b></summary>
 
 | Type of logs | SAP objects |
 |---|---|
@@ -38,7 +38,7 @@
 </details>
 
 
-<details><summary>Monitors, Trace etc</summary>
+<details><summary><b>Monitors, Trace etc</b></summary>
 
 - Tcode `SXI_MONITOR` - XI: Message Monitoring 
 - Tcode `ST05` -  Performance Trace
@@ -54,7 +54,7 @@
 
 </details>
 
-<details><summary>ABAP Dev tools</summary>
+<details><summary><b>ABAP Dev tools</b></summary>
 
 - `TPARA` - Memory ID 
 - `E070`,`E071`,`E07T` - TRs 
@@ -83,7 +83,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 </details>
 
 
-<details><summary>BuiltIn ABAP inline functions</summary>
+<details><summary><b>BuiltIn ABAP inline functions</b></summary>
 
 - itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
 - String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
@@ -99,7 +99,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 </details>
 
-<details><summary>Others</summary>
+<details><summary><b>Others</b></summary>
 
 - `T100` + `T100C` + `T100S` - Message control
 - Tcode `OBA5` - Message controls
