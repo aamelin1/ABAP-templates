@@ -80,6 +80,8 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
 
+- [Some ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
+
 </details>
 
 
@@ -122,7 +124,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Tcode `OBBH` - Assign Substitution to Company code and activation status
 - Tcode `GCX2` - Assign program to Substitution/Validation
 - Program `RGUGBR00` - regenerate Substitution and Validation
-- `GB01` + view `VWTYGB01` - fields for Substitute
+- Table `GB01` + view `VWTYGB01` - fields for Substitute
 
 SAP provide two programs that should be used to implement these user exits. These are `RGGBS000` and `RGGBR000` (for substitutions and rules respectively). The relevant program should be copied to a Z version of the program, `ZRGGBR000` for example.
 
@@ -136,13 +138,11 @@ To add own form, you need to specify form name as:
 ```
 
 
-| EXITS-PARAM        | Comments                                                                                                                                                                                                                                                                                                                                                                                                 |
-|:------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EXITS-PARAM        | Comments         |
+|:------------------ | ---------------- |
 | C_EXIT_PARAM_NONE  | This constant means that no parameters are defined for this user exit. In truth, there is one parameter defined and that is a boolean flag that is used to specify whether there is an error in the data or not. A value of false for this parameter means that the data is valid(!) and a value of true means that there is an error. This parameter is valid for rules, validations and substitutions. |
-| C_EXIT_PARAM_FIELD | This constant is valid for substitutions only and means that one parameter can be defined for the user exit which is the field to be sustituted                                                                                                                                                                                                                                                          |
-| C_EXIT_PARAM_CLASS | valid for Rules, Validations and Substitutions, this parameter signifies that all the data (BKPF and BSEG data) will be passed as one parameter to the user exit. You will be passed a table containing all the relevant information                                                                                                                                                                     |
-  
-
+| C_EXIT_PARAM_FIELD | This constant is valid for substitutions only and means that one parameter can be defined for the user exit which is the field to be substituted    |
+| C_EXIT_PARAM_CLASS | valid for Rules, Validations and Substitutions, this parameter signifies that all the data (BKPF and BSEG data) will be passed as one parameter to the user exit. You will be passed a table containing all the relevant information       |
 
 > 💡 More details here [FI Substitutions&Validations](../10%20How-Tos/FI%20Substitutions&Validations.md)
 </details>
@@ -162,8 +162,8 @@ To add own form, you need to specify form name as:
 - `I_TRANS_DATE_DERIVE` - Change currency conversion
 - `FAGL_LIB` - FI Line Item Browsers enhancements
 - `BADI_GVTR_DERIVE_FIELDS` - BCF (FAGLGVTR)
-- `TRWPR` - RWIN processes (list of FMs)
-- `TRWCA` - RWIN components
+- Table `TRWPR` - RWIN processes (list of FMs)
+- Table `TRWCA` - RWIN components
 - [FI RWIN interface](../10%20How-Tos/FI%20RWIN%20interface.md)
 
 </details>
