@@ -11,7 +11,7 @@
 
 ## General (ABAP, Basis, tech etc)
 
-<details><summary>Users and Roles</summary>
+<details><summary>### Users and Roles</summary>
 
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
@@ -25,7 +25,6 @@
 
 
 <details><summary>Logs</summary>
-<p> 
 
 | Type of logs | SAP objects |
 |---|---|
@@ -36,12 +35,10 @@
 
 > 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
 
-</p>
 </details>
 
 
 <details><summary>Monitors, Trace etc</summary>
-<p> 
 
 - Tcode `SXI_MONITOR` - XI: Message Monitoring 
 - Tcode `ST05` -  Performance Trace
@@ -55,11 +52,9 @@
 - Tcode `AL11` - Display SAP Directories
 - Tcode `WE20` - Partner Profiles
 
-</p>
 </details>
 
 <details><summary>ABAP Dev tools</summary>
-<p> 
 
 - `TPARA` - Memory ID 
 - `E070`,`E071`,`E07T` - TRs 
@@ -85,12 +80,10 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
 
-</p>
 </details>
 
 
 <details><summary>BuiltIn ABAP inline functions</summary>
-<p> 
 
 - itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
 - String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
@@ -104,11 +97,9 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Rounding: `DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24`
 - more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
 
-</p>
 </details>
 
 <details><summary>Others</summary>
-<p> 
 
 - `T100` + `T100C` + `T100S` - Message control
 - Tcode `OBA5` - Message controls
@@ -116,7 +107,6 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - BAPI `BAPI_TRANSACTION_ROLLBACK` - Rollback
 - BAPI `BAPI_TRANSACTION_COMMIT` - Commit
 
-</p>
 </details>
 
 ---
