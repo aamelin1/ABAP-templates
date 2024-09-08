@@ -11,7 +11,7 @@
 
 ## General (ABAP, Basis, tech etc)
 
-<details><summary>### Users and Roles</summary>
+<details><summary>**Users and Roles**</summary>
 
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
