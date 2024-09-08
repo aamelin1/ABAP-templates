@@ -168,7 +168,9 @@ To add own form, you need to specify form name as:
 
 </details>
 
-<details><summary><b>FI BAPIs and FMs</b></summary>
+### FI BAPIs and FMs
+
+<details><summary><b>List of BAPIs and FMs</b></summary>
 
 - `BAPI_ACC_DOCUMENT_POST` - post FI doc
 - `BAPI_ACC_DOCUMENT_REV_POST` - reverse FI doc
