@@ -153,6 +153,8 @@ To add own form, you need to specify form name as:
 
 > 💡 More details here [FI FIBF OpenFI](../10%20How-Tos/FI%20FIBF%20OpenFI.md)
 
+</details>
+
 <details><summary><b>BAdIs, User-Exits, Enhancements</b></summary>
 
 - `AC_DOCUMENT` - Change the Accounting Document
@@ -166,7 +168,7 @@ To add own form, you need to specify form name as:
 
 </details>
 
-### FI BAPIs and FMs
+<details><summary><b>FI BAPIs and FMs</b></summary>
 
 - `BAPI_ACC_DOCUMENT_POST` - post FI doc
 - `BAPI_ACC_DOCUMENT_REV_POST` - reverse FI doc
@@ -182,6 +184,8 @@ To add own form, you need to specify form name as:
 - `BAPI_GL_GETGLACCBALANCE` - Closing balance of G/L account for chosen year.
 - `BAPI_GL_GETGLACCCURRENTBALANCE` - Closing balance of G/L account for current year
 - `BAPI_GL_GETGLACCPERIODBALANCES` - Posting period balances for each G/L account
+
+</details>
 
 ### Company code
 
