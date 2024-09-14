@@ -12,6 +12,54 @@
 
 ## ABAP
 
+<details><summary><b>ABAP Dev tools</b></summary>
+
+- `TPARA` - Memory ID 
+- `E070`,`E071`,`E07T` - TRs 
+- `TADIR` - Repository
+- `TRESE` - Reserved names
+- Tcode `ICON` - Display Icons
+- Tcode `DWDM` - Development Workbench Demos
+- Tcode `SNUM` or `SNRO` - Number Range Object
+- Class `cl_gui_frontend_services=>file_open_dialog` - File open dialog
+- Class `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` - Upload file
+- FM `ALSM_EXCEL_TO_INTERNAL_TABLE` - Upload MS Excel file
+- FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
+- FM `RFC_READ_TABLE DESTINATION <dest>` - Read data from other system
+- Class `XCO_CP_GENERATION` - Generate repositary objects
+- Class `xco_cp=>current->call_stack->full( )` - Get current callstack
+
+💡 In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
+``` abap
+DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
+  )->where_class_name_starts_with( 'CL_REST' ).
+DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
+  )->to->last_occurrence_of( line_pattern )->as_text( format ).
+```  
+
+</details>
+
+
+<details><summary><b>BuiltIn ABAP inline functions</b></summary>
+
+- itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
+- String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
+- numofchar `DATA(lv_count_chars) = numofchar( `abc   ` ). " -> 3`
+- String concatenation: `DATA(lv_res_str) = str1 && ` ` && str2.`
+- or String concatenation: `DATA(lv_res_str) = |{ str1 }| && ` ` && |{ str2 }|.`
+- or: String concatenation `CONCATENATE str1 str2 INTO DATA(lv_res_str) SEPARATED BY ` `. "Concat with space`
+- String concatenation from itab: `DATA(lv_res_str) = concat_lines_of( table = itab sep = ` ` ).`
+- Absolute value: `DATA(lv_abs) = abs( -4 ). "4`
+- Value sign (-1 if negative, 0 if 0, 1 if positive):  `DATA(sign1) = sign( -789 ). "-1`
+- Rounding: `DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24`
+- more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
+
+</details>
+
+> 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
+
+- [Some ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
+
 ## General (Users, Logs, Monitors, Basis, some tech stuff etc)
 
 <details><summary><b>Users and Roles</b></summary>
@@ -61,49 +109,6 @@
 
 </details>
 
-<details><summary><b>ABAP Dev tools</b></summary>
-
-- `TPARA` - Memory ID 
-- `E070`,`E071`,`E07T` - TRs 
-- `TADIR` - Repository
-- `TRESE` - Reserved names
-- Tcode `ICON` - Display Icons
-- Tcode `DWDM` - Development Workbench Demos
-- Tcode `SNUM` or `SNRO` - Number Range Object
-- Class `cl_gui_frontend_services=>file_open_dialog` - File open dialog
-- Class `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` - Upload file
-- FM `ALSM_EXCEL_TO_INTERNAL_TABLE` - Upload MS Excel file
-- FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
-- FM `RFC_READ_TABLE DESTINATION <dest>` - Read data from other system
-- Class `XCO_CP_GENERATION` - Generate repositary objects
-- Class `xco_cp=>current->call_stack->full( )` - Get current callstack
-
-💡 In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
-``` abap
-DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
-  )->where_class_name_starts_with( 'CL_REST' ).
-DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
-  )->to->last_occurrence_of( line_pattern )->as_text( format ).
-```  
-
-</details>
-
-
-<details><summary><b>BuiltIn ABAP inline functions</b></summary>
-
-- itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
-- String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
-- numofchar `DATA(lv_count_chars) = numofchar( `abc   ` ). " -> 3`
-- String concatenation: `DATA(lv_res_str) = str1 && ` ` && str2.`
-- or String concatenation: `DATA(lv_res_str) = |{ str1 }| && ` ` && |{ str2 }|.`
-- or: String concatenation `CONCATENATE str1 str2 INTO DATA(lv_res_str) SEPARATED BY ` `. "Concat with space`
-- String concatenation from itab: `DATA(lv_res_str) = concat_lines_of( table = itab sep = ` ` ).`
-- Absolute value: `DATA(lv_abs) = abs( -4 ). "4`
-- Value sign (-1 if negative, 0 if 0, 1 if positive):  `DATA(sign1) = sign( -789 ). "-1`
-- Rounding: `DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24`
-- more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
-
-</details>
 
 <details><summary><b>Others</b></summary>
 
@@ -114,10 +119,6 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - BAPI `BAPI_TRANSACTION_COMMIT` - Commit
 
 </details>
-
-- [Some ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
-
----
 
 ## FI
 
