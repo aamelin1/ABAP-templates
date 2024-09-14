@@ -7,8 +7,8 @@ All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at
 
 ## 🧭 Navigation
 - 📇 [Quick start (SAP tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md) 
-  - [ABAP]()
-  - [General (Users, Logs, Monitors, Basis, some tech stuff etc)]()
+  - [ABAP](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#abap)
+  - [General (Users, Logs, Monitors, Basis, some tech stuff etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#general-users-logs-monitors-basis-some-tech-stuff-etc)
   - [FI: Finance](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#FI)
   - [FI-AA: Fixed Asset](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#FI-AA)
   - [CO: Controlling](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#CO)

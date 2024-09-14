@@ -1,7 +1,7 @@
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
 
 - [ABAP](#ABAP)
-- [General (Users, Logs, Monitors, Basis, some tech stuff etc)](#(Users,-Logs,-Monitors,-Basis,-some-tech-stuff-etc))
+- [General (Users, Logs, Monitors, Basis, some tech stuff etc)](#general-users-logs-monitors-basis-some-tech-stuff-etc)
 - [FI: Finance](#FI)
 - [FI-AA: Fixed Asset](#FI-AA)
 - [CO: Controlling](#CO)
