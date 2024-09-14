@@ -1,6 +1,7 @@
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
 
-- [General (ABAP, Basis, tech etc)](#General-(ABAP,-Basis,-tech-etc))
+- [ABAP](#ABAP)
+- [General (Users, Logs, Monitors, Basis, some tech stuff etc)](#(Users,-Logs,-Monitors,-Basis,-some-tech-stuff-etc))
 - [FI: Finance](#FI)
 - [FI-AA: Fixed Asset](#FI-AA)
 - [CO: Controlling](#CO)
@@ -9,10 +10,16 @@
 - [SD: Sales and Distribution](#SD)
 - [TM: Transportation Management](#TM)
 
-## General (ABAP, Basis, tech etc)
+## ABAP
+
+## General (Users, Logs, Monitors, Basis, some tech stuff etc)
 
 <details><summary><b>Users and Roles</b></summary>
 
+- tcode `SUIM` - User/Role main tcode
+- tcode `PFCG` - Maintain SAP Roles
+- tcode `SU01`, `SU01d` - Maintain user
+- Program `PFCG_MASS_TRANSPORT` - Add roles to TR
 - `USR01` - User master record
 - `AGR_USERS` - User-Roles assigments
 - `AGR_TEXTS` - Role texts
@@ -23,15 +30,15 @@
 
 </details>
 
-
 <details><summary><b>Logs</b></summary>
 
-| Type of logs | SAP objects |
-|---|---|
-| Table content | `SCU3`- tcode to Table History display <br>`DBTABLOG` - table for change logs |
-| Change documents | `RSSCD100` - tcode to Change documents display <br>`CDHDR` + `CDPOS` Tables of Change documents <br>`CHANGEDOCUMENT_DISPLAY` - FM to Show change documents |
-| Direct SAP tables updates | `SE16N_CD_KEY` -  Logs of `&sap_edit` <br> `RKSE16N_CD_DISPLAY` - program to show logs of `&sap_edit` |
-| Standard logging | `SLGx` - tcodes of Application Log <br>`CL_BALI_LOG` - Class  Working with SLGx Logs  | 
+| Type of logs | Tcode  |SAP objects |
+|---|---|---|
+| Table content | `SCU3`- tcode to Table History display | `DBTABLOG` - table for change logs |
+| Change document | `RSSCD100` - tcode to Change documents display |`CDHDR` + `CDPOS` Tables of Change documents <br>`CHANGEDOCUMENT_DISPLAY` - FM to Show change documents |
+| Standard logging | `SLGx` - tcodes of Application Log |`CL_BALI_LOG` - Class  Working with SLGx Logs  | 
+| Direct SAP tables updates | `RKSE16N_CD_DISPLAY` - program to show logs of `&sap_edit`| `SE16N_CD_KEY` -  Logs of `&sap_edit` <br>  |
+
 
 > 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
 
@@ -40,17 +47,17 @@
 
 <details><summary><b>Monitors, Trace etc</b></summary>
 
-- Tcode `SXI_MONITOR` - XI: Message Monitoring 
-- Tcode `ST05` -  Performance Trace
-- Tcode `SM36` + `SM37` - BackGround Jobs
-- Tcode `SM50` - Work Processes
-- Tcode `SM51` - Started AS Instances
-- Tcode `STAD` - Statistics display
-- Tcode `DBACOCKPIT` or `DB02` - DBA Cockpit
-- Tcode `SM59` - RFC Destinations
-- Tcode `SM12` - Display and Delete Locks
-- Tcode `AL11` - Display SAP Directories
-- Tcode `WE20` - Partner Profiles
+- `ST05` -  Performance Trace
+- `SAT` - ABAP Trace
+- `SM36` + `SM37` - BackGround Jobs
+- `SM50` - Work Processes
+- `SM51` - Started AS Instances
+- `STAD` - Statistics display
+- `DBACOCKPIT` or `DB02` - DBA Cockpit
+- `SM59` - RFC Destinations
+- `SM12` - Display and Delete Locks
+- `AL11` - Display SAP Directories
+- `SXI_MONITOR` - XI: Message Monitoring 
 
 </details>
 
@@ -60,7 +67,6 @@
 - `E070`,`E071`,`E07T` - TRs 
 - `TADIR` - Repository
 - `TRESE` - Reserved names
-- Tcode `SAT` - ABAP Trace
 - Tcode `ICON` - Display Icons
 - Tcode `DWDM` - Development Workbench Demos
 - Tcode `SNUM` or `SNRO` - Number Range Object
