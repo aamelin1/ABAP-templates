@@ -3,7 +3,7 @@
 Here's you can find some helpful ABAP templates, How-tos related to SAP FI and other SAP notes.
 
 ## 🏗️ How to Use
-All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at the left side. Notes are stored as "**.md**" files (markdown format).
+All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at the left side. Notes are stored as "**.md**" files ([markdown format](https://en.wikipedia.org/wiki/Markdown)).
 
 ## 🧭 Navigation
 - 📇 [Quick start (SAP tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md) 

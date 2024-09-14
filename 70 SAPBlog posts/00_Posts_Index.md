@@ -1,1 +1,5 @@
-- [01 Create a simple CDS view and show data as an IDA reports (aka ALV on HANA)](01%20Create%20a%20simple%20CDS%20view%20and%20show%20data%20as%20an%20IDA%20reports%20(aka%20ALV%20on%20HANA).md)
+- Create a simple CDS view and show data as an IDA reports (aka ALV on HANA). [SAP Blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/create-a-simple-cds-view-and-show-data-as-an-ida-reports-aka-alv-on-hana/ba-p/13580741), [GitHub](01%20Create%20a%20simple%20CDS%20view%20and%20show%20data%20as%20an%20IDA%20reports%20(aka%20ALV%20on%20HANA).md)
+- Graphs. Another way to show SAP ERP data. [SAP Blog](https://community.sap.com/t5/technology-blogs-by-members/graphs-another-way-to-show-sap-erp-data/ba-p/13580803)
+- Tutorial. How to create custom PIVB ALV report based on a CDS with parameters. [SAP Blog](https://community.sap.com/t5/technology-blogs-by-members/tutorial-how-to-create-custom-pivb-alv-report-based-on-a-cds-with/ba-p/13581331)
+- SAP Logon online language switcher. [SAP Blog](https://community.sap.com/t5/technology-blogs-by-members/sap-logon-online-language-switcher/ba-p/13580754)
+- Linear programming in ABAP. Simplex method. Find optimised BOM [SAP Blog](https://community.sap.com/t5/technology-blogs-by-members/linear-programming-in-abap-simplex-method-find-optimised-bom/ba-p/13661302)
