@@ -12,35 +12,38 @@
 
 ## ABAP
 
-<details><summary><b>ABAP Dev tools</b></summary>
+### ABAP tools
 
-- `TPARA` - Memory ID 
-- `E070`,`E071`,`E07T` - TRs 
-- `TADIR` - Repository
-- `TRESE` - Reserved names
+**SAP tcodes:**
+
+- SE38...
 - Tcode `ICON` - Display Icons
 - Tcode `DWDM` - Development Workbench Demos
-- Tcode `SNUM` or `SNRO` - Number Range Object
-- Class `cl_gui_frontend_services=>file_open_dialog` - File open dialog
-- Class `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` - Upload file
-- FM `ALSM_EXCEL_TO_INTERNAL_TABLE` - Upload MS Excel file
-- FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
-- FM `RFC_READ_TABLE DESTINATION <dest>` - Read data from other system
-- Class `XCO_CP_GENERATION` - Generate repositary objects
-- Class `xco_cp=>current->call_stack->full( )` - Get current callstack
+- `TRESE` - Reserved names
+- `TADIR` - Repository
 
-💡 In the example, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
-``` abap
-DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
-  )->where_class_name_starts_with( 'CL_REST' ).
-DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
-  )->to->last_occurrence_of( line_pattern )->as_text( format ).
-```  
+Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 
-</details>
+**Transport requests:**
 
+- `E070`,`E071`,`E07T` - TRs 
 
-<details><summary><b>BuiltIn ABAP inline functions</b></summary>
+### Some ABAP snippets
+
+#### ALV
+
+- Show ALV via FM
+- OO based ALV
+- IDA (aka ALV on HANA)
+- PIVB
+
+#### Internal tables
+
+#### Selection screen
+
+#### Ranges
+
+#### BuiltIn ABAP inline functions
 
 - itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
 - String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
@@ -54,11 +57,65 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Rounding: `DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24`
 - more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
 
-</details>
+#### CDS functions
 
-> 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
+- to do
 
-- [Some ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
+#### Working with files
+
+- Class `cl_gui_frontend_services=>file_open_dialog` - File open dialog
+- Class `CL_GUI_FRONTEND_SERVICES=>GUI_UPLOAD` - Upload file
+- FM `ALSM_EXCEL_TO_INTERNAL_TABLE` - Upload MS Excel file to SAP
+
+#### Number ranges
+
+- Tcode `SNUM` or `SNRO` - Number Range Object
+
+#### Read variables from callstack
+  - ttt
+  - Class `xco_cp=>current->call_stack->full( )` - Get current callstack
+
+💡 In the example below, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
+``` abap
+DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
+  )->where_class_name_starts_with( 'CL_REST' ).
+DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
+  )->to->last_occurrence_of( line_pattern )->as_text( format ).
+```  
+
+#### Memory IDs
+
+- `TPARA` - Memory ID 
+
+#### Call BAPIs
+
+- BAPI `BAPI_TRANSACTION_ROLLBACK` - Rollback
+- BAPI `BAPI_TRANSACTION_COMMIT` - Commit
+
+#### Batch input
+
+#### Pop up messages 
+
+#### Logs
+
+ `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
+
+#### Dynamic SQL
+
+- FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
+
+#### Other dynamic techniques
+
+- Class `XCO_CP_GENERATION` - Generate repositary objects
+
+#### Get data from other SAP system via RFC
+
+- FM `RFC_READ_TABLE DESTINATION <dest>` - Read data from other system
+
+#### Others
+
+- [More ABAP templates here](../01%20ABAP%20templates/00_ABAP_Index.md)
+
 
 ## General (Users, Logs, Monitors, Basis, some tech stuff etc)
 
@@ -115,8 +172,6 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - `T100` + `T100C` + `T100S` - Message control
 - Tcode `OBA5` - Message controls
 - Class `CL_EXITHANDLER`  method `GET_INSTANCE` - Put breakpoint here and run tcode to get BAdIs names. See [ABAP Find BAdIs](../10%20How-Tos/ABAP%20Find%20BAdIs.md)
-- BAPI `BAPI_TRANSACTION_ROLLBACK` - Rollback
-- BAPI `BAPI_TRANSACTION_COMMIT` - Commit
 
 </details>
 
