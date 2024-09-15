@@ -28,6 +28,8 @@
 | `SE14`         | Utilities for Dictionary Tables   |
 | `SE18`         | Business Add-Ins: Definitions     |
 | `SE19`         | Business Add-Ins: Implementations |
+| `SMOD`         | User-Exits                        |
+| `CMOD`         | User-Exit implementation          |
 | `SE30`or `SAT` | Runtime Analysis                  |
 | `SE37`         | ABAP Function Modules             |
 | `SE41`         | Menu Painter                      |
@@ -83,9 +85,14 @@ Templates to show data via ALV:
 
 #### Internal tables
 
-##### Declaration 
+##### itab declaration 
 
-Sorted itabs:
+The inline declaration in a SELECT statement produces a standard table with empty key
+```abap
+SELECT * FROM zdemo_abap_flsch INTO TABLE @DATA(itab).
+```
+
+Sorted itab with key:
 ```abap
 "Sorted tables: both UNIQUE and NON-UNIQUE possible
 DATA itab1 TYPE SORTED TABLE OF zdemo_abap_flsch WITH UNIQUE KEY carrid connid.
@@ -96,11 +103,6 @@ DATA itab2 TYPE SORTED TABLE OF zdemo_abap_flsch WITH NON-UNIQUE KEY carrid conn
 DATA itab3 TYPE TABLE OF zdemo_abap_flsch                   "standard table
   WITH NON-UNIQUE KEY carrid connid                         "primary table key
   WITH UNIQUE SORTED KEY cities COMPONENTS cityfrom cityto. "secondary table key
-```
-
-The inline declaration in a SELECT statement produces a standard table with empty key
-```abap
-SELECT * FROM zdemo_abap_flsch INTO TABLE @DATA(itab).
 ```
 
 Declare locally based itab:
@@ -124,15 +126,6 @@ TYPES:  tt_std    TYPE TABLE OF ls_loc WITH EMPTY KEY,
 DATA: itab_st TYPE tt_std,
       itab_so TYPE tt_sorted,
       itab_hs TYPE tt_hashed.
-```
-
-```abap
-"The following examples uses the VALUE operator and an internal table type.
-DATA(itab) = VALUE tt_std( ( key_field = 1 char1 = 'aaa' )
-                           ( key_field = 2 char1 = 'bbb' ) ).
-
-"Not providing any table lines means the table is initial
-DATA(itab) = VALUE tt_std( ).
 ```
 
 ##### Appending lines to itab
@@ -162,6 +155,9 @@ TYPES it_type LIKE itab.
 "cannot be derived from the context.
 DATA(it_in) = VALUE it_type( ( comp1 = a comp2 = b ... )
                              ( comp1 = c comp2 = d ...  ) ).
+                         
+ "Not providing any table lines means the table is initial
+DATA(itab) = VALUE tt_std( ).
 ```
 
 Inline creating a string tables
@@ -169,7 +165,7 @@ Inline creating a string tables
 DATA(str_tab_a) = VALUE string_table( ( `Hello` ) ( `World` ) ).
 ```
 
-Adding new lines without deleting existing content
+Adding new lines without deleting existing content (`BASE`)
 ```abap
 itab = VALUE #( BASE itab ( comp1 = a comp2 = b ... )
                           ( comp1 = c comp2 = d ... ) ).
@@ -181,7 +177,7 @@ itab = CORRESPONDING #( itab3 ). " init itab
 itab = CORRESPONDING #( BASE ( itab ) itab3 ). "keep existing lines in itab
 ```
 
-Copying the content of another internal table with confitions:
+Copying the content of another internal table with conditions:
 ```abap
 "Note: The source table must have at least one sorted or hashed key.
 DATA(f1) = FILTER #( itab1 WHERE num >= 3 ).
@@ -283,7 +279,60 @@ DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
 
 #### CDS functions
 
-- [CDS tricks&tips](../01%20ABAP%20templates/CDS%20tricks&tips.md)
+Session variables:
+```abap
+$session.user             // current_user,
+$session.client           // current_client,
+$session.system_language  // current_language,
+$session.system_date      // current_date
+```
+
+Concatenate field values via **CONCAT**. By default, you can only concatenate two fields at a time. To concatenate more than two fields, you need to perform concatenation multiple times.
+```abap
+concat(concat(vkorg, spart), 'additional_text') as concatenated_field
+```
+
+The **LTRIM** function removes leading spaces or specific leading characters from a string.
+```abap
+ltrim(vkorg, '0') as vkorg,
+```
+
+The **RTRIM** function removes trailing spaces or specific trailing characters from a string.
+```abap
+rtrim(vkorg, '0') as vkorg_trimmed
+```
+
+You can combine both **LTRIM** and **RTRIM** functions to clean up a string by removing leading and trailing characters.
+```abap
+ltrim(rtrim(vbeln, '0'), '0') as cleaned_vbeln
+```
+
+The **INSTR** function is used to find the position of a substring within a string.
+```abap
+instr('Text to search', 'to') as position_of_substring
+```
+
+The **LEFT** function extracts a specified number of characters from the beginning of a string.
+```abap
+left('SAP ABAP HANA', 3) as left_substring,
+```
+
+The **RPAD** (Right Pad) function pads a string on the right side with a specified character until the string reaches a desired length.
+```abap
+rpad('ABAP team', 10, '0') as padded_string
+```
+
+The **REPLACE** function replaces all occurrences of a specified substring within a string with another substring
+```abap
+replace('SAP xxx', 'xxx', 'CDS') as updated_name
+```
+
+The **SUBSTRING** function extracts a specific portion of a string, starting from a given position and optionally for a specified length.
+```abap
+ substring(erdat, 5, 2) as month,
+```
+
+> 💡 [CDS tricks&tips](../01%20ABAP%20templates/CDS%20tricks&tips.md)
 
 #### Working with files
 
@@ -294,10 +343,23 @@ DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
 #### Number ranges
 
 - Tcode `SNUM` or `SNRO` - Number Range Object
+- FM `NUMBER_GET_NEXT`
+- FM `NUMBER_RANGE_ENQUEUE`, `NUMBER_RANGE_DEQUEUE`
+
 
 #### Read variables from callstack
 
-  - [Read VARs from callstack](../01%20ABAP%20templates/Read%20VARs%20from%20callstack.md)
+``` abap
+CONSTANTS: lco_migo_vgart_path TYPE string VALUE '(SAPLMIGO)LCL_MIGO_GLOBALS=>KERNEL->S_CONTROL-VGART'.
+FIELD-SYMBOLS: <migo_vgart> TYPE any.
+DATA: lv_vgart TYPE vgart.
+
+ASSIGN (lco_migo_vgart_path) to <migo_vgart>.
+IF sy-subrc = 0.
+    lv_vgart = <migo_vgart>.
+ENDIF.
+```
+
   - Class `xco_cp=>current->call_stack->full( )` - Get current callstack
 
 >💡 In the example below, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
@@ -308,15 +370,67 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
 
+  - [Read VARs from callstack](../01%20ABAP%20templates/Read%20VARs%20from%20callstack.md)
+
 #### Memory IDs
 
 - `TPARA` - Memory ID 
 
+```abap
+EXPORT objn TO MEMORY ID 'ZID'.
+IMPORT objn FROM MEMORY ID 'ZID'.
+
+FREE MEMORY ID 'ZID'.
+```
+
 #### Selection screen
+
+Select-option field feature:
+- `NO-DISPLAY`
+- `NO-EXTENSION`
+- `NO INTERVALS`
+- `DEFAULT 4 TO 8 OPTION NB SIGN I`
+
+Texts:
+```abap
+SELECTION-SCREEN COMMENT /5(10) t1.
+```
+
+
+Add a blank line(s)
+```abap
+SELECTION-SCREEN SKIP 5. "5 blank lines
+```
+
+
+Checkbox:
+``` abap
+PARAMETERS pu AS CHECKBOX USER-COMMAND cmd.
+```
+
+
+Radiobuttons:
+```abap
+PARAMETERS: prb1 RADIOBUTTON GROUP rbgr,
+            prb2 RADIOBUTTON GROUP rbgr,       
+            prb3 RADIOBUTTON GROUP rbgr DEFAULT 'X'.  "Select this radiobutton by default
+```
 
 - [Selection screen](../01%20ABAP%20templates/Selection%20screen.md)
 
 #### Ranges
+
+```abap
+Declaring a ranges table
+DATA rangestab TYPE RANGE OF i.
+
+"Populating a ranges table using VALUE
+rangestab = VALUE #( sign   = 'I'
+                     option = 'BT' ( low = 1  high = 3 )
+                                   ( low = 6  high = 8 )
+                                   ( low = 12 high = 15 )
+                     option = 'GE' ( low = 18 ) ).
+```
 
 - [Working with ranges](../01%20ABAP%20templates/Working%20with%20ranges.md)
 
