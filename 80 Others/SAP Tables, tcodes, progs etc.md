@@ -17,7 +17,7 @@
 
 ### ABAP developer tools
 
-<details><summary>SAP dev tcodes:</summary>
+**SAP dev tcodes:**
 
 | Tcode  | Description    |
 | ------ |:-------------- |
@@ -27,9 +27,8 @@
 
 Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 
-</details>
+**Some tables:**
 
-Some tables:
 - `TRESE` - Reserved names
 - `TADIR` - Repository
 
@@ -143,7 +142,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 ## General (Users, Logs, Monitors, Basis, some tech stuff etc)
 
-<details><summary><b>Users and Roles</b></summary>
+### Users and Roles
 
 - tcode `SUIM` - User/Role main tcode
 - tcode `PFCG` - Maintain SAP Roles
@@ -157,9 +156,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - BAPI `BAPI_USER_GET_DETAIL` - Get user details
 - [BC Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
 
-</details>
-
-<details><summary><b>Logs</b></summary>
+### Logs
 
 | Type of logs | Tcode  |SAP objects |
 |---|---|---|
@@ -171,10 +168,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 > 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
 
-</details>
-
-
-<details><summary><b>Monitors, Trace etc</b></summary>
+### Monitors, Trace etc
 
 - `ST05` -  Performance Trace
 - `SAT` - ABAP Trace
@@ -188,22 +182,18 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - `AL11` - Display SAP Directories
 - `SXI_MONITOR` - XI: Message Monitoring 
 
-</details>
-
-
-<details><summary><b>Others</b></summary>
+### Others
 
 - `T100` + `T100C` + `T100S` - Message control
 - Tcode `OBA5` - Message controls
 - Class `CL_EXITHANDLER`  method `GET_INSTANCE` - Put breakpoint here and run tcode to get BAdIs names. See [ABAP Find BAdIs](../10%20How-Tos/ABAP%20Find%20BAdIs.md)
 
-</details>
 
 ## FI
 
 ### FI enhancements:
 
-Substitutions and Validations
+#### Substitutions and Validations
 
 - Tcode `GGB1` - Substitution Maintenance
 - Tcode `GGB0` - Validation Maintenance
@@ -235,15 +225,13 @@ To add own form, you need to specify form name as:
 > 💡 More details here [FI Substitutions&Validations](../10%20How-Tos/FI%20Substitutions&Validations.md)
 </details>
 
-<details><summary><b>Open FI (BTE)</b></summary>
+#### Open FI (BTE)
 
 - Tcode `FIBF` - Maintenance transaction BTE
 
 > 💡 More details here [FI FIBF OpenFI](../10%20How-Tos/FI%20FIBF%20OpenFI.md)
 
-</details>
-
-<details><summary><b>BAdIs, User-Exits, Enhancements</b></summary>
+#### BAdIs, User-Exits, Enhancements
 
 - `AC_DOCUMENT` - Change the Accounting Document
 - `BADI_ACC_DOCUMENT` - FI doc
@@ -254,11 +242,8 @@ To add own form, you need to specify form name as:
 - Table `TRWCA` - RWIN components
 - [FI RWIN interface](../10%20How-Tos/FI%20RWIN%20interface.md)
 
-</details>
 
 ### FI BAPIs and FMs
-
-<details><summary><b>List of BAPIs and FMs</b></summary>
 
 - `BAPI_ACC_DOCUMENT_POST` - post FI doc
 - `BAPI_ACC_DOCUMENT_REV_POST` - reverse FI doc
@@ -274,8 +259,6 @@ To add own form, you need to specify form name as:
 - `BAPI_GL_GETGLACCBALANCE` - Closing balance of G/L account for chosen year.
 - `BAPI_GL_GETGLACCCURRENTBALANCE` - Closing balance of G/L account for current year
 - `BAPI_GL_GETGLACCPERIODBALANCES` - Posting period balances for each G/L account
-
-</details>
 
 ### Company code
 
