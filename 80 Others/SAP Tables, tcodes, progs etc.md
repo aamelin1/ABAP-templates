@@ -17,7 +17,7 @@
 
 ### ABAP developer tools
 
-<details><summary><b>**SAP dev tcodes**</b></summary>
+<details><summary>#### SAP dev tcodes</summary>
 
 | Tcode  | Description    |
 | ------ |:-------------- |
@@ -33,7 +33,7 @@ Some tables:
 - `TRESE` - Reserved names
 - `TADIR` - Repository
 
-**Transport requests:**
+#### Transport requests:
 
 - Tcode SE03
 - `E070`,`E071`,`E07T` - for TRs info
