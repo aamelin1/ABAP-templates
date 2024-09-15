@@ -1,4 +1,5 @@
 # Tcodes, table names, ABAP programs, BAdIs, BAPIs, SAP notes etc
+**Table of contents:**
 
 - [ABAP](#ABAP)
 - [General (Users, Logs, Monitors, Basis, some tech stuff etc)](#general-users-logs-monitors-basis-some-tech-stuff-etc)
@@ -10,23 +11,33 @@
 - [SD: Sales and Distribution](#SD)
 - [TM: Transportation Management](#TM)
 
+---
+
 ## ABAP
 
-### ABAP tools
+### ABAP developer tools
 
-**SAP tcodes:**
+<details><summary><b>**SAP dev tcodes**</b></summary>
 
-- SE38...
-- Tcode `ICON` - Display Icons
-- Tcode `DWDM` - Development Workbench Demos
-- `TRESE` - Reserved names
-- `TADIR` - Repository
+| Tcode  | Description    |
+| ------ |:-------------- |
+| `SE38` |    |
+| `ICON` | Display Icons  |
+| `DWDM` | Development Workbench Demos |
 
 Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 
+</details>
+
+Some tables:
+- `TRESE` - Reserved names
+- `TADIR` - Repository
+
 **Transport requests:**
 
-- `E070`,`E071`,`E07T` - TRs 
+- Tcode SE03
+- `E070`,`E071`,`E07T` - for TRs info
+- [How to use a transport of copies](../10%20How-Tos/BC%20Transport%20of%20copies.md)
 
 ### Some ABAP snippets
 
