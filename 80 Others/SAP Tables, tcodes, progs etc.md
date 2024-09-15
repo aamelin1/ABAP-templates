@@ -17,7 +17,7 @@
 
 ### ABAP developer tools
 
-<details><summary>#### SAP dev tcodes</summary>
+<details><summary>SAP dev tcodes:</summary>
 
 | Tcode  | Description    |
 | ------ |:-------------- |
@@ -35,24 +35,30 @@ Some tables:
 
 #### Transport requests:
 
-- Tcode SE03
-- `E070`,`E071`,`E07T` - for TRs info
+- Tcode `SE03`
+- Tcode `SE10`
+- Tables `E070`,`E071`,`E07T` - for TRs info
 - [How to use a transport of copies](../10%20How-Tos/BC%20Transport%20of%20copies.md)
+- [TRC Transport request checker](../60%20ABAP%20reports%20and%20tools/TRC%20Transport%20request%20checker.md)
 
 ### Some ABAP snippets
 
 #### ALV
 
-- Show ALV via FM
-- OO based ALV
-- IDA (aka ALV on HANA)
-- PIVB
+- [Show ALV via FM](../01%20ABAP%20templates/ALV_01%20FM%20REUSE_ALV_GRID_DISPLAY_LVC.md)
+- [OO based ALV (SALV)](../01%20ABAP%20templates/ALV_02%20OO%20Simple%20SALV.md)
+- [IDA (aka ALV on HANA)](../01%20ABAP%20templates/ALV_04%20IDA.md)
+- [PIVB](../01%20ABAP%20templates/ALV_05%20PIVB.md)
 
 #### Internal tables
 
 #### Selection screen
 
+- [Selection screen](../01%20ABAP%20templates/Selection%20screen.md)
+
 #### Ranges
+
+- [Working with ranges](../01%20ABAP%20templates/Working%20with%20ranges.md)
 
 #### BuiltIn ABAP inline functions
 
@@ -70,7 +76,7 @@ Some tables:
 
 #### CDS functions
 
-- to do
+- [CDS tricks&tips](../01%20ABAP%20templates/CDS%20tricks&tips.md)
 
 #### Working with files
 
@@ -83,7 +89,8 @@ Some tables:
 - Tcode `SNUM` or `SNRO` - Number Range Object
 
 #### Read variables from callstack
-  - ttt
+
+  - [Read VARs from callstack](../01%20ABAP%20templates/Read%20VARs%20from%20callstack.md)
   - Class `xco_cp=>current->call_stack->full( )` - Get current callstack
 
 💡 In the example below, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
@@ -105,7 +112,12 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 #### Batch input
 
+- [BDC Batch input macro](../01%20ABAP%20templates/BDC%20Batch%20input%20macro.md)
+
 #### Pop up messages 
+
+- [Pop up windows](../01%20ABAP%20templates/Pop%20up%20windows.md)
+- [Progress_indicator](../01%20ABAP%20templates/Progress_indicator.md)
 
 #### Logs
 
@@ -113,6 +125,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 #### Dynamic SQL
 
+- [Dynamic SQL](../01%20ABAP%20templates/Dynamic%20SQL.md)
 - FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
 
 #### Other dynamic techniques
@@ -142,7 +155,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - `SMEN_BUFFC` - User favorites 
 - `USR05` - Memory ID values by users 
 - BAPI `BAPI_USER_GET_DETAIL` - Get user details
-- [Custom report: Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
+- [BC Users vs Roles](../60%20ABAP%20reports%20and%20tools/BC%20Users%20vs%20Roles.md)
 
 </details>
 
@@ -190,7 +203,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 ### FI enhancements:
 
-<details><summary><b>Substitutions and Validations</b></summary>
+Substitutions and Validations
 
 - Tcode `GGB1` - Substitution Maintenance
 - Tcode `GGB0` - Validation Maintenance
@@ -198,6 +211,8 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 - Tcode `GCX2` - Assign program to Substitution/Validation
 - Program `RGUGBR00` - regenerate Substitution and Validation
 - Table `GB01` + view `VWTYGB01` - fields for Substitute
+
+<details><summary><b>More details</b></summary>
 
 SAP provide two programs that should be used to implement these user exits. These are `RGGBS000` and `RGGBR000` (for substitutions and rules respectively). The relevant program should be copied to a Z version of the program, `ZRGGBR000` for example.
 
