@@ -19,23 +19,54 @@
 
 **SAP dev tcodes:**
 
-| Tcode  | Description    |
-| ------ |:-------------- |
-| `SE38` |    |
-| `ICON` | Display Icons  |
-| `DWDM` | Development Workbench Demos |
+| Tcode          | Description                       |
+| -------------- |:--------------------------------- |
+| `SE38`         | ABAP Editor                       |
+| `SE11`         | ABAP Dictionary Maintenance       |
+| `SE24`         | ABAP Class Builder                |
+| `SE80`         | Object Navigator                  |
+| `SE14`         | Utilities for Dictionary Tables   |
+| `SE18`         | Business Add-Ins: Definitions     |
+| `SE19`         | Business Add-Ins: Implementations |
+| `SE30`or `SAT` | Runtime Analysis                  |
+| `SE37`         | ABAP Function Modules             |
+| `SE41`         | Menu Painter                      |
+| `SE51`         | Screen Painter                    |
+| `SE54`         | Generate table view               |
+| `SE91`         | Message Maintenance               |
+| `SE93`         | Maintain Transaction Codes        |
+| `SE95`         | Modification Browser              |
+| `ICON`         | Display Icons                     |
+| `DWDM`         | Development Workbench Demos       |
 
 Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
+
+**SAP table data display functionality:**
+
+- `SE16` - Data Browser
+- `SE16n` - General Table Display
+- `SE16h` - General Table Display (HANA)
+- Program `RFPIVB_SINGLETAB_VAL` - to display any table in PIVB like view
+
+>💡How to change table values directly (it's a bad idea to do this):
+>
+> - In `SE16n` put a `&sap_edit` in a tcode field. This feature can be deactivated (see program `RKSE16N_EDIT`). 
+> - Other way - go to debugger at first screen of `se16n` via `/h`and change a variable `GD-EDIT`and `GD-SAP_EDIT` to `X`.
+> - Or use a FM `SE16N_INTERFACE`
+> 
+> Logs of direct table edited entries are stored at table `SE16N_CD_KEY` and can be showed via program `RKSE16N_CD_DISPLAY`
 
 **Some tables:**
 
 - `TRESE` - Reserved names
-- `TADIR` - Repository
+- `TADIR`, `TRDIR` - Repository
 
 #### Transport requests:
 
-- Tcode `SE03`
-- Tcode `SE10`
+- Tcode `SE03` - Transport Organizer Tools (incl. search TRs by including objects)
+- Tcode `SE10` - Transport Organizer
+- Tcode `STMS` and `STMS_IMPORT` - Transport Management System
+- Tcode `STMS_QA` - TMS Quality Assurance
 - Tables `E070`,`E071`,`E07T` - for TRs info
 - [How to use a transport of copies](../10%20How-Tos/BC%20Transport%20of%20copies.md)
 - [TRC Transport request checker](../60%20ABAP%20reports%20and%20tools/TRC%20Transport%20request%20checker.md)
@@ -44,6 +75,7 @@ Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 
 #### ALV
 
+Templates to show data via ALV:
 - [Show ALV via FM](../01%20ABAP%20templates/ALV_01%20FM%20REUSE_ALV_GRID_DISPLAY_LVC.md)
 - [OO based ALV (SALV)](../01%20ABAP%20templates/ALV_02%20OO%20Simple%20SALV.md)
 - [IDA (aka ALV on HANA)](../01%20ABAP%20templates/ALV_04%20IDA.md)
@@ -61,17 +93,41 @@ Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 
 #### BuiltIn ABAP inline functions
 
-- itab lines count: `DATA(lv_lines_count) = lines( strtab ).`
-- String length: `DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3`
-- numofchar `DATA(lv_count_chars) = numofchar( `abc   ` ). " -> 3`
-- String concatenation: `DATA(lv_res_str) = str1 && ` ` && str2.`
-- or String concatenation: `DATA(lv_res_str) = |{ str1 }| && ` ` && |{ str2 }|.`
-- or: String concatenation `CONCATENATE str1 str2 INTO DATA(lv_res_str) SEPARATED BY ` `. "Concat with space`
-- String concatenation from itab: `DATA(lv_res_str) = concat_lines_of( table = itab sep = ` ` ).`
-- Absolute value: `DATA(lv_abs) = abs( -4 ). "4`
-- Value sign (-1 if negative, 0 if 0, 1 if positive):  `DATA(sign1) = sign( -789 ). "-1`
-- Rounding: `DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24`
-- more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
+itab lines count: 
+``` abap 
+DATA(lv_lines_count) = lines( strtab ).
+```
+String length: 
+``` abap 
+DATA(lv_strlen) = strlen( 'abc   ' ).  " -> 3
+```
+Number of chars: 
+``` abap
+DATA(lv_count_chars) = numofchar( `abc   ` ). " -> 3
+```
+String concatenation: 
+``` abap
+DATA(lv_res_str) = str1 && ` ` && str2.
+DATA(lv_res_str) = |{ str1 }| && ` ` && |{ str2 }|.
+CONCATENATE str1 str2 INTO DATA(lv_res_str) SEPARATED BY ` `. "Concat with space
+```
+String concatenation from itab: 
+``` abap
+DATA(lv_res_str) = concat_lines_of( table = itab sep = ` ` ).
+```
+Absolute value: 
+```abap
+DATA(lv_abs) = abs( -4 ). "4
+```
+Value sign (-1 if negative, 0 if 0, 1 if positive):  
+```abap
+DATA(sign1) = sign( -789 ). "-1
+```
+Rounding
+```abap
+DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
+```
+> 💡 more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
 
 #### CDS functions
 
@@ -92,7 +148,7 @@ Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
   - [Read VARs from callstack](../01%20ABAP%20templates/Read%20VARs%20from%20callstack.md)
   - Class `xco_cp=>current->call_stack->full( )` - Get current callstack
 
-💡 In the example below, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
+>💡 In the example below, a line pattern is created (method that starts with a specific pattern). The extracting should go up to the last occurrence of this pattern. It is started at position 1.
 ``` abap
 DATA(line_pattern) = xco_cp_call_stack=>line_pattern->method(
   )->where_class_name_starts_with( 'CL_REST' ).
