@@ -83,13 +83,165 @@ Templates to show data via ALV:
 
 #### Internal tables
 
-#### Selection screen
+##### Declaration 
 
-- [Selection screen](../01%20ABAP%20templates/Selection%20screen.md)
+Sorted itabs:
+```abap
+"Sorted tables: both UNIQUE and NON-UNIQUE possible
+DATA itab1 TYPE SORTED TABLE OF zdemo_abap_flsch WITH UNIQUE KEY carrid connid.
+DATA itab2 TYPE SORTED TABLE OF zdemo_abap_flsch WITH NON-UNIQUE KEY carrid connid cityfrom.
 
-#### Ranges
+"The following examples demonstrate secondary table keys that are
+"possible for all table categories.
+DATA itab3 TYPE TABLE OF zdemo_abap_flsch                   "standard table
+  WITH NON-UNIQUE KEY carrid connid                         "primary table key
+  WITH UNIQUE SORTED KEY cities COMPONENTS cityfrom cityto. "secondary table key
+```
 
-- [Working with ranges](../01%20ABAP%20templates/Working%20with%20ranges.md)
+The inline declaration in a SELECT statement produces a standard table with empty key
+```abap
+SELECT * FROM zdemo_abap_flsch INTO TABLE @DATA(itab).
+```
+
+Declare locally based itab:
+```abap
+"Internal table creation steps based on a locally declared structure
+"1. Defining line type locally
+TYPES: BEGIN OF ls_loc,
+          key_field TYPE i,
+          char1     TYPE c LENGTH 10,
+          char2     TYPE c LENGTH 10,
+          num1      TYPE i,
+          num2      TYPE i,
+        END OF ls_loc.
+
+"2. Defining internal table types
+TYPES:  tt_std    TYPE TABLE OF ls_loc WITH EMPTY KEY,
+        tt_sorted TYPE SORTED TABLE OF ls_loc WITH NON-UNIQUE KEY key_field,
+        tt_hashed TYPE HASHED TABLE OF ls_loc WITH UNIQUE KEY key_field.
+
+"3. Creating internal tables from locally defined table types
+DATA: itab_st TYPE tt_std,
+      itab_so TYPE tt_sorted,
+      itab_hs TYPE tt_hashed.
+```
+
+```abap
+"The following examples uses the VALUE operator and an internal table type.
+DATA(itab) = VALUE tt_std( ( key_field = 1 char1 = 'aaa' )
+                           ( key_field = 2 char1 = 'bbb' ) ).
+
+"Not providing any table lines means the table is initial
+DATA(itab) = VALUE tt_std( ).
+```
+
+##### Appending lines to itab
+
+using `VALUE`:
+```abap
+APPEND VALUE #( comp1 = a comp2 = b ... ) TO itab.
+```
+
+From structure:
+```abap
+APPEND struc TO itab.
+```
+
+Adding all lines from another internal table
+```abap
+APPEND LINES OF itab2 TO itab.
+```
+
+Creating an internal table by inline declaration and adding lines with a constructor expression
+```abap
+"Internal table type
+TYPES it_type LIKE itab.
+
+"Inline declaration
+"The # character would not be possible here since the line type
+"cannot be derived from the context.
+DATA(it_in) = VALUE it_type( ( comp1 = a comp2 = b ... )
+                             ( comp1 = c comp2 = d ...  ) ).
+```
+
+Inline creating a string tables
+```abap
+DATA(str_tab_a) = VALUE string_table( ( `Hello` ) ( `World` ) ).
+```
+
+Adding new lines without deleting existing content
+```abap
+itab = VALUE #( BASE itab ( comp1 = a comp2 = b ... )
+                          ( comp1 = c comp2 = d ... ) ).
+```
+
+Copying the content of another internal table
+```abap
+itab = CORRESPONDING #( itab3 ). " init itab
+itab = CORRESPONDING #( BASE ( itab ) itab3 ). "keep existing lines in itab
+```
+
+Copying the content of another internal table with confitions:
+```abap
+"Note: The source table must have at least one sorted or hashed key.
+DATA(f1) = FILTER #( itab1 WHERE num >= 3 ).
+```
+
+##### Reading Single Lines from Internal Tables
+
+```abap
+READ TABLE itab ASSIGNING FIELD-SYMBOL(<fs2>) ...   "The field symbol is created inline.
+```
+
+```abap
+line = it[ b = 2 ].
+
+"Note: Table keys are specified with the ... WITH TABLE KEY ... addition, 
+"free keys with ... WITH KEY ....
+READ TABLE it INTO wa WITH KEY b = 2.
+```
+
+itab line count:
+```abap
+DATA(number_of_lines) = lines( itab ).
+```
+
+
+##### itab looping
+```abap
+LOOP AT itab ASSIGNING FIELD-SYMBOL(<fs>).
+  ...
+ENDLOOP.
+```
+
+
+##### Modifying Internal Table Content
+
+##### Deleting Internal Table Content
+```abap
+DELETE TABLE itab WITH TABLE KEY a = 1.
+DELETE str_table WHERE table_line CP `Z*`.
+```
+
+Duplicates:
+```abap
+"Implicitly using the primary table key
+DELETE ADJACENT DUPLICATES FROM it.
+
+"Deletion respecting the values of the entire line
+DELETE ADJACENT DUPLICATES FROM it COMPARING ALL FIELDS.
+
+"Only lines are deleted with matching content in specific fields
+DELETE ADJACENT DUPLICATES FROM it COMPARING a c.
+```
+
+Deleting the Entire Internal Table Content
+```abap
+CLEAR itab. "the memory space initially requested remains allocated
+FREE itab. "This statement additionally releases memory space.
+```
+
+> 💡 [SAP itab cheat sheet](https://github.com/SAP-samples/abap-cheat-sheets/blob/main/01_Internal_Tables.md)
 
 #### BuiltIn ABAP inline functions
 
@@ -160,6 +312,14 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 
 - `TPARA` - Memory ID 
 
+#### Selection screen
+
+- [Selection screen](../01%20ABAP%20templates/Selection%20screen.md)
+
+#### Ranges
+
+- [Working with ranges](../01%20ABAP%20templates/Working%20with%20ranges.md)
+
 #### Call BAPIs
 
 - BAPI `BAPI_TRANSACTION_ROLLBACK` - Rollback
@@ -186,6 +346,26 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 #### Other dynamic techniques
 
 - Class `XCO_CP_GENERATION` - Generate repositary objects
+
+```abap
+DATA(some_type) = 'STRING'.
+DATA dataref TYPE REF TO data.
+
+"Creating an internal table using a CREATE DATA statement
+"by specifying the type name dynamically.
+"In the example, a standard table with elementary line type
+"and standard key is created.
+CREATE DATA dataref TYPE TABLE OF (some_type).
+
+TYPES: BEGIN OF demo_struc,
+          comp1 TYPE c LENGTH 10,
+          comp2 TYPE i,
+          comp3 TYPE i,
+        END OF demo_struc.
+
+"Internal table with structured line type and empty key.
+CREATE DATA dataref TYPE TABLE OF ('DEMO_STRUC') WITH EMPTY KEY.
+```
 
 #### Get data from other SAP system via RFC
 
@@ -220,7 +400,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
 | Change document | `RSSCD100` - tcode to Change documents display |`CDHDR` + `CDPOS` Tables of Change documents <br>`CHANGEDOCUMENT_DISPLAY` - FM to Show change documents |
 | Standard logging | `SLGx` - tcodes of Application Log |`CL_BALI_LOG` - Class  Working with SLGx Logs  | 
 | Direct SAP tables updates | `RKSE16N_CD_DISPLAY` - program to show logs of `&sap_edit`| `SE16N_CD_KEY` -  Logs of `&sap_edit` <br>  |
-
+| System logs | `SM21` | |
 
 > 💡 `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
 
