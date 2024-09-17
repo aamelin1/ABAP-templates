@@ -447,6 +447,7 @@ rangestab = VALUE #( sign   = 'I'
 
 - [Pop up windows](../01%20ABAP%20templates/Pop%20up%20windows.md)
 - [Progress_indicator](../01%20ABAP%20templates/Progress_indicator.md)
+- FM `SE16N_UT_GET_SELECT_CRITERIA` - window with selection criteria (all fields of structure/table)
 
 #### Logs
 
