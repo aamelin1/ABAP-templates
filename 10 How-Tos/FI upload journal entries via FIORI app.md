@@ -10,7 +10,7 @@
 
 3. Download template for uploading journal items:
 
-![IMG2](IMGs/IMG_Upl_GL_001.png)
+![IMG2](IMGs/IMG_Upl_GL_002.png)
 
 [Template](IMGs/Worksheet%20in%201.7.Upload%20journal%20entries.xlsx)
 
