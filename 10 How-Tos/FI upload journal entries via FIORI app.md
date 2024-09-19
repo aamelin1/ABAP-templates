@@ -12,7 +12,7 @@
 
 ![IMG2](IMGs/IMG_Upl_GL_001.png)
 
-![Template](IMGs/Worksheet%20in%201.7.Upload%20journal%20entries.xlsx)
+[Template](IMGs/Worksheet%20in%201.7.Upload%20journal%20entries.xlsx)
 
 4. Fill the template with postings info, save file
 5. Upload filled template to FIORI app
