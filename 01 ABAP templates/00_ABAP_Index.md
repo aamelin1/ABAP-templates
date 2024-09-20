@@ -15,3 +15,4 @@
   - [Selection screen](Selection%20screen.md) (to do)
   - [Working with ranges](Working%20with%20ranges.md)
   - [ABAP BuiltIn inline functions](ABAP%20BuiltIn%20inline%20functions.md)
+  - [Graphs. Class to show graph as HTML via Graphviz](Graphs.%20Class%20to%20show%20graph%20as%20HTML%20via%20Graphviz.md) (add z class)
