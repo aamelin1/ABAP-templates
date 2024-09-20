@@ -17,7 +17,7 @@
 
 ### ABAP developer tools
 
-**SAP dev tcodes:**
+**Most used SAP developers tcodes:**
 
 | Tcode          | Description                       |
 | -------------- |:--------------------------------- |
@@ -41,7 +41,7 @@
 | `ICON`         | Display Icons                     |
 | `DWDM`         | Development Workbench Demos       |
 
-Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
+Also [Eclipse](https://www.eclipse.org) (with [ADT](https://developers.sap.com/tutorials/abap-install-adt..html)) and [VS code](https://code.visualstudio.com) IDE may be used for ABAP development.
 
 **SAP table data display functionality:**
 
@@ -50,7 +50,7 @@ Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 - `SE16h` - General Table Display (HANA)
 - Program `RFPIVB_SINGLETAB_VAL` - to display any table in PIVB like view
 
->💡How to change table values directly (it's a bad idea to do this):
+>💡How to change table values directly (it's a bad idea to do this kind of things):
 >
 > - In `SE16n` put a `&sap_edit` in a tcode field. This feature can be deactivated (see program `RKSE16N_EDIT`). 
 > - Other way - go to debugger at first screen of `se16n` via `/h`and change a variable `GD-EDIT`and `GD-SAP_EDIT` to `X`.
@@ -58,7 +58,7 @@ Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 > 
 > Logs of direct table edited entries are stored at table `SE16N_CD_KEY` and can be showed via program `RKSE16N_CD_DISPLAY`
 
-**Some tables:**
+**Some tables related to ABAP repository:**
 
 - `TRESE` - Reserved names
 - `TADIR`, `TRDIR` - Repository
@@ -73,19 +73,25 @@ Also Eclipse (with ADT) and VS code IDE may be used for ABAP development.
 - [How to use a transport of copies](../10%20How-Tos/BC%20Transport%20of%20copies.md)
 - [TRC Transport request checker](../60%20ABAP%20reports%20and%20tools/TRC%20Transport%20request%20checker.md)
 
-### Some ABAP snippets
+### ABAP snippets
 
-#### ALV
+#### Templates to show data via ALV (SAP List viewer):
 
-Templates to show data via ALV:
 - [Show ALV via FM](../01%20ABAP%20templates/ALV_01%20FM%20REUSE_ALV_GRID_DISPLAY_LVC.md)
 - [OO based ALV (SALV)](../01%20ABAP%20templates/ALV_02%20OO%20Simple%20SALV.md)
 - [IDA (aka ALV on HANA)](../01%20ABAP%20templates/ALV_04%20IDA.md)
 - [PIVB](../01%20ABAP%20templates/ALV_05%20PIVB.md)
 
-#### Internal tables
+#### Internal tables (itab)
+There are three main types of internal tables:
 
-##### itab declaration 
+1. **Standard Table**: This type allows for the storage of data with duplicate entries and does not enforce a specific order. The time required for an access is linearly dependent on the number of entries in the internal table.
+    
+2. **Sorted Table**: In a sorted table, the entries are always stored in a sorted order based on a specified key. Duplicates are allowed, but they are managed based on their position in the order. Key access to a sorted table can therefore use a binary search. 
+    
+3. **Hashed Table**: A hashed table is designed for fast access to data using a unique key. It does not allow duplicates and provides constant-time complexity for read operations. It’s ideal for scenarios where you need quick lookups without caring about the order of the records. 
+
+##### Declaration of itabs 
 
 The inline declaration in a SELECT statement produces a standard table with empty key
 ```abap
@@ -275,6 +281,7 @@ Rounding
 ```abap
 DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
 ```
+
 > 💡 more details here: [ABAP BuiltIn inline functions](../01%20ABAP%20templates/ABAP%20BuiltIn%20inline%20functions.md)
 
 #### CDS functions
@@ -442,6 +449,7 @@ rangestab = VALUE #( sign   = 'I'
 #### Batch input
 
 - [BDC Batch input macro](../01%20ABAP%20templates/BDC%20Batch%20input%20macro.md)
+- tcode `SHDB`
 
 #### Pop up messages 
 
@@ -451,7 +459,8 @@ rangestab = VALUE #( sign   = 'I'
 
 #### Logs
 
- `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
+- `SLG1`
+-  `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
 
 #### Dynamic SQL
 

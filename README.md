@@ -25,6 +25,7 @@ All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at
 ## ℹ️ Helpful links
 
 [Github SAP-samples: ABAP cheat sheets](https://github.com/SAP-samples/abap-cheat-sheets/blob/main/01_Internal_Tables.md)
+[FIORI apps library](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/home)
 
 ---
 
