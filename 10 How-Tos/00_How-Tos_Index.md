@@ -7,7 +7,7 @@
 
 - [Chart of Accounts Transport](FI%20CoA%20Transport.md) (translae)
 - [FIBF OpenFI](FI%20FIBF%20OpenFI.md) (to do)
-- [Offsetting accounts](FI%20Offsetting%20accounts.md) (to do)
+- [Offsetting accounts](FI%20Offsetting%20accounts.md) (translate)
 - [RWIN interface](FI%20RWIN%20interface.md)
 - [Substitutions&Validations](FI%20Substitutions&Validations.md) (to do)
 - [How to add a BP to foreign currecny valuation postings FI_FAGL_FCV](FI_FAGL_FCV%20add%20BP.md) (to do)
@@ -25,5 +25,5 @@
 
 ### Others
 
-- [SAPGUI Tips](SAPGUI%20Tips.md) (to do)
+- [SAPGUI Tips](SAPGUI%20Tips.md) (add info)
 
