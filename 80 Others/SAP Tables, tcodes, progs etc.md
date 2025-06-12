@@ -461,6 +461,7 @@ rangestab = VALUE #( sign   = 'I'
 
 - `SLG1`
 -  `C14ALD_BAPIRET2_SHOW` - FM to show BAPI return messages
+- se38 -> `/SDF/BAL_READ` - show logs in mass
 
 #### Dynamic SQL
 
@@ -818,6 +819,7 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 
 - Tcode `FCMLHELP` - ML Helpdesk
 - `CKMLHD` - Material Ledger: Header Record
+- `CKMLLAHD` -  Material Ledger: Actvty
 - `ACDOCA_M_EXTRACT` -ACDOCA Extract Table for Material Ledger
 - `MLDOC` - Material Ledger Document
 - `MLDOCCCS` - Material Ledger Document Cost Component Split
@@ -847,6 +849,8 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 - Material and Batch characteristics  [MM Material and Batch classification](../10%20How-Tos/MM%20Material%20and%20Batch%20classification.md) Tables `inob`, `ausp`, `cabn`, `cawn`, `cawnt`
 - `T16FS` + `T16FT` - Release Strategies
 - `T16FD` - Description of Release Codes
+- CALL FUNCTION `MIGO_DIALOG`
+- table `ESDUS`
 
 
 ### BAPIs
