@@ -913,4 +913,4 @@ FSD document:
 
 Скриншот из краткого RU-списка (контекст уточнить):
 
-<img width="512" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/232fdaa1-b1a3-4545-b9ec-40bdf016f382">
+> 🖼️ _(скриншот отсутствует — оригинал был во вложениях GitHub, добавить вручную)_

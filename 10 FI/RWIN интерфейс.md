@@ -4,21 +4,21 @@
 
 (Для примера, список функций при проверке FI документа):
 
-<img width="618" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/176c4a8e-8695-4d7f-9140-5addfbd25abc">
+![](IMGs/rwin_1.png)
 
 При этом важно понимать что вызываются только те ФМ (имя ФМ в поле TRWPR-FUNCTION), для компонента (TRWPR-COMPONENT) которых в системе стоит метка активации.
 
 
 Таблица с компонентами (и меткой активации) - **TRWCA**:
 
-<img width="347" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/f5ae1b87-d512-47d9-9b6a-32dc7ae109f1">
+![](IMGs/rwin_2.png)
 
 Ведение возможно через SM30
 
 Сами же процессы (**TRWPR-PROCESS**) и события (**TRWPR-EVENT**) предопределенны SAP и обычно просто захардкожены, например в ФМ AC_DOCUMENT_CREATE это выглядит так:
 
-<img width="688" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/73362ea1-4bf3-4da6-a318-808ee6f3aca6">
+![](IMGs/rwin_3.png)
 
 и далее идет вызов ФМ из таблицы TRWPR с учетом активных компонентов (TRWCA)
 
-<img width="781" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/18e2cb2c-03b6-43fc-a0e7-4f12f631a9a6">
+![](IMGs/rwin_4.png)

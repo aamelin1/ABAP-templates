@@ -4,7 +4,7 @@ PIVB отчеты позволяют формировать сводные от�
 
 Пример такого отчета:
 
-<img width="1466" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/fa8b4a92-fa25-4dd0-9f5a-727888d97a57">
+![](IMGs/pivb_1.png)
 
 Описание от SAP и технические детали в ноте [2100879](https://launchpad.support.sap.com/#/notes/2100879)
 
@@ -316,12 +316,12 @@ ENDFORM.
 
 Для простого примера нам достаточно определить наш отчет только в PIVB_CATALOG (через **SM30**):
 
-<img width="778" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/f7562f44-476b-4b79-a14c-1333e62c4d9d">
+![](IMGs/pivb_2.png)
 
 4) Далее необходимо создать реализацию точки расширения PIVB (**se18/19**), есть стандартный пример реализации **SAP_SFLIGHT_01**
 Создаем свою реализацию и в фильтрах указываем значения из п.3
 
-<img width="1220" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/ed180466-4068-4cf4-8e56-12f5aabd0f89">
+> 🖼️ _(скриншот отсутствует — оригинал был во вложениях GitHub, добавить вручную)_
 
 Для простого отчета нам нужно реализовать только метод IF_EX_PIVB~**SELECT** в котором можно переопределить механизм выборки данных
 для нашего примера это будет так:
@@ -414,13 +414,13 @@ endmethod.
 
 В методе IF_EX_PIVB~GRID_METADATA_CHANGE можно подкрутить параметры отображения ALV (филдкаталог), для примера так:
 
-<img width="517" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/046f5c72-ddaa-4b94-baf9-0bbb01a51d69">
+> 🖼️ _(скриншот отсутствует — оригинал был во вложениях GitHub, добавить вручную)_
 
 Активируем реализацию расширения, активируем наш отчет. Результат:
 Селекционный экран с новм механизмом выбора форматов (кнопка "select columns"):
 
-<img width="1025" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/db4a8684-263f-40e8-91f4-7ae798fc86ac">
+> 🖼️ _(скриншот отсутствует — оригинал был во вложениях GitHub, добавить вручную)_
 
 Сам отчет:
 
-<img width="1483" alt="image" src="https://github.com/aamelin1/SAP-FI-notes/assets/37226181/ae644820-a904-44a8-8469-364984f9e7fe">
+> 🖼️ _(скриншот отсутствует — оригинал был во вложениях GitHub, добавить вручную)_

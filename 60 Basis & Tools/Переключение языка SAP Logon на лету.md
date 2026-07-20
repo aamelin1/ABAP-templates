@@ -41,11 +41,11 @@ CALL FUNCTION 'ABAP4_CALL_TRANSACTION' STARTING NEW TASK 'LANGUAGE'
 
 До:
 
-<img width="356" alt="Screenshot 2023-05-17 at 16 36 39" src="https://github.com/aamelin1/ABAP-templates/assets/37226181/0f16a970-24de-4698-94a0-b295a3bdabc3">
+![](IMGs/lang_1.gif)
 
 После:
 
-<img width="336" alt="Screenshot 2023-05-17 at 16 37 12" src="https://github.com/aamelin1/ABAP-templates/assets/37226181/32d0e7bc-9138-414b-87af-05ef27336680">
+> 🖼️ _(скриншот отсутствует — оригинал был во вложениях GitHub, добавить вручную)_
 
 
 ---
