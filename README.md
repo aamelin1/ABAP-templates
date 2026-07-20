@@ -1,32 +1,28 @@
-# ABAP templates and SAP notes
+# SAP notes
 
-Here's you can find some helpful ABAP templates, How-tos related to SAP FI and other SAP notes.
+Консолидированная база знаний SAP (FI-консультант, Андрей Амелин), собранная в единую структуру для последующей синхронизации с GitHub.
 
-## 🏗️ How to Use
-All datas are grouped by folders (ABAP templates, How-Tos, SAP Blogs, Others) at the left side. Notes are stored as "**.md**" files ([markdown format](https://en.wikipedia.org/wiki/Markdown)).
+Начните с 👉 [00_Index.md](00_Index.md).
 
-## 🧭 Navigation
-- 📇 [Quick start (SAP tables, tcodes etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md) 
-  - [ABAP](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#abap)
-  - [General (Users, Logs, Monitors, Basis, some tech stuff etc)](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#general-users-logs-monitors-basis-some-tech-stuff-etc)
-  - [FI: Finance](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#FI)
-  - [FI-AA: Fixed Asset](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#FI-AA)
-  - [CO: Controlling](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#CO)
-  - [ML: Material Ledger](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#ML)
-  - [MM: Material Management](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#MM)
-  - [SD: Sales and Distribution](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#SD)
-  - [TM: Transportation Management](https://github.com/aamelin1/ABAP-templates/blob/main/80%20Others/SAP%20Tables%2C%20tcodes%2C%20progs%20etc.md#TM)
-- 📋 [ABAP templates](https://github.com/aamelin1/ABAP-templates/blob/main/01%20ABAP%20templates/00_ABAP_Index.md) - ABAP code examples, ALV templates, CDS, built-In functions etc
-- 🎓 [How-Tos](https://github.com/aamelin1/ABAP-templates/tree/main/10%20How-Tos/00_How-Tos_Index.md) - Short SAP How-to technical articles
-- 📐 [ABAP report and tools](https://github.com/aamelin1/ABAP-templates/tree/main/60%20ABAP%20reports%20and%20tools/00_Rep_Index.md) - Custom (Z*) ABAP programs
-- ✏️ [SAP-Blog posts](https://github.com/aamelin1/ABAP-templates/tree/main/70%20SAPBlog%20posts/00_Posts_Index.md) - Archive of my SAP Blog posts
-- 💻 [Source code](https://github.com/aamelin1/ABAP-templates/tree/main/90%20Source%20code%20ABAP%20prog) - My library of custom ABAP code
+## Как устроено
 
-## ℹ️ Helpful links
+- Заметки сгруппированы **по модулям SAP** (папки `10 FI`, `20 FI-AA`, `30 CO-ML`, `40 MM`, `50 ABAP`, `60 Basis & Tools`), плюс `70 Reference`, `80 Blog posts` и `90 Source code`.
+- В каждой папке есть индекс `00_<Название>_Index.md`.
+- Внутренние ссылки — относительные, с URL-кодированием пробелов (`%20`), чтобы работали и в Obsidian, и на GitHub.
+- Картинки лежат в папке `IMGs/` внутри соответствующего раздела (часть картинок в перенесённых из вики статьях пока ссылается на GitHub-вложения по URL).
+- Исходники ABAP — в `90 Source code/`; заметки ссылаются на них.
 
-[Github SAP-samples: ABAP cheat sheets](https://github.com/SAP-samples/abap-cheat-sheets/blob/main/01_Internal_Tables.md)
-[FIORI apps library](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/#/home)
+## Источники сборки
 
----
+| Источник | Что дал |
+|---|---|
+| `aamelin1/ABAP-templates` (= локальная `SAP FI/Untitled`) | причёсанные EN-заметки, шаблоны, справочник, блог, часть кода |
+| `aamelin1/SAP-FI-notes` | уникальный ABAP-код (корреспонденция, миграция ОС, курсы, налоговый отчёт и др.) |
+| `aamelin1/SAP-FI-notes.wiki` | 17 русских статей — основной массив прозы |
+| Notion export | ⏳ ожидается — будет влит позже |
 
-*Author: Andrey Amelin, SAP FI consultant*
+Полная карта происхождения и пересечений — в [_SOURCES.md](_SOURCES.md).
+
+## Статус
+
+Первый проход сборки на русском. Заметки с меткой **(перевести)** пока на английском; **(to do)** — темы без содержания; **⚠️ Черновик** — оформить.
