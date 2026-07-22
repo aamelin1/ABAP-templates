@@ -32,6 +32,8 @@
 
 ### 20 FI-AA — Основные средства
 
+- [Массовое выбытие ОС из файла (BAPI_ASSET_RETIREMENT_POST)](20-fi-aa/asset-mass-retirement.md): Z-отчёт ZR2R_AA_MASS_RET: выбытие/списание ОС списком из Excel-файла с превью в ALV и отвязкой единиц оборудования *(черновик)*
+- [Миграция ОС — начальная загрузка остатков из файла (BAPI_FIXEDASSET_OVRTAKE_CREATE)](20-fi-aa/asset-migration-initial-load.md): Комплект ZR2R_AA_MIGRATION: загрузка остатков по ОС из Excel через BAPI1022-структуры, маппинг колонок настраивается таблицей без правки кода *(черновик)*
 - [FI-AA revaluation areas (AR29N)](20-fi-aa/revaluation-areas.md): Указатель на SAP Note 2332517 по областям переоценки — заметку дополнить *(черновик)*
 
 ### 30 CO-ML — Контроллинг / Material Ledger
