@@ -129,7 +129,7 @@ FB03->ракурс ГК
 
 
 Описание от SAP тут:
-[Offsetting Account Determination_New.pdf](https://github.com/aamelin1/ABAP-templates/files/11515735/Offsetting.Account.Determination_New.pdf)
+[Offsetting Account Determination_New.pdf](https://github.com/aamelin1/sap-kb/files/11515735/Offsetting.Account.Determination_New.pdf)
 
 Настройки решения находятся тут:
 
@@ -199,7 +199,7 @@ BAdI - **/CCIS/SMOD_J_3RKAC1**
 Так же важно понимать что для унифицированных документов (BSTAT = U) вы столкнетесь с трудностями, т.к. по ним нет строк в BSEG (на эту тему есть несколько SAP OSS нот)
 
 Описание решения от SAP тут 
-[Корреспонденция счетов ГК.pdf](https://github.com/aamelin1/ABAP-templates/files/11517497/default.pdf)
+[Корреспонденция счетов ГК.pdf](https://github.com/aamelin1/sap-kb/files/11517497/default.pdf)
 
 
 

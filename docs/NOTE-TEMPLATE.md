@@ -138,5 +138,5 @@ source:
 Строка, которую генератор соберёт из этого frontmatter:
 
 ```markdown
-- [Платежная программа F110 — настройка и типовые ошибки](https://raw.githubusercontent.com/aamelin1/ABAP-templates/main/10-fi/f110-setup-and-errors.md): Настройка F110 с нуля, чек-лист FBZP и разбор типовых ошибок прогона — F110, payment run, автоматические платежи, SAPFPAYM, варианты формата, payment medium format, REGUH, REGUP, DME, платежный прогон, FBZP, банковские платежи · код: [zfi_payment_example.abap](https://raw.githubusercontent.com/aamelin1/ABAP-templates/main/90-source-code/zfi_payment_example.abap)
+- [Платежная программа F110 — настройка и типовые ошибки](https://raw.githubusercontent.com/aamelin1/sap-kb/main/10-fi/f110-setup-and-errors.md): Настройка F110 с нуля, чек-лист FBZP и разбор типовых ошибок прогона — F110, payment run, автоматические платежи, SAPFPAYM, варианты формата, payment medium format, REGUH, REGUP, DME, платежный прогон, FBZP, банковские платежи · код: [zfi_payment_example.abap](https://raw.githubusercontent.com/aamelin1/sap-kb/main/90-source-code/zfi_payment_example.abap)
 ```
