@@ -1,3 +1,11 @@
+---
+title: "ABAP built-in functions — lines, strlen, concat, abs, sign, round"
+keywords: lines, strlen, numofchar, concat_lines_of, CONCATENATE, abs, sign, round, string templates, встроенные функции
+status: draft
+---
+
+# ABAP built-in functions — lines, strlen, concat, abs, sign, round
+
 **itab lines count:**
 
 ``` abap

@@ -1,4 +1,10 @@
-# 02 Graphs. Another way to show SAP ERP data
+---
+title: "Blog: Graphs — another way to show SAP ERP data"
+keywords: Graphviz, DOT, graph, CL_ABAP_GRAPH, CL_ABAP_GRAPH_NODE_RECORD, CL_GUI_HTML_VIEWER, визуализация, visualization, hierarchy, network
+status: ok
+---
+
+# Blog: Graphs — another way to show SAP ERP data
 
 > SAP Community: https://community.sap.com/t5/technology-blogs-by-members/graphs-another-way-to-show-sap-erp-data/ba-p/13580803
 
@@ -22,7 +28,7 @@ For example, I think a lot of us make a lot of diagrams with explanation of the 
 
 
 
-![](IMGs_02/image1.png)
+![](img/02-1.png)
 
 
 Another example - visualisation of **production processes** like chain of:
@@ -33,7 +39,7 @@ Like this:
 
 
 
-![](IMGs_02/image2.png)
+![](img/02-2.png)
 
 
 All these data are impossible (or really hard) to represent by table view. Also, existing SAP tools (like FIORI lighthouse app ["Display Journal Entries in T-Account View"](https://fioriappslibrary.hana.ondemand.com/sap/fix/externalViewer/index.html) or [SAP Graph](https://help.sap.com/docs/graph)) are not so helpful in some cases.So, I think to show these kind of data I should use another approach for visualisation, like, for example Graphs at SAP GUI (SAPLogon) interface.
@@ -70,7 +76,7 @@ And open this HTMS file at any browser to get a visualisation:
 
 
 
-![](IMGs_02/image3.png)
+![](img/02-3.png)
 
 
 To store Graph data I'll use a simplest approach - store all nodes and edges at two tables. Another options of storing graph data you may find [here](https://medium.com/@siddarthsiddhu58/graph-storage-technique-7d32861956f0)
@@ -112,14 +118,14 @@ a) Create a Node structure via **se11**
 
 
 
-![](IMGs_02/image4.png)
+![](img/02-4.png)
 
 
 b) Create a Edge structure via **se11**
 
 
 
-![](IMGs_02/image5.png)
+![](img/02-5.png)
 
 
 c) Create a report, select necessary data into two internal tables lt_nodes[] (with p.a structure) and lt_edges[] (with p.b structure), and create a Graph, like this:
@@ -226,14 +232,14 @@ This program selects all FI related data (from ACDOCA etc) and creates a GL acco
 
 
 
-![](IMGs_02/image6.png)
+![](img/02-6.png)
 
 
 or more complex case with more docs:
 
 
 
-![](IMGs_02/image7.png)
+![](img/02-7.png)
 
 
 **Case 2. Production process**
@@ -250,10 +256,10 @@ Legend for the colors below:
 - Green - Goods receipts
 
 
-![](IMGs_02/image8.png)
+![](img/02-8.png)
 
 or like this:
 
 
-![](IMGs_02/image9.png)
+![](img/02-9.png)
 

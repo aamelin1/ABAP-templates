@@ -1,3 +1,11 @@
+---
+title: "Popup windows — ALV grid and text editor"
+keywords: CL_RECA_GUI_F4_POPUP, factory_grid, CATSXT_SIMPLE_TEXT_EDITOR, CONVERT_STRING_TO_TABLE, popup, всплывающее окно
+status: draft
+---
+
+# Popup windows — ALV grid and text editor
+
 Popup with ALV table:
 ```abap
      SELECT  ...

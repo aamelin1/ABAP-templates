@@ -1,3 +1,15 @@
+---
+title: "Отчёт «пользователи ↔ роли» — матрица полномочий"
+keywords: AGR_USERS, AGR_TEXTS, BAPI_USER_GET_DETAIL, роли, roles matrix, пользователи, users, PFCG, динамические колонки, dynamic columns, REUSE_ALV_GRID_DISPLAY_LVC
+status: ok
+source:
+  - 90-source-code/zbc_users_roles.abap
+  - 90-source-code/zbc_users_roles_top.abap
+  - 90-source-code/zbc_users_roles_f01.abap
+---
+
+# Отчёт «пользователи ↔ роли» — матрица полномочий
+
 # Идея отчета
 Показать матрицу ролей и полномочий в системе на основе фактически присвоенных ролей пользователям.
 Строки в отчете - пользователи
@@ -360,4 +372,4 @@ ENDFORM.
 
 ---
 **Исходный код:**
-- [ZBC_USERS_ROLES.abap](../90%20Source%20code/ZBC_USERS_ROLES.abap) (+ [TOP](../90%20Source%20code/ZBC_USERS_ROLES_TOP.abap), [F01](../90%20Source%20code/ZBC_USERS_ROLES_F01.abap))
+- [ZBC_USERS_ROLES.abap](../90-source-code/zbc_users_roles.abap) (+ [TOP](../90-source-code/zbc_users_roles_top.abap), [F01](../90-source-code/zbc_users_roles_f01.abap))

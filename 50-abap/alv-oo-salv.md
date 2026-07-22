@@ -1,3 +1,13 @@
+---
+title: "ALV via OO SALV (CL_SALV_TABLE) — template"
+keywords: CL_SALV_TABLE, factory, SALV, layout, set_save_restriction, hotspot, link_click, CL_SALV_LAYOUT_SERVICE, event handler, ALV шаблон, ОО ALV
+status: draft
+source:
+  - 90-source-code/zfi_salv_template.abap
+  - 90-source-code/oo_alv_template.abap
+---
+
+# ALV via OO SALV (CL_SALV_TABLE) — template
 
 Simple way to show ALV in OO style:
 ``` abap
@@ -75,11 +85,11 @@ o_alv->display( ).
 ```
 
 
- > **💡 Notes** [ALV Options (colors, selctions etc.)](ALV_99%20Others.md)
+ > **💡 Notes** [ALV Options (colors, selctions etc.)](alv-other-features.md)
  
  
 
 ---
 **Исходный код:**
-- [ZFI_SALV_TEMPLATE.abap](../90%20Source%20code/ZFI_SALV_TEMPLATE.abap)
-- [OO_ALV_template](../90%20Source%20code/OO_ALV_template)
+- [ZFI_SALV_TEMPLATE.abap](../90-source-code/zfi_salv_template.abap)
+- [OO_ALV_template](../90-source-code/oo_alv_template.abap)

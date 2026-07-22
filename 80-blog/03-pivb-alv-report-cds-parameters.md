@@ -1,4 +1,10 @@
-# 03 Tutorial. Custom PIVB ALV report based on a CDS with parameters
+---
+title: "Blog: Custom PIVB ALV report based on a CDS with parameters"
+keywords: PIVB, pivot, CDS with parameters, PIVB_CATALOG, PIVB_SELECT_AND_DISPLAY, IF_EX_PIVB, BAdI PIVB, RFPIVB, FAGLL03H, сводный отчёт
+status: ok
+---
+
+# Blog: Custom PIVB ALV report based on a CDS with parameters
 
 > SAP Community: https://community.sap.com/t5/technology-blogs-by-members/tutorial-how-to-create-custom-pivb-alv-report-based-on-a-cds-with/ba-p/13581331
 
@@ -17,7 +23,7 @@ An example of a report (**FAGLL03h**😞
 
 
 
-![](IMGs_03/image1.png)
+![](img/03-1.png)
 
 
 Description from SAP and technical details you may find in SAP note [2100879](https://launchpad.support.sap.com/)
@@ -34,7 +40,7 @@ You need a table or CDS with data for the report. In the example below, I will u
 
 
 
-![](IMGs_03/image2.png)
+![](img/03-2.png)
 
 
 
@@ -124,11 +130,11 @@ PIVB ALV layouts search help, with **ad-hoc** functionality, looks like:
 
 
 
-![](IMGs_03/image3.png)
+![](img/03-3.png)
 
 
 
-![](IMGs_03/image4.png)
+![](img/03-4.png)
 
 
  
@@ -199,7 +205,7 @@ For a simple example, it is enough to define our report only in **PIVB_CATALOG*
 
 
 
-![](IMGs_03/image5.png)
+![](img/03-5.png)
 
 **Implement PIVB BAdI**
 
@@ -208,7 +214,7 @@ Next, let's create an implementation of the PIVB enhancement point (**se18/19**)
 
 
 
-![](IMGs_03/image6.png)
+![](img/03-6.png)
 
 
 For a simple report, it's only need to implement the IF_EX_PIVB~**SELECT**method in which I override the data selection mechanism for example, it will be like this:
@@ -306,7 +312,7 @@ In the IF_EX_PIVB~**GRID_METADATA_CHANGE** method, you can change the ALV displ
 
 
 
-![](IMGs_03/image7.png)
+![](img/03-7.png)
 
 
 Activate the implementation of the enhancement, activate report etc. Everything done!
@@ -318,6 +324,6 @@ Adding columns to PIVB report:
 
 
 
-![](IMGs_03/image8.gif)
+![](img/03-8.gif)
 
 

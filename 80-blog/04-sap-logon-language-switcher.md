@@ -1,4 +1,10 @@
-# 04 SAP Logon online language switcher
+---
+title: "Blog: SAP Logon online language switcher"
+keywords: SET LOCALE LANGUAGE, ABAP4_CALL_TRANSACTION, logon language, язык входа, SE93, custom tcode
+status: ok
+---
+
+# Blog: SAP Logon online language switcher
 
 > SAP Community: https://community.sap.com/t5/technology-blogs-by-members/sap-logon-online-language-switcher/ba-p/13580754
 
@@ -49,7 +55,7 @@ CALL FUNCTION 'ABAP4_CALL_TRANSACTION' STARTING NEW TASK 'LANGUAGE'
 - Create a list of transactions with names like Z<language> at **SE93**, for example **ZEN**, **ZPT**, **ZRU** etc.
 
 
-![](IMGs_04/image1.png)
+![](img/04-1.png)
 
 
 **How it works**
@@ -61,7 +67,7 @@ System changes current language without logging-off.
 
 
 
-![](IMGs_04/image2.gif)
+![](img/04-2.gif)
 
 
 Lang switcher

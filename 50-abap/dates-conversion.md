@@ -1,3 +1,9 @@
+---
+title: "Working with dates in ABAP"
+keywords: RP_LAST_DAY_OF_MONTHS, CONVERT_DATE_TO_INTERNAL, CONVERT_DATE_TO_EXTERNAL, CL_ABAP_CONTEXT_INFO, utclong_current, последний день месяца, last day of month, конвертация дат, date conversion
+status: draft
+---
+
 # Working with dates in ABAP
 
 How to get a last day of month:

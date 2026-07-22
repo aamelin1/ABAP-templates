@@ -1,3 +1,9 @@
+---
+title: "Read variables from callstack"
+keywords: callstack, стек вызовов, ASSIGN, SAPLMIGO, XCO_CP, XCO_CP_CALL_STACK, field-symbols, глобальные переменные программы
+status: draft
+---
+
 # Read variables from callstack
 
 **Read variables from callstack**

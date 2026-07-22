@@ -1,4 +1,10 @@
-# Popup with ALV
+---
+title: "Popup with ALV (CL_RECA_GUI_F4_POPUP)"
+keywords: CL_RECA_GUI_F4_POPUP, factory_grid, popup ALV, всплывающее окно, F4 popup
+status: draft
+---
+
+# Popup with ALV (CL_RECA_GUI_F4_POPUP)
 
 ```abap
      SELECT  ...

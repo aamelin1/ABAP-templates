@@ -1,3 +1,11 @@
+---
+title: "BDC batch input macro"
+keywords: BDC, BDCDATA, batch input, пакетный ввод, DEFINE macro, CALL TRANSACTION, BDCMSGCOLL, SHDB
+status: draft
+---
+
+# BDC batch input macro
+
 Macro
 ``` abap
 *   Macro to fill the necessary BDC data

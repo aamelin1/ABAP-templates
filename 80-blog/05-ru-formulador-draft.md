@@ -1,4 +1,10 @@
-# 05_RU Formulador (ZFI_SIMP_LP_DEMO) — черновик RU
+---
+title: "Блог (черновик RU): Formulador — линейное программирование в ABAP"
+keywords: симплекс, simplex, линейное программирование, linear programming, BOM, Formulador, CL_GENIOS_ENVIRONMENT, оптимизация состава
+status: draft
+---
+
+# Блог (черновик RU): Formulador — линейное программирование в ABAP
 
 > SAP Community: https://community.sap.com/t5/technology-blogs-by-members/linear-programming-in-abap-simplex-method-find-optimised-bom/ba-p/13661302
 
@@ -69,11 +75,11 @@ x1 + x2 + x3 + x4 = 1 (кг)
 
 
 
-![](IMGs_05_RU/image1.png)
+![](img/05-ru-1.png)
 
 
 
-![](IMGs_05_RU/image2.png)
+![](img/05-ru-2.png)
 
 Я захардкодил что условия содержания в готовой смеси это «больше или равно», но естественно это только ради проверки идеи.
 
@@ -81,7 +87,7 @@ x1 + x2 + x3 + x4 = 1 (кг)
 
 
 
-![](IMGs_05_RU/image3.png)
+![](img/05-ru-3.png)
 
 Т.е. тут указаны сколько надо взять материалов 1,2,3 и 4 чтобы получить заданную смесь нужных параметров и с минимальной себестоимостью.
 

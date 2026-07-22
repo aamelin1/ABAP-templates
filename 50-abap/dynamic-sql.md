@@ -1,3 +1,11 @@
+---
+title: "Dynamic SQL select in ABAP"
+keywords: dynamic select, динамический запрос, RSDS_WHERE_TAB, dynamic GROUP BY, ASSIGN COMPONENT, CX_SY_OPEN_SQL_DB, F4_CONV_SELOPT_TO_WHERECLAUSE
+status: draft
+---
+
+# Dynamic SQL select in ABAP
+
 Dynamic select:
 ``` abap
 DATA:       lt_where            TYPE rsds_where_tab,

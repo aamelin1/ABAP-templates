@@ -1,3 +1,17 @@
+---
+title: "Создание CDS и отчёты IDA (ALV on HANA)"
+keywords: CDS, Core Data Services, IDA, Integrated Data Access, CL_SALV_GUI_TABLE_IDA, create_for_cds_view, ALV on HANA, DDL, Eclipse ADT, CL_SALV_RANGE_TAB_COLLECTOR, text search, hotspot, layout, SALV_IDA, Note 3196994
+status: ok
+source:
+  - 90-source-code/zfi_ida_template.abap
+  - 90-source-code/alv_ida_cds.abap
+  - 90-source-code/alv_ida_template_sscr_alv.abap
+  - 90-source-code/alv_ida_template_sscr_same_page.abap
+  - 90-source-code/zfi_glrep_items_ida.abap
+---
+
+# Создание CDS и отчёты IDA (ALV on HANA)
+
 # Что такое CDS и чем они могут быть полезны?
 
 CDS расшифровывается как **Core Data Services**. 
@@ -346,7 +360,7 @@ START-OF-SELECTION.
 
 ---
 **Исходный код:**
-- [ZFI_IDA_template.abap](../90%20Source%20code/ZFI_IDA_template.abap)
-- [ALV_IDA_CDS.abap](../90%20Source%20code/ALV_IDA_CDS.abap) — пример CDS
-- [ALV_IDA_template(SSCR_ALV)](../90%20Source%20code/ALV_IDA_template%28SSCR_ALV%29.abap), [ALV_IDA_template (SSCR on same page)](../90%20Source%20code/ALV_IDA_template%20%28with%20SSCR%20on%20same%20page%29.abap)
-- [ZFI_GLREP_ITEMS (IDA)](../90%20Source%20code/ZFI_GLREP_ITEMS%20%28IDA...%29.abap) — отчёт по позициям ГК на CDS
+- [ZFI_IDA_template.abap](../90-source-code/zfi_ida_template.abap)
+- [ALV_IDA_CDS.abap](../90-source-code/alv_ida_cds.abap) — пример CDS
+- [ALV_IDA_template(SSCR_ALV)](../90-source-code/alv_ida_template_sscr_alv.abap), [ALV_IDA_template (SSCR on same page)](../90-source-code/alv_ida_template_sscr_same_page.abap)
+- [ZFI_GLREP_ITEMS (IDA)](../90-source-code/zfi_glrep_items_ida.abap) — отчёт по позициям ГК на CDS

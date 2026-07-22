@@ -1,4 +1,10 @@
-# Upload Exchange Rates (Argentina)
+---
+title: "Upload exchange rates from Argentina Central Bank (BCRA API)"
+keywords: BCRA, exchange rates, курсы валют, TCURR, BAPI_EXCHRATE_CREATEMULTIPLE, IF_HTTP_CLIENT, /UI2/CL_JSON, JSON, REST API, Argentina, KURST
+status: draft
+---
+
+# Upload exchange rates from Argentina Central Bank (BCRA API)
 
 Argentina Central Bank API for Exchange rates - [https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones?fecha=](https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones?fecha=)YYYY-MM-DD
 

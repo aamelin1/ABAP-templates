@@ -1,4 +1,10 @@
-# Logs and changes history
+---
+title: "Logs and change history in SAP"
+keywords: SCU3, DBTABLOG, RSSCD100, CDHDR, CDPOS, CHANGEDOCUMENT_DISPLAY, SLG1, CL_BALI_LOG, SE16N_CD_KEY, RKSE16N_CD_DISPLAY, SM21, /SDF/BAL_READ, C14ALD_BAPIRET2_SHOW, история изменений, change documents
+status: draft
+---
+
+# Logs and change history in SAP
 
 | Type of logs | Tcode | SAP objects |
 | --- | --- | --- |

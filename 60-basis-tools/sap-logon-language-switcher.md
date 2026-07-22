@@ -1,3 +1,13 @@
+---
+title: "Переключение языка SAP Logon на лету"
+keywords: SET LOCALE LANGUAGE, ABAP4_CALL_TRANSACTION, язык входа, logon language, SE93, custom tcode, SESSION_MANAGER
+status: ok
+source:
+  - 90-source-code/zbc_lang_en.abap
+---
+
+# Переключение языка SAP Logon на лету
+
 Иногда удобно иметь возможность на лету переключить язык входа в SAP систему в SAP Logon.
 
 Концепция:
@@ -41,7 +51,7 @@ CALL FUNCTION 'ABAP4_CALL_TRANSACTION' STARTING NEW TASK 'LANGUAGE'
 
 До:
 
-![](IMGs/lang_1.gif)
+![](img/lang-1.gif)
 
 После:
 
@@ -50,4 +60,4 @@ CALL FUNCTION 'ABAP4_CALL_TRANSACTION' STARTING NEW TASK 'LANGUAGE'
 
 ---
 **Исходный код:**
-- [ZBC_LANG_EN.abap](../90%20Source%20code/ZBC_LANG_EN.abap)
+- [ZBC_LANG_EN.abap](../90-source-code/zbc_lang_en.abap)

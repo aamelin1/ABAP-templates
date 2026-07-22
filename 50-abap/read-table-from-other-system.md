@@ -1,4 +1,10 @@
-# Read table from other SAP system
+---
+title: "Read table from another SAP system via RFC_READ_TABLE"
+keywords: RFC_READ_TABLE, DESTINATION, RFC, чтение из другой системы, remote table read, F4_CONV_SELOPT_TO_WHERECLAUSE, RFC_DB_OPT, TAB512
+status: draft
+---
+
+# Read table from another SAP system via RFC_READ_TABLE
 
 ```abap
  DATA : p_inp(10) TYPE c. 

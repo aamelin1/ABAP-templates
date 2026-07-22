@@ -1,4 +1,10 @@
-# FI. Validations & substitutions
+---
+title: "FI validations and substitutions (GGB0/GGB1)"
+keywords: GGB0, GGB1, OBBH, GCX2, RGUGBR00, GB01, VWTYGB01, RGGBS000, RGGBR000, user exit, замещения, substitutions, проверки, validations, GS01, EXITS-PARAM
+status: draft
+---
+
+# FI validations and substitutions (GGB0/GGB1)
 
 - `GGB1` - Substitution Maintenance
 - `GGB0` - Validation Maintenance
@@ -27,4 +33,4 @@ To add own form, you need to specify form name as:
 
 How to activate trace:
 
-![image.png](IMGs/FI%20Validations%20&%20substitutions/image.png)
+![image.png](img/validations-1.png)

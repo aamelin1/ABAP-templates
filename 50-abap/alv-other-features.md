@@ -1,4 +1,10 @@
-# Some ALV features
+---
+title: "ALV features — colors and selection mode"
+keywords: LVC_S_COLO, col_total, set_color, emphasize, цвета ALV, ALV colors, selection mode, IF_SALV_C_SELECTION_MODE, CL_SALV_COLUMN_TABLE
+status: draft
+---
+
+# ALV features — colors and selection mode
 
 - [Colors](#Color-options)
 - [Slection mode](#ALV-selection-mode)
@@ -24,7 +30,7 @@ Color codes:
 
 How it looks in SAP ALV:
 
-![ALV Colors](IMGs/IMG_ALC_Colors.png)
+![ALV Colors](img/alv-colors.png)
 
 
 ## ALV selection mode

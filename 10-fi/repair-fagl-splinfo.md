@@ -1,3 +1,11 @@
+---
+title: "Repair FAGL_SPLINFO — simulate document splitting for posted docs"
+keywords: FAGL_SPLINFO, FAGL_SPLINFO_VAL, FAGL_SUBSEQ_POSTING, G_TRACE_START, CL_FINS_SIF_SERVICES, CL_FAGL_OI_READ, document splitting, разделение документов, ремонт таблиц, GLU1
+status: draft
+---
+
+# Repair FAGL_SPLINFO — simulate document splitting for posted docs
+
 Repair tables `fagl_splinfo` and `fagl_splinfo_val` (like simulate splitting for posted docs):
 ``` abap
 *** activate trace mode

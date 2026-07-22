@@ -1,3 +1,11 @@
+---
+title: "Progress indicator (CL_PROGRESS_INDICATOR)"
+keywords: CL_PROGRESS_INDICATOR, progress_indicate, индикатор прогресса, progress bar, статусная строка
+status: draft
+---
+
+# Progress indicator (CL_PROGRESS_INDICATOR)
+
 Show loop iterations as a message, like a progress bar
 
 ``` abap

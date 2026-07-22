@@ -1,3 +1,10 @@
+---
+title: "Working with ranges"
+keywords: RANGE OF, ranges, RSDSSELOPT_T, select-options, sign option low high, диапазоны
+status: draft
+---
+
+# Working with ranges
 
 Create range and fill data:
 ``` abap

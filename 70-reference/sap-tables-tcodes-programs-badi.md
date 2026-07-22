@@ -1,4 +1,11 @@
-# Справочник SAP — таблицы, транзакции, программы, BAdI, BAPI
+---
+title: "Справочник SAP — таблицы, транзакции, программы, BAdI по модулям"
+keywords: справочник, reference, tcodes, таблицы, tables, BAPI, BAdI, ACDOCA, BKPF, BSEG, SKA1, LFA1, KNA1, ANLA, T030, FI, FI-AA, CO, ML, MM, SD, TM
+status: draft
+summary: "Большой справочник по модулям: транзакции, таблицы, программы, ФМ/BAPI, BAdI и полезные ноты"
+---
+
+# Справочник SAP — таблицы, транзакции, программы, BAdI по модулям
 
 > ⚠️ **(перевести)** Единый справочник по системе. Сведён из большого EN-справочника (repo A) и краткого RU-списка (вики): краткий список полностью покрыт разделами ниже. Пока на английском — перевод отдельным этапом.
 **Table of contents:**
@@ -72,17 +79,17 @@ Also [Eclipse](https://www.eclipse.org) (with [ADT](https://developers.sap.com/t
 - Tcode `STMS` and `STMS_IMPORT` - Transport Management System
 - Tcode `STMS_QA` - TMS Quality Assurance
 - Tables `E070`,`E071`,`E07T` - for TRs info
-- [How to use a transport of copies](../60%20Basis%20&%20Tools/Перенос%20запросов%20копиями%20%28ToC%29.md)
-- [TRC Transport request checker](../60%20Basis%20&%20Tools/Отчет%20по%20транспортным%20запросам%20%28статус%20переноса%29.md)
+- [How to use a transport of copies](../60-basis-tools/transport-of-copies.md)
+- [TRC Transport request checker](../60-basis-tools/transport-requests-status-report.md)
 
 ### ABAP snippets
 
 #### Templates to show data via ALV (SAP List viewer):
 
-- [Show ALV via FM](../50%20ABAP/Шаблон%20классического%20ALV%20%28REUSE_ALV_GRID_DISPLAY_LVC%29.md)
-- [OO based ALV (SALV)](../50%20ABAP/ALV_02%20OO%20Simple%20SALV.md)
-- [IDA (aka ALV on HANA)](../50%20ABAP/Создание%20CDS%20и%20отчеты%20IDA%20%28ALV%20on%20HANA%29.md)
-- [PIVB](../50%20ABAP/Отчеты%20ALV%20PIVB.md)
+- [Show ALV via FM](../50-abap/classic-alv-template.md)
+- [OO based ALV (SALV)](../50-abap/alv-oo-salv.md)
+- [IDA (aka ALV on HANA)](../50-abap/cds-and-ida-reports.md)
+- [PIVB](../50-abap/alv-pivb-reports.md)
 
 #### Internal tables (itab)
 There are three main types of internal tables:
@@ -284,7 +291,7 @@ Rounding
 DATA(lv_round) = round( val = CONV decfloat34( '1.2374' ) dec = 2 ). "1.24
 ```
 
-> 💡 more details here: [ABAP BuiltIn inline functions](../50%20ABAP/ABAP%20BuiltIn%20inline%20functions.md)
+> 💡 more details here: [ABAP BuiltIn inline functions](../50-abap/builtin-functions.md)
 
 #### CDS functions
 
@@ -341,7 +348,7 @@ The **SUBSTRING** function extracts a specific portion of a string, starting fro
  substring(erdat, 5, 2) as month,
 ```
 
-> 💡 [CDS tricks&tips](../50%20ABAP/CDS%20tricks&tips.md)
+> 💡 [CDS tricks&tips](../50-abap/cds-tricks-and-tips.md)
 
 #### Working with files
 
@@ -379,7 +386,7 @@ DATA(extracted_call_stack_as_text) = call_stack->from->position( 1
   )->to->last_occurrence_of( line_pattern )->as_text( format ).
 ```  
 
-  - [Read VARs from callstack](../50%20ABAP/Read%20variables%20from%20callstack.md)
+  - [Read VARs from callstack](../50-abap/read-variables-from-callstack.md)
 
 #### Memory IDs
 
@@ -425,7 +432,7 @@ PARAMETERS: prb1 RADIOBUTTON GROUP rbgr,
             prb3 RADIOBUTTON GROUP rbgr DEFAULT 'X'.  "Select this radiobutton by default
 ```
 
-- [Selection screen](../50%20ABAP/00_ABAP_Index.md)
+- Selection screen
 
 #### Ranges
 
@@ -441,7 +448,7 @@ rangestab = VALUE #( sign   = 'I'
                      option = 'GE' ( low = 18 ) ).
 ```
 
-- [Working with ranges](../50%20ABAP/Working%20with%20ranges.md)
+- [Working with ranges](../50-abap/working-with-ranges.md)
 
 #### Call BAPIs
 
@@ -450,13 +457,13 @@ rangestab = VALUE #( sign   = 'I'
 
 #### Batch input
 
-- [BDC Batch input macro](../50%20ABAP/BDC%20Batch%20input%20macro.md)
+- [BDC Batch input macro](../50-abap/bdc-batch-input-macro.md)
 - tcode `SHDB`
 
 #### Pop up messages 
 
-- [Pop up windows](../50%20ABAP/Pop%20up%20windows.md)
-- [Progress_indicator](../50%20ABAP/Progress_indicator.md)
+- [Pop up windows](../50-abap/popup-windows.md)
+- [Progress_indicator](../50-abap/progress-indicator.md)
 - FM `SE16N_UT_GET_SELECT_CRITERIA` - window with selection criteria (all fields of structure/table)
 
 #### Logs
@@ -467,7 +474,7 @@ rangestab = VALUE #( sign   = 'I'
 
 #### Dynamic SQL
 
-- [Dynamic SQL](../50%20ABAP/Dynamic%20SQL.md)
+- [Dynamic SQL](../50-abap/dynamic-sql.md)
 - FM `F4_CONV_SELOPT_TO_WHERECLAUSE` - Convert WHERE conditions
 
 #### Other dynamic techniques
@@ -500,7 +507,7 @@ CREATE DATA dataref TYPE TABLE OF ('DEMO_STRUC') WITH EMPTY KEY.
 
 #### Others
 
-- [More ABAP templates here](../50%20ABAP/00_ABAP_Index.md)
+- More ABAP templates here
 
 
 ## General (Users, Logs, Monitors, Basis, some tech stuff etc)
@@ -517,7 +524,7 @@ CREATE DATA dataref TYPE TABLE OF ('DEMO_STRUC') WITH EMPTY KEY.
 - `SMEN_BUFFC` - User favorites 
 - `USR05` - Memory ID values by users 
 - BAPI `BAPI_USER_GET_DETAIL` - Get user details
-- [BC Users vs Roles](../60%20Basis%20&%20Tools/Отчет%20по%20пользователям%20и%20ролям%20%28матрица%29.md)
+- [BC Users vs Roles](../60-basis-tools/users-roles-matrix-report.md)
 
 ### Logs
 
@@ -549,7 +556,7 @@ CREATE DATA dataref TYPE TABLE OF ('DEMO_STRUC') WITH EMPTY KEY.
 
 - `T100` + `T100C` + `T100S` - Message control
 - Tcode `OBA5` - Message controls
-- Class `CL_EXITHANDLER`  method `GET_INSTANCE` - Put breakpoint here and run tcode to get BAdIs names. See [ABAP Find BAdIs](../60%20Basis%20&%20Tools/Поиск%20BAdI.md)
+- Class `CL_EXITHANDLER`  method `GET_INSTANCE` - Put breakpoint here and run tcode to get BAdIs names. See [ABAP Find BAdIs](../60-basis-tools/find-badi.md)
 
 
 ## FI
@@ -585,14 +592,14 @@ To add own form, you need to specify form name as:
 | C_EXIT_PARAM_FIELD | This constant is valid for substitutions only and means that one parameter can be defined for the user exit which is the field to be substituted    |
 | C_EXIT_PARAM_CLASS | valid for Rules, Validations and Substitutions, this parameter signifies that all the data (BKPF and BSEG data) will be passed as one parameter to the user exit. You will be passed a table containing all the relevant information       |
 
-> 💡 More details here [FI Substitutions&Validations](../10%20FI/FI%20Validations%20&%20substitutions.md)
+> 💡 More details here [FI Substitutions&Validations](../10-fi/validations-and-substitutions.md)
 </details>
 
 #### Open FI (BTE)
 
 - Tcode `FIBF` - Maintenance transaction BTE
 
-> 💡 More details here [FI FIBF OpenFI](../10%20FI/00_FI_Index.md)
+> 💡 More details here FI FIBF OpenFI
 
 #### BAdIs, User-Exits, Enhancements
 
@@ -603,7 +610,7 @@ To add own form, you need to specify form name as:
 - `BADI_GVTR_DERIVE_FIELDS` - BCF (FAGLGVTR)
 - Table `TRWPR` - RWIN processes (list of FMs)
 - Table `TRWCA` - RWIN components
-- [FI RWIN interface](../10%20FI/RWIN%20интерфейс.md)
+- [FI RWIN interface](../10-fi/rwin-interface.md)
 
 
 ### FI BAPIs and FMs
@@ -701,7 +708,7 @@ To add own form, you need to specify form name as:
 - Tcode `FMDERIVE` + `FMDERIVER` - FM derivation
 - `T8G17` - Splitting GL account types
 - Tcode `FAGL_CHECK_ACCOUNT` - Check GL account split settings
-- [FM repair fagl_splinfo](../10%20FI/FM%20repair%20fagl_splinfo.md) - How to repair tables `fagl_splinfo` and `fagl_splinfo_val` (like simulate splitting for posted docs) 
+- [FM repair fagl_splinfo](../10-fi/repair-fagl-splinfo.md) - How to repair tables `fagl_splinfo` and `fagl_splinfo_val` (like simulate splitting for posted docs) 
 
 ### ACE and POAC objects
 
@@ -848,7 +855,7 @@ For segment reporting, the business function FI-AA, Segment Reports on Fixed Ass
 - `T156HT` - Main Text for Movement Type
 - `T157E` - Text Table: Reason for Movement
 - `MCH1` - Batches (if Batch Management Cross-Plant)
-- Material and Batch characteristics  [MM Material and Batch classification](../40%20MM/MM%20Material%20and%20Batch%20classification.md) Tables `inob`, `ausp`, `cabn`, `cawn`, `cawnt`
+- Material and Batch characteristics  [MM Material and Batch classification](../40-mm/material-batch-classification.md) Tables `inob`, `ausp`, `cabn`, `cawn`, `cawnt`
 - `T16FS` + `T16FT` - Release Strategies
 - `T16FD` - Description of Release Codes
 - CALL FUNCTION `MIGO_DIALOG`

@@ -1,3 +1,10 @@
+---
+title: "Material and batch classification via CDS (INOB/AUSP)"
+keywords: классификация, classification, INOB, AUSP, CABN, CAWN, CAWNT, MARA, MCH1, KLART 001, KLART 023, batch, партия, CDS view, характеристики
+status: draft
+---
+
+# Material and batch classification via CDS (INOB/AUSP)
 
 CDS for material classification:
 

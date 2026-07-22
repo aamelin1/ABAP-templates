@@ -1,4 +1,10 @@
-# 01 Create a simple CDS view and show data as an IDA report (ALV on HANA)
+---
+title: "Blog: Create a simple CDS view and show data as an IDA report (ALV on HANA)"
+keywords: CDS, IDA, CL_SALV_GUI_TABLE_IDA, ALV on HANA, Eclipse ADT, DDL, SKA1, SKAT, text search, hotspot, layout
+status: ok
+---
+
+# Blog: Create a simple CDS view and show data as an IDA report (ALV on HANA)
 
 > SAP Community: https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/create-a-simple-cds-view-and-show-data-as-an-ida-reports-aka-alv-on-hana/ba-p/13580741
 
@@ -71,28 +77,28 @@ Let's start creating a simple CDS. To do this, open Eclipse, select the system (
 
 
 
-![](IMGs_01/image1.png)
+![](img/01-1.png)
 
 
 Select **core data services->data definition**:
 
 
 
-![](IMGs_01/image2.png)
+![](img/01-2.png)
 
 
 Specify the name of the new CDS:
 
 
 
-![](IMGs_01/image3.png)
+![](img/01-3.png)
 
 
 And create a new transport request:
 
 
 
-![](IMGs_01/image4.png)
+![](img/01-4.png)
 
 
 A template for a new CDS should appears:
@@ -155,12 +161,12 @@ Let's activate our CDS and check how it works. You can check in two ways:
 - Directly in Eclipse, press **F8** and see the result:
 
 
-![](IMGs_01/image5.png)
+![](img/01-5.png)
 
 - Go to SAP GUI and run **se16**, **se16n**, **se16h** etc.
 
 
-![](IMGs_01/image6.png)
+![](img/01-6.png)
 
 
 Once you made sure that everything works, let's add the texts in Portuguese at CDS view:
@@ -188,7 +194,7 @@ Let's check the result:
 
 
 
-![](IMGs_01/image7.png)
+![](img/01-7.png)
 
 
 Everything is working fine. For a simple example, let's stop here and move on to data visualization using IDA. You can read more about the possibilities of CDS [here.](https://help.sap.com/docs/btp/sap-abap-cds-development-user-guide/abap-cds-entities?locale=en-US)
@@ -208,7 +214,7 @@ Activate and run the report (**F8**😞
 
 
 
-![](IMGs_01/image8.png)
+![](img/01-8.png)
 
 
 Everything works, data from CDS view is displayed in the report.
@@ -254,14 +260,14 @@ As a result - the selection screen at will be:
 
 
 
-![](IMGs_01/image9.png)
+![](img/01-9.png)
 
 
 Report results:
 
 
 
-![](IMGs_01/image10.png)
+![](img/01-10.png)
 
 
 Now the reports seems fine. But, since using new tools, let's add some beauty to the report:
@@ -377,14 +383,14 @@ What I got as a result, the normal selection screen (I only added a field with o
 
 
 
-![](IMGs_01/image11.png)
+![](img/01-11.png)
 
 
 In the report itself, the columns were renamed and new functions appeared:
 
 
 
-![](IMGs_01/image12.png)
+![](img/01-12.png)
 
 
 Compared to classic ALV:
@@ -393,12 +399,12 @@ Compared to classic ALV:
 
 
 
-![](IMGs_01/image13.png)
+![](img/01-13.png)
 
 - A quick selection of layouts, a drop-down list with saved layouts appeared in the toolbar at the top (I saved the layouts "ttt" and "ttt2"):
 
 
-![](IMGs_01/image14.png)
+![](img/01-14.png)
 
 
 In some versions of the system there is a bug with saving options, it is solved by SAP note [3196994 - "IDA-ALV - ALV Layout not being saved"](https://me.sap.com/notes/3196994/E)
@@ -406,14 +412,14 @@ In some versions of the system there is a bug with saving options, it is solved 
 - Grouping functionality (in my opinion this is a very helpful)
 
 
-![](IMGs_01/image15.png)
+![](img/01-15.png)
 
 
 With it, you can build any hierarchies in a reports (several fields at once), make subtotals, etc. An example of a two-level hierarchy, the first level is the chart of accounts, the second level is the GL account and its EN text (through a slash"/"):
 
 
 
-![](IMGs_01/image16.png)
+![](img/01-16.png)
 
 
 You can read more about IDA [here](https://help.sap.com/doc/saphelp_nw74/7.4.16/en-us/ef/eb734c8e6f41939c39fa15ce51eb4e/frameset.htm) and find in the SAP system examples of programs **SALV_IDA** *

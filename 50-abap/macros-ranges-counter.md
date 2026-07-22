@@ -1,3 +1,10 @@
+---
+title: "ABAP шаблоны — макрос BDC, ranges, прогресс-индикатор, popup"
+keywords: DEFINE, END-OF-DEFINITION, macro, макрос, BDCDATA, CALL TRANSACTION, RANGE OF, RSDSSELOPT_T, CL_PROGRESS_INDICATOR, CATSXT_SIMPLE_TEXT_EDITOR, CL_RECA_GUI_F4_POPUP, RP_LAST_DAY_OF_MONTHS, dynamic SQL
+status: ok
+---
+
+# ABAP шаблоны — макрос BDC, ranges, прогресс-индикатор, popup
 
 ### Макрос для пакетников
 Объявление макроса

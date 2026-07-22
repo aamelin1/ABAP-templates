@@ -1,4 +1,11 @@
-# FI. Post doc via BAPI
+---
+title: "Post FI document via BAPI_ACC_DOCUMENT_POST (with extension fields)"
+keywords: BAPI_ACC_DOCUMENT_POST, BAPI_ACC_DOCUMENT_REV_POST, BADI_ACC_DOCUMENT, EXTENSION2, BAPIPAREX, ACCIT, BAPIACHE09, BUPLA, разноска документа, post document, сторно, reversal
+status: draft
+summary: "Заполнение header/GL/AP/currency, передача доп. полей через EXTENSION2 + BADI_ACC_DOCUMENT~CHANGE, разноска сторно"
+---
+
+# Post FI document via BAPI_ACC_DOCUMENT_POST (with extension fields)
 
 Example how to post FI doc via BAPI (with additional fields at `extension` section)
 
@@ -89,7 +96,6 @@ Example how to post FI doc via BAPI (with additional fields at `extension` secti
 ```
 
 <aside>
-<img src="notion://custom_emoji/7795efcc-a23b-48bb-ad2d-9b0761f8a5ff/14e260e6-2f11-80a5-998e-007a7c28fd99" alt="notion://custom_emoji/7795efcc-a23b-48bb-ad2d-9b0761f8a5ff/14e260e6-2f11-80a5-998e-007a7c28fd99" width="40px" />
 
  `ls_extension2-valuepart1` should be filled with doc item number!
 

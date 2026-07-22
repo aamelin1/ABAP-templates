@@ -1,4 +1,11 @@
-# Statistic report (Docs count)
+---
+title: "Statistic report — documents count by customizable rules"
+keywords: statistics, количество документов, docs count, dynamic itab, CL_ABAP_STRUCTDESCR, SALV, dynamic columns, COUNT DISTINCT, PIVB_CONV_RANGE_TO_WHERE, динамический отчёт, Z-таблица настройки
+status: draft
+summary: "Z-report ZFI_STAT_REP: считает документы по правилам из Z-таблицы (таблица/поле/дата), день-за-днём или на дату, drill-down в список документов"
+---
+
+# Statistic report — documents count by customizable rules
 
 Main program
 

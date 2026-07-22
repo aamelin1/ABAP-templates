@@ -1,3 +1,10 @@
+---
+title: "CDS tricks & tips — session variables and string functions"
+keywords: $session, CONCAT, LTRIM, RTRIM, INSTR, LEFT, RPAD, REPLACE, SUBSTRING, CDS functions, строковые функции CDS
+status: draft
+---
+
+# CDS tricks & tips — session variables and string functions
 
 Session variables:
 ```abap

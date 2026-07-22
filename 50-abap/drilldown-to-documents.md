@@ -1,4 +1,10 @@
-# Drilldown to display…
+---
+title: "Drilldown to display documents (FB03, MIGO, BP, ME23N…)"
+keywords: SET PARAMETER ID, CALL TRANSACTION, FB03, MIGO_DIALOG, ME23N, VA03, VL03N, VL33N, AW01N, FS00, FSP0, WZR3, J_1B_NF_DOC_READ_INTO_OBJECT, CL_BUPA_DIALOG_JOEL, проваливание, hotspot navigation
+status: draft
+---
+
+# Drilldown to display documents (FB03, MIGO, BP, ME23N…)
 
 FI document - `FB03`
 

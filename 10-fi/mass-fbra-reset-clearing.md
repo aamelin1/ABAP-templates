@@ -1,4 +1,11 @@
-# FI. Mass FRBA (reset clearing)
+---
+title: "Mass reset clearing (FBRA) — batch input report"
+keywords: FBRA, reset clearing, сброс выравнивания, массовая обработка, mass processing, BDC, batch input, SAPMF05R, STGRD, BKPF, KDF, exchange rate difference popup
+status: draft
+summary: "Z-report ZFI_MASS_FBRA: массовый сброс выравнивания через BDC по выборке из BKPF, с обработкой попапа курсовых разниц (KDF)"
+---
+
+# Mass reset clearing (FBRA) — batch input report
 
 ```abap
 *&---------------------------------------------------------------------*

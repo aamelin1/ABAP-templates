@@ -1,4 +1,13 @@
-# 05 Linear programming in ABAP. Simplex method. Find optimized BOM
+---
+title: "Blog: Linear programming in ABAP — Simplex method, find optimized BOM"
+keywords: linear programming, линейное программирование, simplex, симплекс, CL_GENIOS_ENVIRONMENT, CL_GENIOS_MODEL, GENIOS, GENIOS_TEST_DEMO, BOM, оптимизация, optimization, blend
+status: ok
+source:
+  - 90-source-code/zfi_simp_lp_demo.abap
+  - 90-source-code/zfi_simp_lp_demo2.abap
+---
+
+# Blog: Linear programming in ABAP — Simplex method, find optimized BOM
 
 > SAP Community: https://community.sap.com/t5/technology-blogs-by-members/linear-programming-in-abap-simplex-method-find-optimised-bom/ba-p/13661302
 
@@ -284,13 +293,13 @@ Also, target characteristics of a blend should be specified at selection screen 
 
 
 
-![](IMGs_05/image1.jpeg)
+![](img/05-1.jpeg)
 
 Let’s run and check a result:
 
 
 
-![](IMGs_05/image1.jpeg)
+![](img/05-1.jpeg)
 
 So, we get a correct optimal solution for this case.
 

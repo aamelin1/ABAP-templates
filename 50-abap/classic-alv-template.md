@@ -1,3 +1,14 @@
+---
+title: "Шаблон классического ALV (REUSE_ALV_GRID_DISPLAY_LVC)"
+keywords: REUSE_ALV_GRID_DISPLAY_LVC, LVC_FIELDCATALOG_MERGE, REUSE_ALV_VARIANT_F4, REUSE_ALV_VARIANT_DEFAULT_GET, fieldcatalog, филдкаталог, PF-STATUS, классический ALV, classic ALV, DISVARIANT
+status: ok
+source:
+  - 90-source-code/zfi_alv_fm_template.abap
+  - 90-source-code/alv_grid_templ1.abap
+---
+
+# Шаблон классического ALV (REUSE_ALV_GRID_DISPLAY_LVC)
+
 Простой шаблон для отчетов с классическим ALV
 
 GUI статус можно скопировать из группы функций **SALV**, статус **STANDARD** "Standard for General List Output"
@@ -166,5 +177,5 @@ ENDFORM.
 
 ---
 **Исходный код:**
-- [ZFI_ALV_FM_template.abap](../90%20Source%20code/ZFI_ALV_FM_template.abap)
-- [ALV_grid_templ1.abap](../90%20Source%20code/ALV_grid_templ1.abap)
+- [ZFI_ALV_FM_template.abap](../90-source-code/zfi_alv_fm_template.abap)
+- [ALV_grid_templ1.abap](../90-source-code/alv_grid_templ1.abap)

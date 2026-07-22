@@ -1,4 +1,10 @@
-# Strings and chars
+---
+title: "Strings and chars in ABAP"
+keywords: strlen, numofchar, concat_lines_of, CONCATENATE, string templates, строки, конкатенация
+status: draft
+---
+
+# Strings and chars in ABAP
 
 **String length:**
 

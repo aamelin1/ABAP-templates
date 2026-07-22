@@ -1,3 +1,17 @@
+---
+title: "Корреспонденция счетов — GKONT, локализация РФ (J3RF), разделение в ACDOCA"
+keywords: GKONT, GKOAR, GHKON, FINS_MIG_GKONT, FINS_MIG_CUST, GET_GKONT, J_3RKKR0, J_3RK_CORR_ITEMS, J3RKKRD, J3RKKRS, J3RKOBS, CL_FIRU_OFFSET_PROCESSING, BADI_FINS_ACDOCA_MODIFY, offsetting accounts, ПКС, Note 2476266, Note 740745
+status: ok
+summary: "Три решения: GKONT без локализации, новая ПКС S/4HANA (сплит позиций в ACDOCA), старое J3RF-решение — настройки, таблицы, доработки FB03/FAGLL03H"
+source:
+  - 90-source-code/zfij_3rkorrrep.abap
+  - 90-source-code/zfij_3rkorrreptop.abap
+  - 90-source-code/zfij_3rkorrrep_forms.abap
+  - 90-source-code/zfij_3rkorrrep_alv_item_structure.abap
+---
+
+# Корреспонденция счетов — GKONT, локализация РФ (J3RF), разделение в ACDOCA
+
 **Что такое корреспонденция счетов?**
 
 Проводки могут быть записаны в виде записи, когда к каждому счету в явном виде определяется вторая сторона проводки (т.е. корреспондирующий счет).
@@ -191,4 +205,4 @@ BAdI - **/CCIS/SMOD_J_3RKAC1**
 
 ---
 **Исходный код:**
-- [ZFIJ_3RKORRREP.abap](../90%20Source%20code/ZFIJ_3RKORRREP.abap) (+ [TOP](../90%20Source%20code/ZFIJ_3RKORRREPTOP.abap), [FORMS](../90%20Source%20code/ZFIJ_3RKORRREP_FORMS.abap), [структура ALV_ITEM](../90%20Source%20code/ZFIJ_3RKORRREP_ALV_ITEM%20%28structure%29.abap))
+- [ZFIJ_3RKORRREP.abap](../90-source-code/zfij_3rkorrrep.abap) (+ [TOP](../90-source-code/zfij_3rkorrreptop.abap), [FORMS](../90-source-code/zfij_3rkorrrep_forms.abap), [структура ALV_ITEM](../90-source-code/zfij_3rkorrrep_alv_item_structure.abap))
